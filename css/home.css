@@ -482,7 +482,7 @@ a {
 }
 .main .user-menu {
   width: 100%;
-  min-height: 95%;
+  min-height: 570px;
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
 }
