@@ -1,0 +1,487 @@
+/*================布局版面样式=================*/
+/*===============文字样式============*/
+.font12px {
+  font-size: 12px;
+}
+.font13px {
+  font-size: 13px;
+}
+.font14px {
+  font-size: 14px;
+}
+.font15px {
+  font-size: 15px;
+}
+.font_big {
+  font-size: 26px;
+}
+.font_small {
+  font-size: 10px;
+}
+.font-family {
+  font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.text-disabled {
+  color: #777777 !important;
+}
+.text-disabled-l {
+  color: #9d9d9d !important;
+  line-height: 10px;
+  height: 14px;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+.dropdown-menu .text-disabled:hover,
+.dropdown-menu .text-disabled:focus {
+  color: #ffffff !important;
+}
+.no-padding {
+  padding: 0;
+}
+.no-margin {
+  margin: 0;
+}
+.margin-left15 {
+  margin-left: 1em !important;
+}
+.margin-right15 {
+  margin-right: 1em !important;
+}
+.navbar-user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block !important;
+}
+.margin-up-down10 {
+  padding: 5px !important;
+}
+/*自定义的无样式元素 获取用户焦点*/
+.user-Focus {
+  color: #ffffff;
+}
+.open .user-Focus {
+  background: #000;
+}
+.user-Focus:focus,
+.user-Focus:hover {
+  color: #ffffff;
+}
+.w25 > div {
+  width: 25% !important;
+}
+.w20 > div {
+  width: 20% !important;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  background: #fcf8e3;
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+}
+.btn-width125 {
+  width: 125px;
+}
+.padding-right-left {
+  padding: 0 10px;
+}
+.inline-block {
+  display: inline-block !important;
+}
+/*======z自定义组件样式css样式========*/
+/*背景图片*/
+#bg-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.bg-img-1 {
+  background-image: url('../img/home/bg_1.jpg');
+}
+.bg-img-2 {
+  background-image: url('../img/home/bg_2.jpg');
+}
+.bg-img-3 {
+  background-image: url('../img/home/bg_3.jpg');
+}
+.bg-img-4 {
+  background-image: url('../img/home/bg_4.jpg');
+}
+.bg-img-5 {
+  background-image: url('../img/home/bg_5.jpg');
+}
+/*======鼠标悬浮提示============*/
+.labelInfo {
+  background: #fefefe;
+  color: #000;
+  font-size: 12px;
+  width: 160px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.labelInfo:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 45%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid red;
+}
+.labelInfo > div {
+  padding: 0 10px;
+}
+.labelInfo .labelInfo-tilte {
+  font-size: 14px;
+  height: 35px;
+  line-height: 34px;
+  border-bottom: 1px solid #dcdcdc;
+  text-align: center;
+}
+.labelInfo .labelInfo-content {
+  color: #888888;
+  padding: 10px;
+}
+.labelInfo .labelInfo-footer {
+  padding: 0 10px 10px 10px;
+}
+.card {
+  border-radius: 5px;
+  border: #eee solid 1px;
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0.7em 0.8em;
+  -webkit-transition: all 0.3s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -moz-transition: all 0.3s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -o-transition: all 0.3s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -khtml-transition: all 0.3s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -ms-transition: all 0.3s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+}
+.card:hover {
+  border: #ddd solid 1px;
+  box-shadow: 2px 3px 5px #ddd;
+}
+.card .card-bg {
+  height: 70px;
+  background: #f6f6f6;
+  box-shadow: 0px 0px 1px #f6f6f6;
+  background-position: left 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+}
+.card .card-content {
+  padding-bottom: 11px;
+  position: relative;
+}
+.card .card-content > .card-start {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 83px;
+  height: 83px;
+  background: url(../img/home/badges_text.png) no-repeat;
+}
+.card .card-content > .start-4 {
+  background-position: 0 0;
+}
+.card .card-content > .start-2 {
+  background-position: -83px 0;
+}
+.card .card-content > .start-3 {
+  background-position: -166px 0;
+}
+.card .card-content > .start-1 {
+  background-position: 3px -166px;
+}
+.card .card-content > .start-5 {
+  background-position: 0 0;
+}
+.card .card-content > h5 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #405B55;
+}
+.card .card-content > span {
+  font-size: 12px;
+  color: #6A8372;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 3px;
+}
+.card .card-content .card-img {
+  width: 106px;
+  height: 106px;
+  margin: 0 auto;
+  padding: 11px 0 0 11px;
+  border-radius: 50%;
+  margin-top: -52px;
+}
+.card .card-content .card-img img {
+  display: block;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+.card .card-content .card-money {
+  font: bold 10px Arial;
+  margin-top: 3px;
+  margin-bottom: 14px;
+  color: #a6a6a6;
+}
+.card .card-content .card-money > span:first-child {
+  color: #dd533f;
+}
+.card .card-content .card-btn {
+  display: inline-block;
+  color: rgba(39, 174, 91, 0.6);
+  border: 1px solid rgba(39, 174, 91, 0.6);
+  font-weight: 700;
+  white-space: normal;
+  height: 39px;
+  width: 94px;
+  cursor: pointer;
+  line-height: 37px;
+  text-decoration: none;
+  position: relative;
+  -webkit-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -o-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+}
+.card .card-content .card-btn:hover {
+  background-color: rgba(39, 174, 91, 0.6);
+  color: #ffffff;
+  border-color: #ffffff;
+  text-shadow: 0 1px 1px rgba(138, 27, 15, 0.41);
+}
+.card .card-content .card-btn .glyphicon {
+  margin-right: 3px;
+}
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124px;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124px;
+  }
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+.preloader {
+  position: relative;
+  display: inline-block;
+}
+.preloader:after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.preloader > svg {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.preloader > svg > circle {
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  fill: none;
+  animation: dash 1.5s ease-in-out infinite;
+}
+.preloader-green svg > circle {
+  stroke: rgba(39, 174, 91, 0.6);
+}
+.preloader-md {
+  width: 60px;
+  height: 60px;
+}
+.preloader-sm {
+  width: 45px;
+  height: 45px;
+}
+.tip {
+  display: none;
+  position: absolute;
+  z-index: 100000000000;
+  max-width: 250px;
+  color: #fff;
+}
+.tip .tip-arrow {
+  height: 6px;
+  background: url(../img/home/common-16.png) center 0 no-repeat;
+}
+.tip .tip-center {
+  padding: 5px 8px;
+  font-size: 12px;
+  background: #333;
+  background: rgba(50, 50, 50, 0.95);
+  word-wrap: break-word;
+  word-break: normal;
+  border-radius: 3px;
+}
+.bade {
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 5px;
+  margin-left: 10px;
+  border-radius: 8px;
+  height: 15px;
+  line-height: 15px;
+  color: #fff;
+}
+.bade-denger {
+  background-color: #d43f3a;
+}
+.bade-info {
+  background-color: #00b3ee;
+}
+/*顶部*/
+.top {
+  height: 50px;
+}
+#Search-site {
+  -webkit-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -o-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -khtml-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.7, 0, 0.7, 1) 0s;
+}
+#Search-site:focus {
+  width: 250px;
+}
+.main {
+  background-color: #ffffff;
+  min-height: 485px;
+}
+.main .main-top {
+  position: relative;
+  padding: 25px 0;
+  background-color: #585858;
+  cursor: pointer;
+}
+.main .main-top .top-center {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+.main .main-top .top-center h2 {
+  margin: 0;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.main .main-top .top-center p {
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 12px;
+  margin-top: 13px;
+}
+.main .main-center {
+  margin: 0 auto;
+  width: 980px;
+}
+.main .main-center > div {
+  padding: 20px 0;
+}
+.main .main-center > div > p {
+  line-height: 20px;
+  text-indent: 2em;
+}
+.footer {
+  clear: both;
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px 0;
+}
+.footer .footer-content {
+  margin: 0px auto;
+  width: 920px;
+  color: #666;
+  line-height: 1.5;
+  position: relative;
+}
+.footer .footer-content > ul {
+  margin-top: 10px;
+}
+.footer .footer-content > ul > li {
+  list-style: none;
+  display: inline;
+  margin: 0 5px;
+}

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--设置网页到期时间-->
+    <meta http-equiv="expires" content="Fri,12Jan201718:18:18GMT">
+    <!--禁止缓存-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <!--网页过去清除cookie-->
+    <meta http-equiv="Set-Cookie" content="cookie value=xxx;expires=Friday,12-Jan-201718:18:18GMT；path=/">
+    <!--防止别人调用-->
+    <meta http-equiv="Window-target" content="_top">
+    <!--显示语言-->
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <!--关键字-->
+    <meta name="keywords" content="大学生家教,家教,大学生,college tutor,college,tutor">
+    <!--告诉搜索引擎网站主要内容-->
+    <meta name="description" content="《大学生家教》网是一个专注于大学生家教的平台，帮助家长更好地找家教">
+    <!--告诉机器人索引-->
+    <meta name="robots" content="all">
+    <!--作者信息-->
+    <meta name="author" content="阿段,www.collegetutor@126.com">
+    <!--信息参数-->
+    <meta name="generator" content="html,css,javaScript,php,mysql"/>
+    <!--版权信息-->
+    <meta name="copyright" content="大学生家教网版权所有">
+    <!--标签logo-->
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
+    <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="css/default/font.css"/>
+    <title>大学生家教网（CollegeTutor）</title>
+    <!---->
+</head>
+<body>
+    <!--容器-->
+    <div class="container-fluid">
+        <div id="bg-img" class="bg-img-3"></div>
+        <!--顶部-->
+        <div class="top">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!--导航栏顶部-->
+                    <div class="navbar-header margin-left15">
+                        <a class="navbar-brand">
+                            <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="home.html">首页</a></li>
+                            <li><a href="#">标签二</a></li>
+                            <li><a href="about.html">关于我们</a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group has-feedback">
+                                <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            </div>
+                            <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                        </form>
+                        <div class="navbar-right margin-right15">
+                            <ul class="nav navbar-nav">
+                                <li><a href="login.html">登录</a></li>
+                                <li class="dropdown">
+                                    <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                                        善良的小孩
+                                        <span class="caret"></span>
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">主页</a></li>
+                                        <li><a href="#">通知中心</a></li>
+                                        <li><a href="#">账户设置</a></li>
+                                        <li><a href="#">帮助（反馈）</a></li>
+                                        <li><a href="#">管理员入口</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#" class="text-disabled">退出</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--中间-->
+        <div class="main">
+            <div class="row">
+                <!--左侧功能栏-->
+                <div class="col-md-1">
+                    <ul class="text-center user-menu">
+                        <li data-content="home" class="active">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <span class="center-block">首页</span>
+                        </li>
+                        <li data-content="tutor">
+                            <span class="glyphicon glyphicon-flag"></span>
+                            <span class="center-block">招家教</span>
+                        </li>
+                        <li data-content="function">
+                            <span class="glyphicon glyphicon-th-large"></span>
+                            <span class="center-block">功能</span>
+                        </li>
+                        <li data-content="information">
+                            <span class="glyphicon glyphicon-book"></span>
+                            <span class="center-block">信息</span>
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon glyphicon-plus"></span>
+                            <span class="center-block">添加</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-11">
+                    <div class="main-content row">
+                        <div class="col-md-9">
+                            <div id="home" class="main-content-home active">
+                                <div class="main-content-top">
+                                    <span class="dropdown text-center  dropdown-menu-right">
+                                        <span class="dropdown-toggle text-info" id="contentdisplay" data-toggle="dropdown">显示方式
+                                            <span class="caret"></span>
+                                        </span>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="contentdisplay">
+                                            <li>
+                                                <a tabindex="-1" href="#">简介模式</a>
+                                            </li>
+                                            <li>
+                                                <a tabindex="-1" href="#">详细模式</a>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                    <span class="dropdown text-center dropdown-menu-right">
+                                        <span class="dropdown-toggle text-info" id="sortorder" data-toggle="dropdown">排序方式
+                                            <span class="caret"></span>
+                                        </span>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="sortorder">
+                                            <li>
+                                                <a href="#">价格 <span class="glyphicon glyphicon-arrow-down"></span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">星级 <span class="glyphicon glyphicon-arrow-down"></span></a>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                    <a id="serch-teach" class="pull-right text-info serch-ico" data-toggle="1" data-type="hide" data-content="serch-info" data-ico="1">搜一搜 <span class="glyphicon glyphicon-search"></span></a>
+                                </div>
+                                <!--详细搜索-->
+                                <div class="serch-info" id="serch-info">
+                                    <div class="serch-title"><span>随心搜</span></div>
+                                    <div class="serch-content">
+                                        <form class="form-horizontal">
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-2">
+                                                    <div class="margin-right15">
+                                                        <input type="email" class="form-control input-sm" placeholder="输入您期望的教师">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn btn-success btn-sm btn-width125">搜教师</button>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span class="text-disabled-l" data-type="hide" data-toggle="1" data-content="serch-info-more">换个方式</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="serch-info-more" id="serch-info-more">
+                                        <div class="serch-title"><span>按标签搜</span></div>
+                                        <div class="serch-content padding-right-left">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="text-disabled">您希望的老师是：</span>
+                                                </div>
+                                                <div id="teacherType" class="col-md-10" data-type="close">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="text-disabled">我们有这样的老师：</span>
+                                                </div>
+                                                <div class="col-md-10" data-type="clickTo" data-to="teacherType">
+                                                    <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-success">学霸</span>
+                                                    <span data-type="showInfo" data-showContent="国家奖学金（National Scholarship）是指为了激励普通本科高校、高等职业学校和高等专科学校学生勤奋学习、努力进取，在德、智、体、美等方面全面发展，由中央政府出资设立的奖励特别优秀学生的奖学金[1]  。全国高校在校生大概有2500多万人，每年只能有5万人荣获国家奖学金，获奖比例约占0.2%，获奖学生每人奖励8000元，作为大学生能获得国家奖学金是一项莫大的荣誉" class="label label-danger">国家奖学金</span>
+                                                    <span data-type="showInfo" data-showContent="学生会是在党委领导下、团委指导下，学生自我管理、自我教育、自我服务的群众性组织，是学校联系学生的桥梁和纽带。" class="label label-primary">学生会</span>
+                                                    <span data-type="showInfo" data-showContent="身体强壮，热爱运动的人群" class="label label-info">体育健将</span>
+                                                    <span data-type="showInfo" data-showContent="时尚达人社区是一个给追求潮流、时尚和流行的社区，这里有着最前沿的达人资讯，是80后，90后，QQ空间，交友，文学，情感，游戏，电脑，音乐，影视，购物的聚集地，全力打造属于自己独立、健康、自由的综合时尚社区平台！" class="label label-warning">时尚达人</span>
+                                                    <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-warning">书香门第</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="serch-title"><span>按科目搜</span></div>
+                                        <div class="serch-content">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="text-disabled">我们的提供：</span>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <span class="label label-success">数学老师</span>
+                                                    <span class="label label-danger">英语老师</span>
+                                                    <span class="label label-primary">物理老师</span>
+                                                    <span class="label label-info">化学老师</span>
+                                                    <span class="label label-warning">历史老师</span>
+                                                    <span class="label label-success">美术老师</span>
+                                                    <span class="label label-danger">钢琴老师</span>
+                                                    <span class="label label-primary">语文老师</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="serch-title"><span>按价格搜</span></div>
+                                        <div class="serch-content">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <select>
+                                                            <option>每小时</option>
+                                                            <option>每天</option>
+                                                            <option>每周</option>
+                                                            <option>每月</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <a href="#">0~99</a>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <a href="#">100~299</a>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <a href="#">300~499</a>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <a href="#">500以上</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <a href="#" class="btn btn-primary">完成</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="serch-title">
+                                            <span>设置我的主页 <i class="glyphicon glyphicon-cog"></i></span>
+                                        </div>
+                                        <div class="serch-content" id="change-bg">
+                                            <img class="img-thumbnail" src="img/home/bg_1.jpg" alt="1"/>
+                                            <img class="img-thumbnail" src="img/home/bg_2.jpg" alt="2"/>
+                                            <img class="img-thumbnail" src="img/home/bg_3.jpg" alt="3"/>
+                                            <img class="img-thumbnail" src="img/home/bg_4.jpg" alt="4"/>
+                                            <img class="img-thumbnail" src="img/home/bg_5.jpg" alt="5"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--教师展示-->
+                                <div class="teacherShow">
+                                    <div class="teacherShow-main clearfix w25">
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-1"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/1.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-2"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/2.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-3"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/5.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-4"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/15.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-1"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/1.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-2"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/2.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-3"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/5.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-4"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/15.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-1"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/1.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-2"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/2.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-3"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/5.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div class="card-start start-4"></div>
+                                                    <div class="card-bg"></div>
+                                                    <div class="card-img">
+                                                        <img src="img/home/teacher/15.jpg" alt=""/>
+                                                    </div>
+                                                    <h5>Gabrielle Shanon</h5>
+                                                    <span>软件工程</span>
+                                                    <div class="card-money">
+                                                        <span>￥99</span>
+                                                    </div>
+                                                    <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="teacherShow-preloaders text-center">
+                                        <div class="preloader preloader-green preloader-sm">
+                                            <svg viewBox="25 25 50 50">
+                                                <circle cx="50" cy="50" r="20"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tutor" class="main-content-home"></div>
+                            <div id="function" class="main-content-home"></div>
+                            <div id="information" class="main-content-home"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="main-content-right">
+                                <div class="right-user-info">
+                                    <a href="#">
+                                        <img src="img/home/teacher/1.jpg" alt="veneno"/>
+                                    </a>
+                                    <div class="info-font">
+                                        <a href="#">年轻的小孩子</a><a href="#" data-toggle="tooltip" data-placement="bottom" title="积分：3" class="ulevel">5</a>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                                <span class="sr-only">60%</span>
+                                            </div>
+                                        </div>
+                                        <div class="updata-info">
+                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="编辑个人资料">资料完整度</a>
+                                            <label class="text-info">60%</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-user-more">
+                                    <ul class="clearfix">
+                                        <li>
+                                            <span class="text-info">3</span><span>好评率</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-success">3</span><span>总交易</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-warning">3</span><span>在交易</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="right-suggest">
+                                    <div class="right-suggest-title">
+                                        <span>我的消息</span>
+                                    </div>
+                                    <div class="right-suggest-center">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="img/home/photo.png" alt=""/>
+                                                </a>
+                                                <a href="#">网站管理员</a><span class="bade bade-info">网站管理员</span>
+                                                <div>
+                                                    新消息 20 条
+                                                    <a href="#">查看详细</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="img/home/teacher/2.jpg" alt=""/>
+                                                </a>
+                                                <a href="#">用户名</a><span class="bade bade-info">好友</span>
+                                                <div>
+                                                    新消息 20 条
+                                                    <a href="#">查看详细</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="img/home/teacher/3.jpg" alt=""/>
+                                                </a>
+                                                <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
+                                                <div>
+                                                    新消息 20 条
+                                                    <a href="#">查看详细</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="img/home/teacher/3.jpg" alt=""/>
+                                                </a>
+                                                <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
+                                                <div>
+                                                    新消息 20 条
+                                                    <a href="#">查看详细</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="img/home/teacher/3.jpg" alt=""/>
+                                                </a>
+                                                <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
+                                                <div>
+                                                    新消息 20 条
+                                                    <a href="#">查看详细</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="right-suggest">
+                                    <div class="right-suggest-title">
+                                        <span>网站公告</span>
+                                    </div>
+                                    <div class="right-suggest-center">
+                                        <span>关于网站管理，网站管理员发布第43条规定“禁止恶意辱骂他人、禁止发布有损社会形象的信息、对违规人员该网站有权做处理”</span>
+                                        <a href="#" class="pull-right">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--底部-->
+        <div class="footer"></div>
+
+        <!--弹出框-->
+        <!--<div class="tip">
+            <div class="tip-arrow"></div>
+            <div class="tip-center">等级:3</div>
+        </div>-->
+        <!--教师标签弹出解释-->
+        <div class="labelInfo">
+            <div class="labelInfo-tilte">
+                <span></span>
+            </div>
+            <div class="labelInfo-content">
+                <span></span>
+            </div>
+            <div class="labelInfo-footer text-right">
+                <a href="http://www.baidu.com">——摘自《百度百科》</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/default.js"></script>
+<script src="js/home.js"></script>
+</html>

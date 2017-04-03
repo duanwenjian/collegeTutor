@@ -1,0 +1,91 @@
+/*================布局版面样式=================*/
+@import "default/font";
+.no-padding{
+  padding: 0;
+}
+
+.no-margin{
+  margin: 0;
+}
+
+.margin-left15{
+  margin-left: @spacing  !important;
+}
+
+.margin-right15{
+  margin-right: @spacing !important;
+}
+
+//用户头像
+.navbar-user-avatar{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block !important;
+}
+.margin-up-down10{
+  padding: 5px !important;
+}
+
+
+/*自定义的无样式元素 获取用户焦点*/
+.user-Focus{
+  color: @openColor;
+}
+.open .user-Focus{
+  background: @openBackground;
+}
+.user-Focus:focus,.user-Focus:hover{
+  color: @openColor;
+}
+
+.w25{
+  >div {
+    width: 25% !important;
+  }
+}
+.w20{
+  >div {
+    width: 20% !important;
+  }
+}
+
+::-webkit-scrollbar/*整体部分*/
+{
+  width: 4px;
+  height:10px;
+}
+
+::-webkit-scrollbar-track/*滑动轨道*/
+{
+  //-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb/*滑块*/
+{
+  //border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  background: #fcf8e3;
+}
+
+::-webkit-scrollbar-thumb:hover/*滑块效果*/
+{
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.4);
+}
+
+.btn-width125{
+  width: 125px;
+}
+.padding-right-left{
+  padding: 0 10px;
+}
+
+.inline-block{
+  display: inline-block !important;
+}
+
