@@ -2,9 +2,26 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>大学生家教网</title>
 </head>
 <body>
-
+<h1>首页尚在开发中，正在为你跳转开发完成页面.... <span id="time"></span></h1>
+<script>
+    function init(){
+        var i=5;
+        var time=document.getElementById('time');
+        time.innerHTML=i;
+        setInterval(function(){
+            i--;
+            time.innerHTML=i;
+            if(i==0){
+                window.location.href="./home.html";
+            }
+        },1000)
+    };
+    window.onload=function(){
+        init();
+    };
+</script>
 </body>
 </html>
