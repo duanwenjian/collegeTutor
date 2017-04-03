@@ -15,6 +15,7 @@ var custom={
         this.bodygetBg();
         this.elementShowInfo();
         this.elementTip();
+        this.mainShow();
     },
     /*==========背景保存============*/
     bodygetBg:function(){
@@ -93,5 +94,12 @@ var custom={
             $('.tip').hide();
         });*/
         $('[data-toggle="tooltip"]').tooltip();
+    },
+
+    /*==========设置展示区高度==================*/
+    mainShow:function(){
+        var main_h=$('.main-content').css('height');
+        $('.main-content-home').css('max-height',main_h);
+        //console.dir(main_h);
     }
 };

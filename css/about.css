@@ -198,29 +198,29 @@
 .card .card-content {
   padding-bottom: 11px;
   position: relative;
-}
-.card .card-content > .card-start {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 83px;
-  height: 83px;
-  background: url(../img/home/badges_text.png) no-repeat;
-}
-.card .card-content > .start-4 {
-  background-position: 0 0;
-}
-.card .card-content > .start-2 {
-  background-position: -83px 0;
-}
-.card .card-content > .start-3 {
-  background-position: -166px 0;
-}
-.card .card-content > .start-1 {
-  background-position: 3px -166px;
-}
-.card .card-content > .start-5 {
-  background-position: 0 0;
+  /*>.card-start{
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 83px;
+      height: 83px;
+      background: url(../img/home/badges_text.png) no-repeat;
+    }
+    >.start-4{
+      background-position: 0 0;
+    }
+    >.start-2{
+      background-position: -83px 0;
+    }
+    >.start-3{
+      background-position: -166px 0;
+    }
+    >.start-1{
+      background-position: 3px -166px;
+    }
+    >.start-5{
+      background-position: 0 0;
+    }*/
 }
 .card .card-content > h5 {
   font-size: 18px;
