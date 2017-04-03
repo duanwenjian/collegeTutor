@@ -482,7 +482,7 @@ a {
 }
 .main .user-menu {
   width: 100%;
-  min-height: 570px;
+  min-height: 95%;
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
 }
@@ -656,6 +656,7 @@ a {
 }
 .main .main-content-right .right-suggest > .right-suggest-center > span {
   max-height: 100px;
+  font-size: 1em;
 }
 .main .main-content-right .right-suggest > .right-suggest-center > ul {
   max-height: 200px;
