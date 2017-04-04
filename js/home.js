@@ -10,3 +10,9 @@ $('#change-bg img').click(function(){
 /*===========左侧选项栏店家切换事件=========*/
 $('.user-menu').on('click','li',function(){
 });
+
+/*===========点击出现个人中心=============*/
+$('.main-user-info-btn').click(function(){
+    $(this).addClass('B-hide');
+    $('.main-user-info').removeClass('U-active');
+});

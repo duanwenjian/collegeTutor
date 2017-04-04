@@ -24,10 +24,11 @@
         var i=5;
         var time=document.getElementById('time');
         time.innerHTML=i;
-        setInterval(function(){
+        var timer=setInterval(function(){
             i--;
             time.innerHTML=i;
             if(i==0){
+                clearInterval(timer);
                 window.location.href="./home.html";
             }
         },1000)
