@@ -16,7 +16,7 @@ var custom={
         this.elementShowInfo();
         this.elementTip();
         this.mainShow();
-        $('#home').css('height',$('#bg-img').css('scrollHeight'));
+        $('#home').css('height',$('#bg-img')[0].scrollHeight-80);
     },
     /*==========背景保存============*/
     bodygetBg:function(){
