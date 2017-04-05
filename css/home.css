@@ -81,12 +81,15 @@ li {
 .w25 > div {
   width: 25% !important;
 }
-.w20 > div {
   @media (max-width:1920px){
-    width: 14.28%;
+    .w20 > div {
+      width: 14.28%;
+    }
   }
   @media (max-width:1360px){
-    width: 16.666%;
+    .w20 > div {
+      width: 16.666%;
+    }
   }
   @media (max-width:992px){
     width: 20%;
@@ -94,7 +97,6 @@ li {
   @media (max-width:768px){
     width: 25%;
   }
-}
 ::-webkit-scrollbar {
   width: 4px;
   height: 10px;
