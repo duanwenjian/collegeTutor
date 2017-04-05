@@ -5,7 +5,6 @@
 $('#change-bg img').click(function(){
     $('#bg-img').className = 'bg-img-' + $(this).attr('alt');
     localStorage.setItem('CTbg','bg-img-'+$(this).attr('alt'));
-    $('#home').css('height',$('#bg-img').css('scrollHeight'));
 });
 
 /*===========左侧选项栏店家切换事件=========*/
