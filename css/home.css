@@ -95,7 +95,7 @@ li {
   }
   @media screen and (min-width:1280px){
     .w20 > div {
-      width: 16.666%;
+      width: 20%;
     }
   }
   @media screen and (min-width:992px){
