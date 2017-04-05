@@ -16,7 +16,6 @@ var custom={
         this.elementShowInfo();
         this.elementTip();
         this.mainShow();
-        $('#home').css('height',$('#bg-img')[0].scrollHeight-80);
     },
     /*==========背景保存============*/
     bodygetBg:function(){
@@ -99,8 +98,6 @@ var custom={
 
     /*==========设置展示区高度==================*/
     mainShow:function(){
-        var main_h=$('.main-content').css('height');
-        $('.main-content-home').css('max-height',main_h);
-        //console.dir(main_h);
+        $('#home').css('height',$('#bg-img')[0].scrollHeight-80);
     }
 };
