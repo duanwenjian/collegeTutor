@@ -510,6 +510,11 @@ svg:not(:root) {
 .login > .main > .main-content > .content-left > div > .form-group {
   margin-bottom: 25px;
 }
+.login > .main > .main-content > .content-left > div > .form-group > .email {
+  margin-top: 5px;
+  margin-left: 10px;
+  color: #9d9d9d;
+}
 .login > .main > .main-content > .content-right {
   margin-top: 74px;
   border-left: 1px solid #cacaca;

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
     <link rel="stylesheet" href="css/login.css"/>
     <link rel="stylesheet" href="css/default/font.css"/>
-    <title>登录（login）</title>
+    <title>注册（register）</title>
     <!---->
 </head>
 <body>
@@ -43,27 +43,19 @@
                         <div class="login-logo">
                             <img src="img/login/title.png" alt=""/>
                         </div>
-                        <div class="form-group has-feedback">
-                            <input type="text" class="form-control input-lg" placeholder="邮箱地址">
-                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <input type="password" class="form-control input-lg" placeholder="密码">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-lg btn-primary btn-block">登录</button>
+                            <input type="text" class="form-control input-lg" placeholder="邮箱地址">
+                            <p class="email">邮件已发送。请 <a href="http://www.163.com" target="_blank">查收邮件</a>，重新设置您的密码</p>
                         </div>
-                        <div class="form-group clearfix">
-                            <p class="pull-left">还没有账户？您可以在此 <a href="register.html">注册</a></p>
-                            <p class="pull-right"><a href="forget.html">忘记密码</a></p>
+                        <div class="form-group clearfix" style="margin-left: 10px;">
+                            <span><a href="register.html">注册</a></span>
+                            <span style="margin-left: 20px"><a class="text-danger" href="login.html">登录</a></span>
                         </div>
                     </div>
                 </div>
-                <div class="content-right col-lg-6 col-md-6 col-xs-6 col-sm-12">
-                    <div>
-                        <p class="weixin">使用微信登录</p>
-                        <p class="qq">使用QQ登录</p>
+                <div class="content-right col-lg-6 col-md-6 col-xs-6 col-sm-12" style="border: none">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-lg btn-primary btn-block">重置密码</button>
                     </div>
                 </div>
             </div>
