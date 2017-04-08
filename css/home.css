@@ -32,9 +32,6 @@ li {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
 }
-.info-ok > span:last-child {
-  display: none;
-}
 .font12px {
   font-size: 12px;
 }

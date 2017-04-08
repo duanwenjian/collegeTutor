@@ -22,9 +22,6 @@
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
 }
-.info-ok > span:last-child {
-  display: none;
-}
 .font12px {
   font-size: 12px;
 }
@@ -519,6 +516,10 @@ svg:not(:root) {
 .login > .main > .main-content > .content-left > div > .form-group {
   margin-bottom: 25px;
 }
+.login > .main > .main-content > .content-left > div > .form-group > .r-info {
+  opacity: 0;
+  margin-left: 10px;
+}
 .login > .main > .main-content > .content-left > div > .form-group > .email {
   margin-top: 5px;
   margin-left: 10px;
@@ -546,4 +547,9 @@ svg:not(:root) {
 }
 .login > .main > .main-content > .content-right > div .qq {
   background-position: -200px -55px;
+}
+@media screen and (min-width: 768px) {
+  .login > .main .main-content {
+    margin-top: 435px;
+  }
 }
