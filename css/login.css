@@ -522,7 +522,7 @@ svg:not(:root) {
 .login > .main > .main-content > .content-left > div > .form-group > .email {
   margin-top: 5px;
   margin-left: 10px;
-  color: rgba(39, 174, 91, 0.6);
+  color: #a6a6a6;
 }
 .login > .main > .main-content > .content-right {
   margin-top: 74px;
