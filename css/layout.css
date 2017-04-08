@@ -1,5 +1,30 @@
 /*================布局版面样式=================*/
 /*===============文字样式============*/
+/*=========CSS3 兼容性===========*/
+.btn-color {
+  background-color: #2EB5E5;
+}
+.info-error > input {
+  border-color: #a94442;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(169, 68, 66, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(169, 68, 66, 0.6);
+}
+.info-error > span:last-child {
+  display: block;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: #a94442;
+}
+.info-ok > input {
+  border-color: #3c763d;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
+}
+.info-ok > span:last-child {
+  display: none;
+}
 .font12px {
   font-size: 12px;
 }
@@ -72,7 +97,31 @@
   width: 25% !important;
 }
 .w20 > div {
-  width: 20% !important;
+  -webkit-transition: all 300ms linear;
+  -moz-transition: all 300ms linear;
+  -ms-transition: all 300ms linear;
+  -o-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+@media screen and (min-width: 768px) {
+  .w20 > div {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .w20 > div {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .w20 > div {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 1680px) {
+  .w20 > div {
+    width: 14.28%;
+  }
 }
 ::-webkit-scrollbar {
   width: 4px;

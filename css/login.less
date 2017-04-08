@@ -1,0 +1,65 @@
+@import "layout";
+@import "master";
+
+.login{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  >.main{
+    position: fixed;
+    right: -15px;
+    top: 0;
+    width: 65%;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    .box-show(1px,3px,5px,0px,#999);
+
+    >.main-content{
+      margin: 170px 0 30px 45px;
+      >div{
+        display: inline-block;
+      }
+      >.content-left{
+        //width: 340px;
+        >div{
+          max-width: 340px;
+          >.login-logo{
+            margin-bottom: 20px;
+            >img{
+              width: 200px;
+            }
+          }
+
+          >.form-group{
+            margin-bottom: 25px;
+          }
+        }
+      }
+      >.content-right{
+        margin-top: 74px;
+        border-left: 1px solid #cacaca;
+        >div{
+          max-width: 200px;
+          >p{
+            width: 100%;
+            height: 40px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 42px;
+            border-radius: 3px;
+            cursor: pointer;
+
+            background: url('../img/login/oauth-buttons.png') no-repeat;
+
+          }
+          .weixin{
+            background-position: 0 -354px;
+          }
+          .qq{
+            background-position: -200px -55px;
+          }
+        }
+      }
+    }
+  }
+}
