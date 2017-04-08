@@ -508,7 +508,12 @@ svg:not(:root) {
 .login > .main > .main-content > .content-left > div > .login-logo {
   margin-bottom: 20px;
 }
-.login > .main > .main-content > .content-left > div > .login-logo > img {
+.login > .main > .main-content > .content-left > div > .login-logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.login > .main > .main-content > .content-left > div > .login-logo a > img {
   width: 200px;
 }
 .login > .main > .main-content > .content-left > div > .form-group {
