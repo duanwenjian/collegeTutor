@@ -178,6 +178,9 @@
 .bg-img-5 {
   background-image: url('../img/home/bg_5.jpg');
 }
+.bg-img-login {
+  background-image: url('../img/login/login.jpg');
+}
 /*======鼠标悬浮提示============*/
 .labelInfo {
   background: #fefefe;
