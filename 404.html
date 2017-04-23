@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
+<!doctype html>
+<!--告诉浏览器，把当前文件当成html文件渲染-->
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>404 | collegeTutor</title>
+    <title></title>
 </head>
 <body>
-
+<div style='background-color: #efefef;color: #333;padding: 10px'>亲爱的  <span style='color:#e41;font-weight: bold;'>".$username."</span>：<div style='color: #222'><p style='margin: 0;text-indent: 30px'>您好！</p>感谢您在我站注册了新帐号。<br/>请点击下面链接激活您的帐号。<br/><a href='".$addr."/php/active.php?verify=".$token."' target='_blank'>http://www.veneno.online/php/active.php?verify=".$token."</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right;margin: 0'>-------- 大学生家教网(".$addr.")，敬上</p><p style='margin: 0;text-align: right'>请勿直接回复本邮件</p></div></div>
 </body>
 </html>

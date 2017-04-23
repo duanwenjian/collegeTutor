@@ -4,8 +4,8 @@
 include("connect.php");
 $regtime = time();
 $pager=[
-		'retCode'=>null,//总记录数
-		'retMsg'=>null,//页面大小
+		'retCode'=>null,//状态码
+		'retMsg'=>null,//状态原因
 		'time'=>$regtime
 	];
 $username = stripslashes(trim($_POST['username']));
@@ -13,15 +13,15 @@ $password = md5(trim($_POST['pwd']));
 $email = trim($_POST['email']);
 $token = md5($username.$password.$regtime); //创建用于激活识别码
 $token_exptime = time()+60*60*24;//过期时间为24小时后
-$sql = "insert into `t_user` (`username`,`password`,`email`,`token`,`token_exptime`,`regtime`) values ('$username','$password','$email','$token','$token_exptime','$regtime')";
+$sql = "insert into `CT_user` (`username`,`password`,`email`,`token`,`token_exptime`,`regtime`) values ('$username','$password','$email','$token','$token_exptime','$regtime')";
 mysql_query($sql);
 if(mysql_insert_id()){//写入数据库成功，发邮件
     //echo "ok";
     include 'smtp.class.php';
 
     $mailto=$email; 	 //收件人
-    $subject="大学生家教网注册验证"; 			 //邮件主题
-    $body="亲爱的<span style='color:#e41;font-weight: bold;'>".$username."</span>：<br/>感谢您在我站注册了新帐号。<br/>请点击链接激活您的帐号。<br/><a href='http://localhost/dashboard/collegetutor/php/active.php?verify=".$token."' target='_blank'>http://www.veneno.online/dashboard/collegetutor/php/active.php?verify=".$token."</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- 百度经验 敬上</p>";  //邮件内容
+    $subject="大学生家教网用户激活"; 			 //邮件主题
+    $body="<div style='background-color: #efefef;color: #333;padding: 10px'>亲爱的  <span style='color:#e41;font-weight: bold;'>".$username."</span>：<div style='color: #222'><p style='margin: 0;text-indent: 30px'>您好！</p>感谢您在我站注册了新帐号。<br/>请点击下面链接激活您的帐号。<br/><a href='".$addr."/php/active.php?verify=".$token."' target='_blank'>".$addr."/php/active.php?verify=".$token."</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right;margin: 0'>-------- <a href='".$addr."'>大学生家教网</a>，敬上</p><p style='margin: 0;text-align: right'>请勿直接回复本邮件</p></div></div>";  //邮件内容
 
      function sendmailto($mailto, $mailsub, $mailbd, $debug=false) {
         	$smtpserver 	= "smtp.163.com";                //SMTP服务器

@@ -98,6 +98,8 @@ var custom={
 
     /*==========设置展示区高度==================*/
     mainShow:function(){
-        $('#home').css('height',$('#bg-img')[0].scrollHeight-80);
+        var h=$('#bg-img')[0].scrollHeight-80;
+        $('#home').css('height',h);
+        $('.main-user-info').css('height',h)
     }
 };

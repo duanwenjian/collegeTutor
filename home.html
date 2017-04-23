@@ -33,6 +33,13 @@
     <!---->
 </head>
 <body>
+    <!--加载动画-->
+    <div class="loading">
+        <div class="loading-content">
+            <img src="res/loading.svg" alt=""/>
+            <h2>正在加载...</h2>
+        </div>
+    </div>
     <!--容器-->
     <div class="container-fluid">
         <div id="bg-img" class="bg-img-3"></div>
@@ -106,7 +113,7 @@
                             <span class="glyphicon glyphicon-book"></span>
                             <span class="center-block">信息</span>
                         </li>
-                        <li>
+                        <li data-content="addview">
                             <span class="glyphicon glyphicon glyphicon-plus"></span>
                             <span class="center-block">添加</span>
                         </li>
@@ -776,9 +783,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--<div id="tutor" class="main-content-home"></div>
-                            <div id="function" class="main-content-home"></div>
-                            <div id="information" class="main-content-home"></div>-->
+                            <div id="tutor" class="main-content-home">
+                                <p>招家教</p>
+                            </div>
+                            <div id="function" class="main-content-home">
+                                <p>功能</p>
+                            </div>
+                            <div id="information" class="main-content-home">
+                                <p>信息</p>
+                            </div>
+                            <div id="addview" class="main-content-home">
+                                <p>添加</p>
+                            </div>
                         </div>
                         <div class="main-user-info-btn">
                             <div>
@@ -788,8 +804,9 @@
                         <div class="main-user-info U-active">
                             <div class="main-content-right">
                                 <div class="right-user-info">
+                                    <!--TODO:个人中心-->
                                     <a href="#">
-                                        <img src="img/home/teacher/1.jpg" alt="veneno"/>
+                                        <img src="img/home/teacher/1.jpg" class="J-user-Headportrait" alt="veneno"/>
                                     </a>
                                     <div class="info-font">
                                         <a href="#">年轻的小孩子</a><a href="#" data-toggle="tooltip" data-placement="bottom" title="积分：3" class="ulevel">5</a>

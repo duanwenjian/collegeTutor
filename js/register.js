@@ -114,6 +114,8 @@ var register={
                     alert("请正确填写注册信息");
                     return;
                 }else{
+                    $(this).val('正在登陆').disabled=true;
+                    $('#register-return-ok').addClass('swal2-in');
                     register.userInfo.pwd=hex_md5(register.userInfo.pwd);
                     $.ajax({
                         url:'php/register.php',
@@ -124,14 +126,47 @@ var register={
                         dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
                         success:function(data,textStatus,jqXHR){
                             if(+data.retCode==1){
-
+                                register.reginsterOK();
+                            }else{
+                                register.reginsterREEOR();
                             }
+                            $('#register-btn').val('注册').disabled=false;
                         },
                         error:function(xhr,textStatus){
+                            $('#register-btn').val('注册').disabled=false;
                         }
                     })
                 }
             });
+        },
+        reginsterOK:function(){
+            $('#register-return-ok').children().html('' +
+            '<div class="swal2-icon swal2-success" style="display: block;" id="animate-ok"> ' +
+            '<span class="line tip " id="animate-ok1"></span> ' +
+            '<span class="line long" id="animate-ok2"></span> ' +
+            '<div class="placeholder"></div> ' +
+            '<div class="fix"></div> </div> ' +
+            '<h2>注册成功</h2> <!--<p>您是第 <span class="text-danger">378</span> 位用户</p>--> ' +
+            '<a type="button" href="login.html" class="btn btn-sm btn-info" style="margin-top: 20px">登陆</a>'
+            );
+            setTimeout(function(){
+                $('#register-return-ok').children().addClass('alert-style').removeClass('swal2-hide').addClass('swal2-show');
+                $('#animate-ok').addClass('animate');
+                $('#animate-ok1').addClass('animate-success-tip');
+                $('#animate-ok2').addClass('animate-success-long');
+            },200);
+        },
+        reginsterREEOR:function(){
+            $('#register-return-ok').on('click','#error',function(){
+                $('#register-return-ok').removeClass('swal2-in');
+                $('#register-return-ok').children().removeClass('alert-style').addClass('swal2-hide').removeClass('swal2-show');
+            });
+            $('#register-return-ok').children().html('<div class="swal2-icon swal2-warning pulse-warning" style="display: block;">!</div>' +
+            '<h2>注册失败</h2> <!--<p>您是第 <span class="text-danger">378</span> 位用户</p>--> '
+            +'<a type="button" id="error" class="btn btn-sm btn-info" style="margin-top: 20px">重新注册</a>');
+            setTimeout(function(){
+                $('#register-return-ok').children().addClass('alert-style').removeClass('swal2-hide').addClass('swal2-show');
+            },200);
         }
     };
 $(function(){

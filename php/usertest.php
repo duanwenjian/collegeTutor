@@ -3,7 +3,7 @@
 	include("connect.php");
 	$username = stripslashes(trim($_GET['username']));
 	// 检测用户名是否存在
-	$query = mysql_query("select id from t_user where username='$username'");
+	$query = mysql_query("select id from CT_user where username='$username'");
 	$num = mysql_num_rows($query);
 	$regtime = time();
 	$pager=[

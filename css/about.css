@@ -57,6 +57,28 @@
 .dropdown-menu .text-disabled:focus {
   color: #ffffff !important;
 }
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  background-color: #6A8372;
+}
+.loading > .loading-content {
+  display: block;
+  width: 500px;
+  padding: 20px;
+  margin: auto;
+  min-height: 342px;
+  color: #fff;
+}
 .no-padding {
   padding: 0;
 }
@@ -476,6 +498,39 @@ svg:not(:root) {
 }
 #Search-site:focus {
   width: 250px;
+}
+/**=弹出框==*/
+.alert-info {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.alert-info > .alert-module {
+  background-color: #ffffff;
+  min-height: 300px;
+  max-width: 500px;
+  border-radius: 3px;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
+}
+.alert-style {
+  display: block!important;
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  background: #ffffff;
+  min-height: 300px;
+  font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .main {
   background-color: #ffffff;

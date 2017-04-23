@@ -12,7 +12,7 @@ li{
 @import "layout";
 @import "master";
 
-/*中部*/
+/*锟叫诧拷*/
 .serch-ico{
   position: relative;
   padding: 12px 10px;
@@ -100,16 +100,16 @@ a{
       padding: 0 10px;
       box-sizing: border-box;
 
-      //动画效果需要
-      /*display: none;
-      margin-top: 20px;
-      opacity: 0;
-*/
+      display: none;
+
       -webkit-transition: all 300ms linear;
       -moz-transition: all 300ms linear;
       -ms-transition: all 300ms linear;
       -o-transition: all 300ms linear;
       transition: all 300ms linear;
+    }
+    .active{
+      display: block;
     }
     #home{
       .main-content-top{
@@ -138,18 +138,19 @@ a{
     #tutor{
       background: #9d9d9d;
     }
+    #function{}
+    #information{}
     .main-user-info {
       position: fixed;
       right: 15px;
       top: 65px;
       width: 306px;
+      background-color: @card-bg;
       //box-shadow: -1px 0 3px 1px #ffffff;
 
-      -webkit-transition: transform 300ms cubic-bezier(0, 0.49, 1, 0.37);
-      -moz-transition: transform 300ms cubic-bezier(0, 0.49, 1, 0.37);
-      -ms-transition: transform 300ms cubic-bezier(0, 0.49, 1, 0.37);
-      -o-transition: transform 300ms cubic-bezier(0, 0.49, 1, 0.37);
-      transition: transform 300ms cubic-bezier(0, 0.49, 1, 0.37);
+      .transition(transform,300ms,linear);
+
+      .box-show(-1px,0,20px,1px,#999);
 
       .main-content-right {
         width: 100%;
@@ -162,7 +163,7 @@ a{
     .main-user-info-btn{
       position: fixed;
       right: 65px;
-      bottom: 65px;
+      bottom: 50px;
       width: 65px;
       height: 65px;
       border-radius: 50%;
@@ -174,6 +175,9 @@ a{
       opacity: 1;
       cursor: pointer;
       box-shadow: 0 0 10px 2px @green;
+
+      .transition(transform,300ms,linear);
+
     }
     @keyframes B-active{
       0%{
@@ -198,7 +202,7 @@ a{
       animation-iteration-count:infinite;
     }
     .B-hide{
-      transform: translate(200%);
+      transform: translate(-410%,0);
     }
 
     .U-active{

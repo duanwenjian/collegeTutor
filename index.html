@@ -13,8 +13,17 @@
         }
     </style>
 </head>
+<link rel="stylesheet" href="css/default/font.css"/>
 <body>
+<!--加载动画-->
+<div class="loading">
+    <div class="loading-content">
+        <img src="res/loading.svg" alt=""/>
+        <h2>正在加载...</h2>
+    </div>
+</div>
 <h1>首页尚在开发中，正在为你跳转开发完成页面.... <span id="time"></span></h1>
+<script src="js/jquery-1.11.3.js"></script>
 <script>
     function init(){
         /*var pwd=prompt('请输入浏览编号','六位数');
@@ -33,9 +42,10 @@
             }
         },1000)
     };
-    window.onload=function(){
+    $(document).ready(function () {
+        $('.loading').css('display','none');
         init();
-    };
+    });
 </script>
 </body>
 </html>

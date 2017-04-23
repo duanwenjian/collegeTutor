@@ -56,3 +56,25 @@
 .dropdown-menu .text-disabled:focus {
   color: #ffffff !important;
 }
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  background-color: #6A8372;
+}
+.loading > .loading-content {
+  display: block;
+  width: 500px;
+  padding: 20px;
+  margin: auto;
+  min-height: 342px;
+  color: #fff;
+}
