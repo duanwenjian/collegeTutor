@@ -49,7 +49,7 @@
                 <div class="container-fluid">
                     <!--导航栏顶部-->
                     <div class="navbar-header margin-left15">
-                        <a href="index.html" class="navbar-brand">
+                        <a href="home.html" class="navbar-brand">
                             <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
                         </a>
                     </div>
@@ -68,15 +68,17 @@
                         </form>
                         <div class="navbar-right margin-right15">
                             <ul class="nav navbar-nav">
-                                <li><a href="login.html">登录</a></li>
+                                <li><a href="applyFoTearcher.html">成为教师</a></li>
                                 <li class="dropdown">
                                     <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
-                                        善良的小孩
+                                        <span class="j-username">
+                                            善良的小孩
+                                        </span>
                                         <span class="caret"></span>
                                     </div>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">主页</a></li>
+                                        <li><a href="home.html">主页</a></li>
                                         <li><a href="#">通知中心</a></li>
                                         <li><a href="#">账户设置</a></li>
                                         <li><a href="#">帮助（反馈）</a></li>
@@ -122,7 +124,7 @@
                 <div class="col-md-11 col-xs-11 col-sm-11">
                     <div class="main-content row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div id="home" class="main-content-home active">
+                            <div id="home" class="main-content-home home-active">
                                 <div class="main-content-top">
                                     <span class="dropdown text-center  dropdown-menu-right">
                                         <span class="dropdown-toggle text-info" id="contentdisplay" data-toggle="dropdown">显示方式
@@ -784,16 +786,132 @@
                                 </div>
                             </div>
                             <div id="tutor" class="main-content-home">
-                                <p>招家教</p>
+                                <div class="content-top">
+                                    <div class="content-title">
+                                        <span>招聘教师</span>
+                                    </div>
+                                </div>
+                                <div class="content-main">
+                                    <div class="content-main-top text-center">
+                                        <h4 class="text-info">招聘榜</h4>
+                                        <p>本网站招聘信息经过管理员核对才发布出来，请仔细核对招聘信息</p>
+                                    </div>
+                                    <div class="pull-right clearfix">
+                                        <span class="dropdown text-center  dropdown-menu-right">
+                                            <span class="dropdown-toggle text-info" id="table-content-show" data-toggle="dropdown">显示内容
+                                                <span class="caret"></span>
+                                            </span>
+                                            <div class="dropdown-menu dropdown-menu-right text-white" id="table-show" role="menu" aria-labelledby="table-content-show">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="0" checked="true">
+                                                        ID
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="1" checked="true">
+                                                        科目
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="2" checked="true">
+                                                        专业
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="3" checked="true">
+                                                        类别
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <table class="table table-bordered table-striped table-hover" id="show-table-recruit">
+                                        <thead class="">
+                                        <tr>
+                                            <th>ID <span class="pull-right glyphicon glyphicon-sort-by-attributes"></span></th>
+                                            <th>科目</th>
+                                            <th>专业</th>
+                                            <th>类型</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="color: #666">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>数学教师</td>
+                                            <td>软件工程</td>
+                                            <td>网站直招</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>数学教师</td>
+                                            <td>软件工程</td>
+                                            <td>网站直招</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>数学教师</td>
+                                            <td>软件工程</td>
+                                            <td>网站直招</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>数学教师</td>
+                                            <td>软件工程</td>
+                                            <td>网站直招</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>数学教师</td>
+                                            <td>软件工程</td>
+                                            <td>网站直招</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <nav aria-label="Page navigation" class="text-center clearfix">
+                                        <ul class="pagination">
+                                            <li>
+                                                <span aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </span>
+                                            </li>
+                                            <li class="active"><span>1</span></li>
+                                            <li><span>2</span></li>
+                                            <li><span>3</span></li>
+                                            <li><span>4</span></li>
+                                            <li class="disabled"><span>5</span></li>
+                                            <li>
+                                                <span aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                             <div id="function" class="main-content-home">
-                                <p>功能</p>
+                                <div class="content-top">
+                                    <div class="content-title">
+                                        <span>功能</span>
+                                    </div>
+                                </div>
                             </div>
                             <div id="information" class="main-content-home">
-                                <p>信息</p>
+                                <div class="content-top">
+                                    <div class="content-title">
+                                        <span>信息查询</span>
+                                    </div>
+                                </div>
                             </div>
                             <div id="addview" class="main-content-home">
-                                <p>添加</p>
+                                <div class="content-top">
+                                    <div class="content-title">
+                                        <span>添加</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="main-user-info-btn">
@@ -809,7 +927,7 @@
                                         <img src="img/home/teacher/1.jpg" class="J-user-Headportrait" alt="veneno"/>
                                     </a>
                                     <div class="info-font">
-                                        <a href="#">年轻的小孩子</a><a href="#" data-toggle="tooltip" data-placement="bottom" title="积分：3" class="ulevel">5</a>
+                                        <a href="#" class="j-username">年轻的小孩子</a><a href="#" data-toggle="tooltip" data-placement="bottom" title="积分：3" class="ulevel">5</a>
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
                                                 <span class="sr-only">60%</span>
@@ -822,7 +940,8 @@
                                     </div>
                                 </div>
                                 <div class="right-user-more">
-                                    <ul class="clearfix">
+                                    <p class="text-center">没有家教信息</p>
+                                    <!--<ul class="clearfix">
                                         <li>
                                             <span class="text-info">3</span><span>好评率</span>
                                         </li>
@@ -832,7 +951,7 @@
                                         <li>
                                             <span class="text-warning">3</span><span>在交易</span>
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </div>
                                 <div class="right-suggest">
                                     <div class="right-suggest-title">

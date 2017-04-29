@@ -107,8 +107,21 @@ a{
       -ms-transition: all 300ms linear;
       -o-transition: all 300ms linear;
       transition: all 300ms linear;
+
+      >.content-top {
+        height: 44px;
+        padding: 12px 10px;
+        margin: 0 -10px;
+        background-color: #f2f3fb;
+
+        >.content-title {
+          padding-left: 10px;
+          border-left: 4px solid @green;
+          color: #31708f;
+        }
+      }
     }
-    .active{
+    .home-active{
       display: block;
     }
     #home{
@@ -136,7 +149,14 @@ a{
       }
     }
     #tutor{
-      background: #9d9d9d;
+      .dropdown-menu{
+        >div.checkbox{
+          padding-left: 25px;
+          &:hover{
+            background-color: @green;
+          }
+        }
+      }
     }
     #function{}
     #information{}
@@ -395,3 +415,4 @@ a{
     padding-top: 10px;
   }
 }
+

@@ -14,6 +14,8 @@
 @ok:#3c763d;
 @error:#a94442;
 
+@hui-border:#dddddd;
+
 /*=========CSS3 兼容性===========*/
 .box-show(@x,@y,@s,@n,@c){
   -webkit-box-shadow: @x @y @s @n @c;
@@ -121,5 +123,53 @@
     margin: auto;
     min-height: 342px;
     color: #fff;
+  }
+}
+
+table{
+  tr{
+    td:first-child{
+      font-weight: 600;
+      color: #000;
+    }
+  }
+}
+
+.text-white{
+  color: #ffffff !important;
+}
+
+textarea{
+  resize: none;
+}
+
+input[type='radio']+label{
+  >span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+    margin-right: 10px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+  }
+  >span:after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: @green;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 50%;
+    margin-top: -5px;
+    border-radius: 50%;
+    display: none;
+  }
+}
+input[type='radio']:checked+label{
+  >span:after{
+    display: inline-block;
   }
 }

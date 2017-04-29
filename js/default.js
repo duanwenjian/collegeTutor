@@ -99,7 +99,7 @@ var custom={
     /*==========设置展示区高度==================*/
     mainShow:function(){
         var h=$('#bg-img')[0].scrollHeight-80;
-        $('#home').css('height',h);
+        $('.main-content-home').css('height',h);
         $('.main-user-info').css('height',h)
     }
 };

@@ -79,6 +79,42 @@
   min-height: 342px;
   color: #fff;
 }
+table tr td:first-child {
+  font-weight: 600;
+  color: #000;
+}
+.text-white {
+  color: #ffffff !important;
+}
+textarea {
+  resize: none;
+}
+input[type='radio'] + label > span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: sub;
+  margin-right: 10px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+}
+input[type='radio'] + label > span:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: rgba(39, 174, 91, 0.6);
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  top: 50%;
+  margin-top: -5px;
+  border-radius: 50%;
+  display: none;
+}
+input[type='radio']:checked + label > span:after {
+  display: inline-block;
+}
 .no-padding {
   padding: 0;
 }
@@ -581,7 +617,7 @@ svg:not(:root) {
   color: #a6a6a6;
 }
 .login > .main > .main-content > .content-right {
-  margin-top: 74px;
+  margin-top: 65px;
   border-left: 1px solid #cacaca;
 }
 .login > .main > .main-content > .content-right > div {
