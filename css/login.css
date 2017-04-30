@@ -115,6 +115,12 @@ input[type='radio'] + label > span:after {
 input[type='radio']:checked + label > span:after {
   display: inline-block;
 }
+input[type='file'] {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: -9999;
+}
 .no-padding {
   padding: 0;
 }
@@ -436,6 +442,14 @@ input[type='radio']:checked + label > span:after {
   100% {
     stroke-dasharray: 89,200;
     stroke-dashoffset: -124px;
+  }
+}
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 svg:not(:root) {

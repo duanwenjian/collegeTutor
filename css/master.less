@@ -254,7 +254,12 @@
 }
 //加载动画
 @-webkit-keyframes rotate {
-
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 svg:not(:root){
   overflow: hidden;

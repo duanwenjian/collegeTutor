@@ -27,6 +27,7 @@
         }else{
 
             $userinfo=[
+                    'userID'=>$row['id'],//用户id
             		'email'=>$row['email'],//邮箱
             		'password'=>$row['password'],//密码
             		'regtime'=>$row['regtime'],//注册时间

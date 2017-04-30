@@ -1,12 +1,15 @@
 @import "master";
+@import "layout";
 
 .applyfotearcher{
   width: 1050px;
-  min-height: 600px;
+  //min-height: 600px;
   background-color: @card-bg;
   margin: 15px auto;
+  overflow-y: hidden;
   .main{
     color: #405B55;
+    position: relative;
 
     .main-top{
       margin:  20px 20px 0 20px;
@@ -94,11 +97,28 @@
             -o-transform: translateX(-50%);
           }
         }
-        >li:hover,li.success {
+        >li:hover{
           .num {
             background-color: #00c2de;
             .box-show(0, 0, 10px, 5px, rgba(0, 194, 222, .5));
+
           }
+          .hpic{
+            display: block;
+          }
+          .npic{
+            display: none;
+          }
+        }
+        >li.success {
+          .num {
+            background-color: #00c2de;
+            .box-show(0, 0, 10px, 5px, rgba(0, 194, 222, .5));
+            .transition(all,500ms,linear);
+            transition-delay:1000ms;
+          }
+        }
+        >li:first-child{
           .hpic{
             display: block;
           }
@@ -131,11 +151,12 @@
         }
       }
       >.line-active{
-        width: 200px;
+        width: 0;
         height: 20px;
         margin-top: -20px;
         margin-left: 105px;
         background: url(../img/applyfoTearcher/TB1Vu0dOFXXXXXtXpXXXXXXXXXX-1-20.png) left top repeat-x;
+        .transition(width,1000ms,cubic-bezier(0.99, 0.06, 1, 1));
       }
       .btn3{
         width: 160px;
@@ -158,12 +179,14 @@
       >.flow {
         >div[class^='flow-']{
           display: none;
+          height: 306px;
+          margin: 50px 50px 0 50px;
+
         }
         >.flow-active{
           display: block !important;
         }
         .user-add-info {
-          margin: 50px;
           border-radius: 3px;
           border: 1px solid @hui-border;
           padding-top: 20px;
@@ -176,7 +199,6 @@
           }
         }
         .user-add-img{
-          margin: 50px 50px 0 50px;
           border-radius: 3px;
           border: 1px solid @hui-border;
           //padding-top: 20px;
@@ -318,7 +340,11 @@
 
 
     .main-footer{
+      //position: absolute;
+      //left: 0;
+      //bottom: 0;
       margin: 0 50px;
+      //width: 100%;
       .pager{
         margin: 20px 0 0 0;
       }

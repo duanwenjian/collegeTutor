@@ -38,6 +38,7 @@ var login={
         localStorage.setItem('regtime',user.regtime);
         localStorage.setItem('email',user.email);
         localStorage.setItem('Headportrait',user.Headportrait);
+        localStorage.setItem('userID',user.userID);
     },
     getLocalUser:function(){
         let password=localStorage.getItem('password',"password");

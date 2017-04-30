@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="css/applyfotearcher.css"/>
     <link rel="stylesheet" href="css/default/font.css"/>
     <link rel="stylesheet" href="css/date/pikaday.css"/>
-    <!--<link rel="stylesheet" href="other/sweetalert2.css"/>-->
     <link rel="stylesheet" href="css/imgFile/jquery.filer.css"/>
     <title>申请成为教师 | collegeTutor</title>
     <!---->
@@ -38,6 +37,55 @@
 <body>
 <div class="container-fluid">
     <div id="bg-img" class="bg-img-3"></div>
+    <div class="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!--导航栏顶部-->
+                <div class="navbar-header margin-left15">
+                    <a href="home.html" class="navbar-brand">
+                        <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">首页</a></li>
+                        <li><a href="#">标签二</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                    </form>
+                    <div class="navbar-right margin-right15">
+                        <ul class="nav navbar-nav">
+                            <li><!--<a href="applyFoTearcher.html">成为教师</a>--></li>
+                            <li class="dropdown">
+                                <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                                        <span class="j-username">
+                                            善良的小孩
+                                        </span>
+                                    <span class="caret"></span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="home.html">主页</a></li>
+                                    <li><a href="#">通知中心</a></li>
+                                    <li><a href="#">账户设置</a></li>
+                                    <li><a href="#">帮助（反馈）</a></li>
+                                    <li><a href="#">管理员入口</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#" class="text-disabled">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div class="applyfotearcher clearfix">
         <div class="main">
             <!--<div class="main-top text-center">
@@ -51,7 +99,7 @@
             </div>-->
             <div class="main-content">
                 <h3 class="text-center">申请流程</h3>
-                <ul class="clearfix">
+                <ul class="clearfix" id="flow">
                     <li class="success">
                         <div class="pic"><img src="img/applyfoTearcher/TB1cZSYOFXXXXaMaXXXXXXXXXXX-30-35.svg" class="npic"><img src="img/applyfoTearcher/TB13q90OFXXXXa5XVXXXXXXXXXX-30-35.svg" class="hpic"></div>
                         <div class="name">填写信息</div>
@@ -59,7 +107,7 @@
                         <div class="num">1</div>
                     </li>
 
-                    <li class="success">
+                    <li class="">
                         <div class="pic"><img src="img/applyfoTearcher/TB1M3iQOFXXXXb9aXXXXXXXXXXX-35-35.svg" class="npic"><img src="img/applyfoTearcher/TB1jbG1OFXXXXcaXFXXXXXXXXXX-35-35.svg" class="hpic"></div>
                         <div class="name">上传照片</div>
                         <div class="txt"></div>
@@ -98,7 +146,7 @@
                     <a href="#">开始申请</a>
                 </div>-->
                 <div class="flow">
-                    <div class="flow-1">
+                    <div class="flow-1 flow-active">
                         <div class="user-add-info">
                             <form class="form-horizontal text-center">
                                 <div class="row">
@@ -196,10 +244,9 @@
                             </form>
                         </div>
                     </div>
-                    <div class="flow-2 flow-active">
+                    <div class="flow-2 ">
                         <div class="user-add-img">
-                            <input type="hidden" id="userId" value="1"/>
-                            <input type="file" data-userID="1" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;" name="file" class="file" id="file" size="28"  onchange="previewFile()"/>
+                            <input type="file" name="file" class="file" id="file" size="28"  onchange="previewFile()"/>
                             <!--<input type="file" multiple="multiple" name="files[]" id="input2" >-->
                             <div class="jFiler-input-dragDrop">
                                 <div class="jFiler-input-inner" onclick="file.click()">
@@ -225,12 +272,21 @@
                             <a href="#">开始申请</a>
                         </div>-->
                     </div>
+                    <div class="flow-3">
+                        <h1>第三页</h1>
+                    </div>
+                    <div class="flow-4">
+                        <h1>第四页</h1>
+                    </div>
+                    <div class="flow-5">
+                        <h1>第五页</h1>
+                    </div>
                 </div>
             </div>
             <div class="main-footer">
                 <nav aria-label="">
                     <ul class="pager">
-                        <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> 上一步</a></li>
+                        <li class="previous hide"><a href="#"><span aria-hidden="true">&larr;</span> 上一步</a></li>
                         <li class="next"><a href="#">下一步 <span aria-hidden="true">&rarr;</span></a></li>
                     </ul>
                 </nav>
@@ -243,12 +299,12 @@
     </div>
 </div>
 <script src="js/jquery-1.11.3.js"></script>
-<script src="js/md5-min.js"></script>
-<script src="js/register.js"></script>
 <script src="js/date/pikaday.min.js"></script>
-
 <script src="js/bootstrap/bootstrap.min.js"></script>
-<script src="js/imgFile/jquery.filer.min.js"></script>
+
+<script src="js/applyFoTeacher.js" type="text/javascript"></script>
+
+
 
 
 <script type="text/javascript">
@@ -261,307 +317,8 @@
         yearRange: [2000,2020]
     });
 
-    var h=$('#bg-img')[0].scrollHeight-30;
+    var h=$('#bg-img')[0].scrollHeight-80;
     $('.applyfotearcher').css('height',h);
-    /*$(document).ready(function() {
-        $('#input1').filer();
-
-        $('.file_input').filer({
-            showThumbs: true,
-            templates: {
-                box: '<ul class="jFiler-item-list"></ul>',
-                item: '<li class="jFiler-item">\
-                            <div class="jFiler-item-container">\
-                                <div class="jFiler-item-inner">\
-                                    <div class="jFiler-item-thumb">\
-                                        <div class="jFiler-item-status"></div>\
-                                        <div class="jFiler-item-info">\
-                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
-                                        </div>\
-                                        {{fi-image}}\
-                                    </div>\
-                                    <div class="jFiler-item-assets jFiler-row">\
-                                        <ul class="list-inline pull-left">\
-                                            <li><span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span></li>\
-                                        </ul>\
-                                        <ul class="list-inline pull-right">\
-                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            </div>\
-                        </li>',
-                itemAppend: '<li class="jFiler-item">\
-                            <div class="jFiler-item-container">\
-                                <div class="jFiler-item-inner">\
-                                    <div class="jFiler-item-thumb">\
-                                        <div class="jFiler-item-status"></div>\
-                                        <div class="jFiler-item-info">\
-                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
-                                        </div>\
-                                        {{fi-image}}\
-                                    </div>\
-                                    <div class="jFiler-item-assets jFiler-row">\
-                                        <ul class="list-inline pull-left">\
-                                            <span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span>\
-                                        </ul>\
-                                        <ul class="list-inline pull-right">\
-                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            </div>\
-                        </li>',
-                progressBar: '<div class="bar"></div>',
-                itemAppendToEnd: true,
-                removeConfirmation: true,
-                _selectors: {
-                    list: '.jFiler-item-list',
-                    item: '.jFiler-item',
-                    progressBar: '.bar',
-                    remove: '.jFiler-item-trash-action'
-                }
-            },
-            addMore: true,
-            files: [{
-                name: "appended_file.jpg",
-                size: 5453,
-                type: "image/jpg",
-                file: "http://dummyimage.com/158x113/f9f9f9/191a1a.jpg"
-            },{
-                name: "appended_file_2.png",
-                size: 9503,
-                type: "image/png",
-                file: "http://dummyimage.com/158x113/f9f9f9/191a1a.png"
-            }]
-        });
-
-        $('#input2').filer({
-            limit: null,
-            maxSize: null,
-            extensions: null,
-            changeInput: `<div class="jFiler-input-dragDrop">
-                            <div class="jFiler-input-inner">
-                            <div class="jFiler-input-icon">
-                            <i class="icon-jfi-folder"></i>
-                            </div>
-                            <div class="jFiler-input-text">
-                            <h3>点击选择图片</h3>
-                            <span style="display:inline-block; margin: 15px 0">或者</span>
-                            </div>
-                            <a class="jFiler-input-choose-btn blue-light">选择图片</a>
-                            </div>
-                            </div>`,
-            showThumbs: true,
-            appendTo: null,
-            theme: "dragdropbox",
-            templates: {
-                box: '<ul class="jFiler-item-list"></ul>',
-                item: '<li class="jFiler-item">\
-                            <div class="jFiler-item-container">\
-                                <div class="jFiler-item-inner">\
-                                    <div class="jFiler-item-thumb">\
-                                        <div class="jFiler-item-status"></div>\
-                                        <div class="jFiler-item-info">\
-                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
-                                        </div>\
-                                        {{fi-image}}\
-                                    </div>\
-                                    <div class="jFiler-item-assets jFiler-row">\
-                                        <ul class="list-inline pull-left">\
-                                            <li>{{fi-progressBar}}</li>\
-                                        </ul>\
-                                        <ul class="list-inline pull-right">\
-                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            </div>\
-                        </li>',
-                itemAppend: '<li class="jFiler-item">\
-                            <div class="jFiler-item-container">\
-                                <div class="jFiler-item-inner">\
-                                    <div class="jFiler-item-thumb">\
-                                        <div class="jFiler-item-status"></div>\
-                                        <div class="jFiler-item-info">\
-                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
-                                        </div>\
-                                        {{fi-image}}\
-                                    </div>\
-                                    <div class="jFiler-item-assets jFiler-row">\
-                                        <ul class="list-inline pull-left">\
-                                            <span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span>\
-                                        </ul>\
-                                        <ul class="list-inline pull-right">\
-                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            </div>\
-                        </li>',
-                progressBar: '<div class="bar"></div>',
-                itemAppendToEnd: false,
-                removeConfirmation: false,
-                _selectors: {
-                    list: '.jFiler-item-list',
-                    item: '.jFiler-item',
-                    progressBar: '.bar',
-                    remove: '.jFiler-item-trash-action'
-                }
-            },
-            uploadFile: {
-                url: "./php/imgFile/upload.php",
-                data: {},
-                type: 'POST',
-                enctype: 'multipart/form-data',
-                beforeSend: function(){},
-                success: function(data, el){
-                    var parent = el.find(".jFiler-jProgressBar").parent();
-                    el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                        $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
-                    });
-                },
-                error: function(el){
-                    var parent = el.find(".jFiler-jProgressBar").parent();
-                    el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                        $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
-                    });
-                },
-                statusCode: {},
-                onProgress: function(){}
-            },
-            dragDrop: {
-                dragEnter: function(){},
-                dragLeave: function(){},
-                drop: function(){}
-            },
-            addMore: true,
-            clipBoardPaste: true,
-            excludeName: null,
-            beforeShow: function(){return true},
-            onSelect: function(){},
-            afterShow: function(){},
-            onRemove: function(){},
-            onEmpty: function(){},
-            captions: {
-                button: "Choose Files",
-                feedback: "Choose files To Upload",
-                feedback2: "files were chosen",
-                drop: "Drop file here to Upload",
-                removeConfirmation: "是否删除上传的图片?",
-                errors: {
-                    filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
-                    filesType: "Only Images are allowed to be uploaded.",
-                    filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-maxSize}} MB.",
-                    filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB."
-                }
-            }
-        });
-    });*/
-</script>
-
-
-
-<script type="text/javascript">
-
-    var xhr;
-    function createXMLHttpRequest()
-    {
-        if(window.ActiveXObject)
-        {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        else if(window.XMLHttpRequest)
-        {
-            xhr = new XMLHttpRequest();
-        }
-    }
-
-    function UpladFile()
-    {
-        var fileObj = document.getElementById("file").files[0];
-        var userid=$('#userId').val();
-        var FileController = 'php/imgFile.php';//上传头像路径、
-        form = new FormData();
-        form.append("myfile", fileObj);
-        form.append('userID',1);//用户id
-//        form.append('username','dwj');
-        createXMLHttpRequest();
-        xhr.onreadystatechange = handleStateChange;
-        xhr.open("post", FileController, true);
-        xhr.send(form);
-    }
-
-    function postData(obj){ // 转成post需要的字符串.
-        var str = "";
-        for(var prop in obj){
-            str += prop + "=" + obj[prop] + "&";
-        }
-        return str;
-    }
-
-    function previewFile() {
-        var file  = document.querySelector('input[type=file]').files[0];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            $('#j-user-img').append(`<li><img src="${reader.result}" alt=""/><span></span></li>`);
-            UpladFile();
-        };
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-//            preview.src = "";
-        }
-    }
-
-    function handleStateChange()
-    {
-        if(onprogress && xhr.upload) {
-            xhr.upload.addEventListener("progress" , onprogress, false);
-            return xhr;
-        }
-        if(xhr.readyState == 4)
-        {
-            if (xhr.status == 200 || xhr.status == 0)
-            {
-                var result = xhr.responseText;
-                var json = eval("(" + result + ")");
-//                alert('图片链接:\n'+json.file);
-//                $('#j-user-img').append(`<li><img src="dashboard/collegetutor${json.file}" alt=""/></li>`);
-                var obj={"path":json.file};
-//                var FileImage='php_demo/imageFile2.php?'+postData(obj);//保存路径
-                //发起第二个请求保存头像
-//                createXMLHttpRequest();
-                /*xhr.onreadystatechange=function(){
-                    if(xhr.readyState == 4)
-                    {
-                        if (xhr.status == 200 || xhr.status == 0)
-                        {
-                            result = xhr.responseText;
-                            result=result.substr(1);
-                            document.write("<img src='"+result+"'>");
-                        }
-                    }
-                };*/
-//                xhr.open("post",FileImage,true);
-//                xhr.send();
-            }
-        }
-    }
-
-    function onprogress(evt){
-        var loaded = evt.loaded;     //已经上传大小情况
-        var tot = evt.total;      //附件总大小
-        var per = Math.floor(100*loaded/tot);  //已经上传的百分比
-//        console.dir(per);
-        $('#j-user-img>li:last-child>span').css('width',per+'%');
-        if(per==100){
-            $('#j-user-img>li:last-child').css('borderColor','rgb(39,174,91)');
-            $('#j-user-img>li:last-child>span').css('display','none');
-        }
-
-    }
-
 </script>
 </body>
 </html>
