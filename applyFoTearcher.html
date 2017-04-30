@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="css/applyfotearcher.css"/>
     <link rel="stylesheet" href="css/default/font.css"/>
     <link rel="stylesheet" href="css/date/pikaday.css"/>
-    <link rel="stylesheet" href="css/imgFile/jquery.filer.css"/>
+    <!--<link rel="stylesheet" href="css/imgFile/jquery.filer.css"/>-->
     <title>申请成为教师 | collegeTutor</title>
     <!---->
 </head>
@@ -153,9 +153,10 @@
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="major" class="col-sm-2 control-label">专业</label>
+                                                <label for="major" class="col-sm-3 control-label">专业
+                                                    <span class="glyphicon glyphicon-star "></span></label>
                                                 <div class="col-sm-8">
-                                                    <input type="email" class="form-control" id="major" placeholder="请输入专业">
+                                                    <input type="text" class="form-control" id="major" placeholder="请输入专业">
                                                 </div>
                                             </div>
                                         </div>
@@ -163,38 +164,11 @@
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="Grade" class="col-sm-4 control-label">等级</label>
+                                                <label for="Grade" class="col-sm-4 control-label">等级
+                                                    <span class="glyphicon glyphicon-star "></span>
+                                                </label>
                                                 <div class="col-sm-8">
-                                                    <input type="email" class="form-control" id="Grade" placeholder="1" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <label for="Subject" class="col-sm-2 control-label">科目</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Subject" class="form-control">
-                                                        <option>语文</option>
-                                                        <option>数学</option>
-                                                        <option>生物</option>
-                                                        <option>化学</option>
-                                                        <option>钢琴</option>
-                                                        <option value="">其他</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <label for="birth" class="col-sm-4 control-label">出生日期</label>
-                                                <div class="col-sm-8">
-                                                    <input type="email" class="form-control" id="birth" placeholder="请选择出生日期">
+                                                    <input type="text" class="form-control" id="Grade" placeholder="1" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -204,9 +178,17 @@
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="Price" class="col-sm-2 control-label">价格</label>
+                                                <label for="Subject" class="col-sm-3 control-label">科目
+                                                    <span class="glyphicon glyphicon-star "></span></label>
                                                 <div class="col-sm-8">
-                                                    <input type="email" class="form-control" id="Price" placeholder="价格">
+                                                        <select id="Subject" class="form-control" size="1">
+                                                            <option value="语文教师">语文教师</option>
+                                                            <option value="数学教师">数学教师</option>
+                                                            <option value="生物教师">生物教师</option>
+                                                            <option value="化学教师">化学教师</option>
+                                                            <option value="钢琴教师">钢琴教师</option>
+                                                            <option value="其他教师">其他教师</option>
+                                                        </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,13 +196,47 @@
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label  class="col-sm-4 control-label">性别</label>
+                                                <label for="birth" class="col-sm-4 control-label">出生日期
+                                                    <span class="glyphicon glyphicon-star "></span></label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="birth" placeholder="请选择出生日期">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="Price" class="col-sm-3 control-label">价格
+                                                    <span class="glyphicon glyphicon-star "></span></label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="Price" placeholder="请输入每小时的价格">
+                                                    <!--<select id="Price" class="form-control" size="1">
+                                                        <option value="语文教师">语文教师</option>
+                                                        <option value="数学教师">数学教师</option>
+                                                        <option value="生物教师">生物教师</option>
+                                                        <option value="化学教师">化学教师</option>
+                                                        <option value="钢琴教师">钢琴教师</option>
+                                                        <option value="其他教师">其他教师</option>
+                                                    </select>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 control-label">性别
+                                                    <span class="glyphicon glyphicon-star "></span>
+                                                </label>
                                                 <div class="col-sm-8 text-left">
-                                                    <input type="radio" class="hide" name="inlineRadioOptions" id="sex-m" value="option1">
+                                                    <input type="radio" class="hide" name="sex" id="sex-m" value="1" checked>
                                                     <label class="radio-inline" for="sex-m">
                                                         <span></span>男
                                                     </label>
-                                                    <input type="radio" class="hide" name="inlineRadioOptions" id="sex-w" value="option2">
+                                                    <input type="radio" class="hide" name="sex" id="sex-w" value="0">
                                                     <label class="radio-inline" for="sex-w">
                                                         <span></span>女
                                                     </label>
@@ -229,29 +245,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-left: -3px">
+                                <div class="row" style="margin-left: 38px">
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="Remarks" class="col-sm-1 control-label">备注</label>
-                                                <div class="col-sm-11">
+                                                <label for="Remarks" class="col-sm-1  control-label">备注</label>
+                                                <div class="col-sm-10">
                                                     <textarea id="Remarks" class="form-control" rows="3" placeholder="备注"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <p class=" text-danger">带 <span class="glyphicon glyphicon-star "></span>为必填项</p>
+                                </div>
                             </form>
+                        </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-sm-1 text-right">
+                                <span class="info-number">0%</span>
+                            </div>
+                            <div class="col-sm-10 ">
+                                <div class="progress">
+                                    <div class="progress-bar" id="info-number" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+                                        <span class="sr-only info-number">0% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="flow-2 ">
                         <div class="user-add-img">
-                            <input type="file" name="file" class="file" id="file" size="28"  onchange="previewFile()"/>
+                            <input type="file" name="file" class="file" id="file1" size="28" onchange="previewFile(2)"/>
+                            <input type="file" name="file" class="file" id="file" size="28"  onchange="previewFile(1)"/>
                             <!--<input type="file" multiple="multiple" name="files[]" id="input2" >-->
                             <div class="jFiler-input-dragDrop">
-                                <div class="jFiler-input-inner" onclick="file.click()">
+                                <div class="jFiler-input-inner" >
                                     <div class="jFiler-input-icon">
-                                        <i class="icon-jfi-folder"></i>
+                                        <i class="glyphicon glyphicon-picture"></i>
                                     </div>
                                     <div class="jFiler-input-text">
                                         <h3>点击选择图片</h3>
@@ -266,20 +298,103 @@
                                     <!--<li></li>-->
                                     <!--<li></li>-->
                                 </ul>
+                                <div class="btn3">
+                                    <button id="file-updata" type="button">开始申请</button>
+                                </div>
                             </div>
                         </div>
-                        <!--<div class="btn3">
-                            <a href="#">开始申请</a>
-                        </div>-->
                     </div>
                     <div class="flow-3">
-                        <h1>第三页</h1>
+                        <div class="show-add-info">
+                        </div>
                     </div>
                     <div class="flow-4">
-                        <h1>第四页</h1>
+                        <div class="show-add-info">
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>专业：</span><span>软件工程</span></p></div>
+                                <div class="col-sm-6"><p><span>等级：</span><span>1</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>科目：</span><span>语文教师</span></p></div>
+                                <div class="col-sm-6"><p><span>出生日期：</span><span>1995-06-30</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>价格：</span><span>200/h</span></p></div>
+                                <div class="col-sm-6"><p><span>性别：</span><span>男</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12"><p><span>备注：</span><span class="beizhu">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut autem consectetur, consequuntur dolores, et exercitationem iusto libero modi, molestiae nemo officiis quaerat reprehenderit. Accusantium asperiores blanditiis harum nemo! Accusantium?</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="show-img">
+                                        <p>
+                                            <span>学生证照片：</span>
+                                            <img src="img/home/bg_1.jpg" data-toggle="modal" data-target=".bs-example-modal-lg" alt=""/>
+                                            <img src="img/home/bg_1.jpg" data-toggle="modal" data-target=".bs-example-modal-lg" alt=""/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p><span>状态：</span><span>未通过</span></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p><span>原因：</span><span>照片不规范</span></p>
+                                </div>
+                            </div>
+                            <div class="admin-request">
+                                <div class="request-wraing"></div>
+                                <!--<div class="request-ok"></div>-->
+                                <!--<div class="request-no"></div>-->
+                            </div>
+
+                        </div>
                     </div>
                     <div class="flow-5">
-                        <h1>第五页</h1>
+                        <div class="show-add-info">
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>专业：</span><span>软件工程</span></p></div>
+                                <div class="col-sm-6"><p><span>等级：</span><span>1</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>科目：</span><span>语文教师</span></p></div>
+                                <div class="col-sm-6"><p><span>出生日期：</span><span>1995-06-30</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>价格：</span><span>200/h</span></p></div>
+                                <div class="col-sm-6"><p><span>性别：</span><span>男</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12"><p><span>备注：</span><span class="beizhu">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut autem consectetur, consequuntur dolores, et exercitationem iusto libero modi, molestiae nemo officiis quaerat reprehenderit. Accusantium asperiores blanditiis harum nemo! Accusantium?</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="show-img">
+                                        <p>
+                                            <span>学生证照片：</span>
+                                            <img src="img/home/bg_1.jpg" data-toggle="modal" data-target=".bs-example-modal-lg" alt=""/>
+                                            <img src="img/home/bg_1.jpg" data-toggle="modal" data-target=".bs-example-modal-lg" alt=""/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p><span>状态：</span><span>未通过</span></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p><span>原因：</span><span>照片不规范</span></p>
+                                </div>
+                            </div>
+                            <div class="admin-request">
+                                <div class="request-wraing"></div>
+                                <!--<div class="request-ok"></div>-->
+                                <!--<div class="request-no"></div>-->
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,6 +413,22 @@
     <div class="swal2-modal swal2-show">
     </div>
 </div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">学生证照片</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="show-img">
+                        <img src="img/home/bg_1.jpg" alt=""/>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/date/pikaday.min.js"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
@@ -312,12 +443,12 @@
     {
         field: document.getElementById('birth'),
         firstDay: 1,
-        minDate: new Date('2010-01-01'),
-        maxDate: new Date('2020-12-31'),
-        yearRange: [2000,2020]
+        minDate: new Date('1900-01-01'),
+        maxDate: new Date(),
+        yearRange: [1900,2020]
     });
 
-    var h=$('#bg-img')[0].scrollHeight-80;
+    var h=$('#bg-img')[0].scrollHeight-70;
     $('.applyfotearcher').css('height',h);
 </script>
 </body>
