@@ -38,7 +38,7 @@
                 $sqlAddr=addslashes($cardaddress);
             }
             $sqlAll=$sqlAddr;
-            $pager['retSrc']=$cardaddress;
+            $pager['retSrc']=$sqlAddr;
         }
         if(isset($_FILES["myfile1"])){//检查myfile1的值是否为空
             $ret = array();
@@ -70,7 +70,7 @@
                 $sqlAddr1=addslashes($cardaddress1);
             }
             $sqlAll.='+'.$sqlAddr1;
-            $pager['retSrc'].='+'.$cardaddress1;
+            $pager['retSrc'].='+'.$sqlAddr1;
         }
         $userID=$_POST['userID'];//id
         $major=$_POST['major'];

@@ -923,6 +923,7 @@ svg:not(:root) {
   padding-right: 10px;
   text-align: right;
   vertical-align: top;
+  color: #a6a6a6;
 }
 .applyfotearcher .main .main-content > .flow .show-add-info p > span.beizhu {
   display: inline-block;
@@ -985,5 +986,5 @@ svg:not(:root) {
   overflow-x: auto;
 }
 .modal .show-img img {
-  width: 100%;
+  height: 100%;
 }

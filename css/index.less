@@ -1,0 +1,210 @@
+
+@import "default/font";
+
+@indexColor:#04befc;
+body{
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.71429;
+  color: #777;
+  background-color: #000;
+}
+.index{
+  position: relative;
+  //头部
+  .header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: transparent;
+    padding: 10px 30px;
+    height: 100px;
+    .navbar{
+      margin: 0;
+      background-color: transparent;
+      border: none;
+      height: 100%;
+      font-weight: 600;
+      color: #ffffff;
+      .container-fluid{
+        height: 100%;
+        padding: 25px 0;
+      }
+      a{
+        color: #ffffff;
+      }
+      a:hover{
+        color: #fff;
+      }
+
+      .navbar-nav{
+        >li a{
+          padding-left: 0;
+          padding-right: 0;
+          .transition(all,300ms,linear)
+        }
+        >li:hover a{
+          border-bottom: 1px solid #fff;
+          padding-bottom: 2px;
+        }
+        >li+li{
+          margin-left: 48px;
+        }
+      }
+    }
+    .navbar-brand{
+      >img{
+        width: 194px;
+      }
+    }
+  }
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li{
+    list-style: none;
+  }
+}
+  //轮候宣传
+  .banner{
+    margin: 0;
+    position: relative;
+    zoom: 1;
+    overflow: hidden;
+    >ul.slides{
+      height: 100%;
+      >li{
+        position: relative;
+        display: none;
+        -webkit-backface-visibility: hidden;
+        //height: 664px;
+
+        >.slide-caption{
+          position: absolute;
+          top: 54%;
+          right: 0;
+          left: 0;
+          z-index: 50;
+          max-width: 1170px;
+          margin: 0 auto;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+          >.slide-text{
+            float: left;
+            width: 43%;
+            text-align: left;
+            color: #ffffff;
+            >span{
+              font-family: Georgia, "Times New Roman", Times, serif;
+              font-size: 24px;
+              font-style: italic;
+              margin-bottom: 14px;
+              display: block;
+
+            }
+            >h2{
+              //font-family: Georgia, "Times New Roman", Times, serif;
+              font-size: 68px;
+              font-weight: 900;
+              text-transform: uppercase;
+              letter-spacing: 5px;
+              line-height: 1.18;
+              cursor: pointer;
+              .transition(all ,0.3s ,ease-in-out)
+            }
+            >h2:hover{
+              color: @indexColor;
+            }
+            >p{
+              font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+              display: block;
+              font-size: 15px;
+              line-height: 2;
+              margin-bottom: 37px;
+            }
+            >a.btn{
+              font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+              margin-right: 8px;
+              color: #fff;
+              background-color: transparent;
+              border-color: #fff;
+              border-radius: 0;
+              width: 130px;
+            }
+            >a.btn:last-child{
+              background-color: @indexColor;
+              border-color: @indexColor;
+              .transition(all ,0.3s ,ease-in-out)
+            }
+            >a.btn:hover{
+              color: #fff;
+              background-color: #222;
+              border-color: #222;
+
+            }
+
+          }
+        }
+
+        >img{
+          width: 100%;
+          display: block;
+          vertical-align: middle;
+          height: auto;
+        }
+      }
+      >li.active{
+        width: 100%;
+        float: left;
+        margin-right: -100%;
+        opacity: 1;
+        display: block;
+        z-index: 1;
+        height: 100%;
+      }
+    }
+
+    .flex-direction-nav a {
+      line-height: 50px;
+      font-size: 30px;
+      text-align: center;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      border: 2px solid #fff;
+      text-decoration: none;
+      display: block;
+      margin: -20px 0 0;
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      overflow: hidden;
+      opacity: 0;
+      cursor: pointer;
+      color: #ffffff;
+      .transition(all,0.3s,ease-in-out);
+    }
+
+    .flex-direction-nav .flex-prev{
+      left: -50px;
+    }
+    .flex-direction-nav .flex-next{
+      right: -50px;
+    }
+  }
+  .banner:hover {
+    .flex-next {
+      opacity: 1;
+      right: 50px;
+    }
+    .flex-prev {
+      opacity: 1;
+      left: 50px;
+    }
+  }
+
+}

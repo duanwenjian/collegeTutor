@@ -966,6 +966,9 @@ a {
 }
 .teacherShow {
   padding: 10px 0;
+  /*.pull-left:nth-child(4n-1){
+    .transform(translate(20%,0));
+  }*/
 }
 .teacherShow .teacherShow-preloaders {
   padding-top: 10px;

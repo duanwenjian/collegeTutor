@@ -3,17 +3,36 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>大学生家教网 | collegeTutor</title>
-    <style>
-        h1{
-            text-align: center;
-            color: #888;
-        }
-        #time{
-            color: #3366cc;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--设置网页到期时间-->
+    <meta http-equiv="expires" content="Fri,12Jan201718:18:18GMT">
+    <!--禁止缓存-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <!--网页过去清除cookie-->
+    <meta http-equiv="Set-Cookie" content="cookie value=xxx;expires=Friday,12-Jan-201718:18:18GMT；path=/">
+    <!--防止别人调用-->
+    <meta http-equiv="Window-target" content="_top">
+    <!--显示语言-->
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <!--关键字-->
+    <meta name="keywords" content="大学生家教,家教,大学生,college tutor,college,tutor">
+    <!--告诉搜索引擎网站主要内容-->
+    <meta name="description" content="《大学生家教》网是一个专注于大学生家教的平台，帮助家长更好地找家教">
+    <!--告诉机器人索引-->
+    <meta name="robots" content="all">
+    <!--作者信息-->
+    <meta name="author" content="阿段,www.collegetutor@126.com">
+    <!--信息参数-->
+    <meta name="generator" content="html,css,javaScript,php,mysql"/>
+    <!--版权信息-->
+    <meta name="copyright" content="大学生家教网版权所有">
+    <!--标签logo-->
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/default/font.css"/>
+
 </head>
-<link rel="stylesheet" href="css/default/font.css"/>
 <body>
 <!--加载动画-->
 <div class="loading">
@@ -22,25 +41,91 @@
         <h2>正在加载...</h2>
     </div>
 </div>
-<h1>首页尚在开发中，正在为你跳转开发完成页面.... <span id="time"></span></h1>
+<div class="index">
+    <!--头部导航栏-->
+    <div class="header clearfix">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        COLLEGE TUTOR
+                        <!--<img  alt="Brand" src="img/index/header/logo.jpg">-->
+                    </a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="login.html">登录</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--轮播宣传图-->
+    <div class="banner">
+        <ul class="clearfix slides">
+            <li>
+                <div class="slide-caption">
+                    <div class="slide-text">
+                        <span>We Built Design Smart</span>
+                        <h2><a href="#">welcome to smart antarctica</a></h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean conv
+                            pretium laoreet proin et mauris ac massa.
+                        </p>
+                        <a href="#" class="btn btn-default">Read More</a>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+                <img src="img/index/banner/slider-v1-img-3.jpg" alt=""/>
+            </li>
+            <li>
+                <div class="slide-caption">
+                    <div class="slide-text">
+                        <span>We Built Design Smart</span>
+                        <h2><a href="#">welcome to smart antarctica</a></h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean conv
+                            pretium laoreet proin et mauris ac massa.
+                        </p>
+                        <a href="#" class="btn btn-default">Read More</a>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+                <img src="img/index/banner/slider-v1-img-2.jpg" alt=""/>
+            </li>
+            <li class="active">
+                <div class="slide-caption">
+                    <div class="slide-text">
+                        <span>we are family education</span>
+                        <h2>welcome to college tutor</h2>
+                        <p>
+                           我们只专注更好的家教，我们只提供更好地大学生家教
+                        </p>
+                        <a href="register.html" class="btn btn-default">登录</a>
+                        <a href="login.html" class="btn btn-primary">注册</a>
+                    </div>
+                </div>
+                <img src="img/index/banner/slider-v1-img-1.jpg" alt=""/>
+            </li>
+        </ul>
+        <ul class="flex-direction-nav">
+            <li class="flex-nav-prev">
+                <a class="flex-prev" href="#">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                </a>
+            </li>
+            <li class="flex-nav-next">
+                <a class="flex-next" href="#">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 <script src="js/jquery-1.11.3.js"></script>
 <script>
     function init(){
-        /*var pwd=prompt('请输入浏览编号','六位数');
-        if(pwd!='123'){
-            return;
-        }*/
-        var i=5;
-        var time=document.getElementById('time');
-        time.innerHTML=i;
-        var timer=setInterval(function(){
-            i--;
-            time.innerHTML=i;
-            if(i==0){
-                clearInterval(timer);
-                window.location.href="./register.html";
-            }
-        },1000)
+//        $('.banner').css('height',$(window).height());
     };
     $(document).ready(function () {
         $('.loading').css('display','none');

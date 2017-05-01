@@ -4,7 +4,47 @@
 $(document).ready(function(){
     custom.init();
 });
+//var address="http://localhost/dashboard/collegetutor";
+var address="http://www.veneno.online";
 
+//定义教师状态码
+const statusText={
+    '0':{
+        'text':'正常',
+        'status':5
+    },
+    '1':{
+        'text':'禁用',
+        'status':5
+    },
+    '200':{
+        'text':'审核通过',
+        'status':3
+    },
+    '201':{
+        'text':'审核中',
+        'status':3
+    },
+    '202':{
+        'text':'审核失败',
+        'status':3
+    },
+    '300':{
+        'text':'复核成功',
+        'status':4
+    },
+    '301':{
+        'text':'复核中',
+        'status':4
+    },
+    '302':{
+        'text':'复核失败',
+        'status':4
+    }
+}
+function loadingHide(){
+    $('body >.loading').css('display','none');
+}
 //自定义组件
 var custom={
     that:'',
@@ -16,6 +56,7 @@ var custom={
         this.elementShowInfo();
         this.elementTip();
         this.mainShow();
+        this.userExit();
     },
     /*==========背景保存============*/
     bodygetBg:function(){
@@ -98,8 +139,34 @@ var custom={
 
     /*==========设置展示区高度==================*/
     mainShow:function(){
+        if($('#bg-img').length==0)return;
         var h=$('#bg-img')[0].scrollHeight-80;
         $('.main-content-home').css('height',h);
         $('.main-user-info').css('height',h)
+    },
+    userExit:function(){
+        //用户退出
+        $('body').on('click','.user-exit',function(){
+            localStorage.clear();
+            window.location.href='./login.html';
+        });
     }
 };
+
+//获取时间
+function getDate(n){
+    var time;
+    if(!n) {
+        time = new Date();
+    }else{
+        time = new Date();
+        time.setTime(parseInt(n) * 1000);
+    }
+    var y = time.getFullYear();
+    var m = time.getMonth() + 1;
+    var d = time.getDate();
+    var h = time.getHours();
+    var M = time.getMinutes();
+    var s = time.getSeconds();
+    return y + '-' + ((m < 10) ? ('0' + m) : m) + '-' + ((d < 10) ? ('0' + d) : d) + ' ' + h + ':' + ((M < 10) ? ('0' + M) : M) + ':' + ((s < 10) ? ('0' + s) : s);
+}

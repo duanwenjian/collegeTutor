@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/4/30.
  */
+//服务器地址
 function uploadFile(){
     var userID=localStorage.getItem('userID');
     var formData = new FormData();
@@ -24,8 +25,12 @@ function uploadFile(){
     return formData;
 }
 $('#file-updata').click(function(){
+    if($('#j-user-img').children().length==0){
+        alert("请上传学生证照片");
+        return;
+    }
     var formData=uploadFile();
-    $(this).html('正在上传');
+    $(this).html('正在上传资料');
     $(this).attr('disabled',true);
     $.ajax({
         type: "POST",
@@ -53,7 +58,10 @@ $('#file-updata').click(function(){
                 //TeacherInfo.info.imgSrc=data.retSrc;
                 nextPageInfo.date.imgSrc=data.retSrc.split('+');
                 nextPageInfo.date.textDate=TeacherInfo.info;
+                nextPageInfo.date.time=data.time;
                 nextPageInfo.wifi=true;
+                var str="资料已经锁定,审核之前不可更改";
+                freeze(str,true);
             }else{
                 $('#file-updata').html('上传失败');
                 $('#file-updata').attr('disabled',false);
@@ -63,6 +71,12 @@ $('#file-updata').click(function(){
         }
     });
 });
+//冻结输入
+function freeze(info,no){
+    $('.user-add-info input,.user-add-info textarea,.user-add-info select').attr('disabled',no);
+    $('#updata-info').html(info);
+};
+//上传图片提示
 $('.jFiler-input-dragDrop').click(function(){
     if($('#j-user-img').children().length==2){
         alert("每个用户只能上传两张图片");
@@ -138,11 +152,12 @@ $('.pager').on('click','.next',function(){
 
     if($showFlow.index()==0){
         //验证是否全部填写
-        /*var tWidth = parseFloat($('.info-number').html());
+        var tWidth = parseFloat($('.info-number').html());
         if(tWidth!=100){
+            //todo:验证是否全部填写
             alert('请正确填写所有带星的信息');
             return;
-        }*/
+        }
     }else if($showFlow.index()==1){
         nextPageInfo.init();
     }
@@ -218,15 +233,24 @@ const nextPageInfo={
     wifi:false,
     date:{
         'imgSrc':null,
-        'textDate':null
+        'textDate':null,
+        'time':null
     },
     init:function(){
         if(nextPageInfo.wifi){
             var imgs='';
             for(var i=0;i<this.date.imgSrc.length;i++){
-                imgs+=`<img src="http://localhost/dashboard/collegetutor/${this.date.imgSrc[i]}" data-toggle="modal" class="maxImg" data-target=".bs-example-modal-lg" alt=""/>`;
+                imgs+=`<img src="${address}${(this.date.imgSrc[i]).replace(/\\\\/g,'/')}" data-toggle="modal" class="maxImg" data-target=".bs-example-modal-lg" alt=""/>`;
             }
             var html=`<div class="row">
+                                <div class="col-sm-6">
+                                    <p><span>申请人：</span><span class="text-danger">${localStorage.getItem('username')}</span></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p><span>申请时间：</span><span>${getDate(this.date.time)}</span></p>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-6"><p><span>专业：</span><span>${this.date.textDate.major}</span></p></div>
                                 <div class="col-sm-6"><p><span>等级：</span><span>${this.date.textDate.Grade}</span></p></div>
                             </div>
@@ -253,10 +277,10 @@ const nextPageInfo={
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <p><span>状态：</span><span>审核中</span></p>
+                                    <p><span>状态：</span><span class="text-info">审核中</span></p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p><span>原因：</span><span>照片不规范</span></p>
+                                    <p><span>原因：</span><span class="text-danger">照片不规范</span></p>
                                 </div>
                             </div>
                             <div class="admin-request">
@@ -265,12 +289,108 @@ const nextPageInfo={
                                 <!--<div class="request-no"></div>-->
                             </div>`;
             $('.show-add-info').html(html);
-            nextPageInfo.maxImg();
         }
-    },
-    maxImg:function(){
-        $('.maxImg').click(function(){
-            $('.modal .show-img img').attr('src',$(this).attr('src'));
-        });
     }
 };
+//查看大图
+function maxImg(){
+    $('.show-add-info').on('click','.maxImg',function(){
+        $('.modal .show-img img').attr('src',$(this).attr('src'));
+    });
+}
+//判断是否申请
+function applyForTrue(){
+    var userID=localStorage.getItem('userID');
+    $.ajax({
+        url:'php/applyForTrue.php',
+        type:'GET', //GET
+        async:true,    //或false,是否异步
+        data:{'userID':userID},
+        timeout:10000,    //超时时间
+        dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+        success:function(data,textStatus,jqXHR){
+            if(+data.retCode==0){
+                //查询成功
+                updateHtml(data.applyForMsg);
+                loadingHide();
+            }else{
+                loadingHide();
+                //alert(data.retMsg);
+            }
+        },
+        error:function(xhr,textStatus){
+            console.log("请求失败");
+        }
+    })
+};
+function goStatus(n){
+    $('.line-active').css('width',(n-1)*210);
+    $('#flow > li:lt('+n+')').addClass('success');
+    //$('#flow > li:lt('+n+')').removeClass('success');
+    $('#flow > li:lt('+n+') .npic').css('display','none');
+    $('#flow > li:lt('+n+') .hpic').css('display','block');
+    $('.flow >div:eq('+(n-1)+')').addClass('flow-active');
+    $('.flow >div:eq('+(n-1)+')').siblings().removeClass('flow-active');
+
+    $('.main-footer').hide();
+}
+function updateHtml(data){
+    var imgs='',imgSrc=data.cardAddress.split('+');
+    for(var i=0;i<imgSrc.length;i++){
+        imgs+=`<img src="${address}${(imgSrc[i]).replace(/\\/g,'/')}" data-toggle="modal" class="maxImg" data-target=".bs-example-modal-lg" alt=""/>`;
+    }
+    var html=`<div class="row">
+                                <div class="col-sm-6">
+                                    <p><span>申请人：</span><span class="text-danger">${data.username}</span></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p><span>申请时间：</span><span>${getDate(data.regtime)}</span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>专业：</span><span>${data.major}</span></p></div>
+                                <div class="col-sm-6"><p><span>等级：</span><span>${data.Grade}</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>科目：</span><span>${data.Subject}</span></p></div>
+                                <div class="col-sm-6"><p><span>出生日期：</span><span>${data.birth}</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><p><span>价格：</span><span>${data.Price}</span></p></div>
+                                <div class="col-sm-6"><p><span>性别：</span><span>${data.sex}</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12"><p><span>备注：</span><span class="beizhu">${data.Remarks}</span></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="show-img">
+                                        <p>
+                                            <span>学生证照片：</span>
+                                            ${imgs}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p><span>状态：</span><span class="text-info">${statusText[data.status]['text']}</span></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p><span>原因：</span><span class="text-danger">${data.reason}</span></p>
+                                </div>
+                            </div>
+                            <div class="admin-request">
+                                <div class="request-wraing"></div>
+                                <!--<div class="request-ok"></div>-->
+                                <!--<div class="request-no"></div>-->
+                            </div>`;
+    $('.show-add-info').html(html);
+    goStatus(statusText[data.status]['status']);
+}
+
+
+$(document).ready(function(){
+    applyForTrue();
+    maxImg();
+});
