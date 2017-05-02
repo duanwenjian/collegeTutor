@@ -1,6 +1,5 @@
-<?php
+﻿<?php
 	header('Content-Type:application/json;charset=utf-8');
-
 include("connect.php");
 $regtime = time();
 $pager=[
@@ -18,11 +17,9 @@ mysql_query($sql);
 if(mysql_insert_id()){//写入数据库成功，发邮件
     //echo "ok";
     include 'smtp.class.php';
-
     $mailto=$email; 	 //收件人
     $subject="大学生家教网用户激活"; 			 //邮件主题
-    $body="<div style='background-color: #efefef;color: #333;padding: 10px'>亲爱的  <span style='color:#e41;font-weight: bold;'>".$username."</span>：<div style='color: #222'><p style='margin: 0;text-indent: 30px'>您好！</p>感谢您在我站注册了新帐号。<br/>请点击下面链接激活您的帐号。<br/><a href='".$addr."/php/active.php?verify=".$token."' target='_blank'>".$addr."/php/active.php?verify=".$token."</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right;margin: 0'>-------- <a href='".$addr."'>大学生家教网</a>，敬上</p><p style='margin: 0;text-align: right'>请勿直接回复本邮件</p></div></div>";  //邮件内容
-
+    $body="<div style='background-color: rgba(39, 174, 91, 0.3);padding: 10px;font-size: 14px;line-height: 18px'><div style='background-color: #efefef;padding: 6px'><div style='border: 3px solid rgba(39, 174, 91, 0.3);padding: 20px;border-radius: 3px;color: #3a3a3a'><p style='margin: 0;font-size: 20px'>尊敬的用户：<span style='color:rgba(39, 174, 91, 1);font-weight: bold;'>".$username."</span></p><p style='text-indent: 30px;margin: 5px'>您好！</p><div ><p style='margin: 3px'>感谢您使用此邮箱在我站注册了新帐号，请点击下面链接激活您的帐号。</p><p style='margin: 8px;'><a href='".$addr."/php/active.php?verify=".$token."' target='_blank'>".$addr."/php/active.php?verify=".$token."</a></p><p style='margin: 3px'>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。</p><p style='margin: 3px 0 10px 0'>如果此次激活请求非你本人所发，请忽略本邮件。</p><p style='text-align:right;margin: 3px'>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; <a href='".$addr."'>大学生家教网（http://www.veneno.online）</a>，敬上</p><p style='margin: 3px;text-align: right'>请勿直接回复本邮件</p></div></div></div></div>";  //邮件内容
      function sendmailto($mailto, $mailsub, $mailbd, $debug=false) {
         	$smtpserver 	= "smtp.163.com";                //SMTP服务器
         	$smtpserverport = 25;                           //SMTP服务器端口
@@ -35,7 +32,6 @@ if(mysql_insert_id()){//写入数据库成功，发邮件
         	$mailbody       = $mailbd;                       //邮件内容
         	// $mailbody = "=?UTF-8?B?".base64_encode($mailbody)."?="; //防止乱码
         	$mailtype       = "HTML";                        //邮件格式（HTML/TXT）,TXT为文本邮件. 139邮箱的短信提醒要设置为HTML才正常
-
         	/***
         		创建stmp对象
         		参数一是：SMTP服务器
@@ -46,7 +42,6 @@ if(mysql_insert_id()){//写入数据库成功，发邮件
         	**/
         	$smtp           = new smtp($smtpserver, $smtpserverport, $smtpuser, $smtppass, true); //这里面的一个true是表示使用身份验证,否则不使用身份验证.
         	$smtp->debug    = $debug; //是否显示发送的调试信息
-
         	/***
         		调用stmp类里面的sendmail方法
         		参数一是：收件人邮箱帐号
@@ -57,7 +52,6 @@ if(mysql_insert_id()){//写入数据库成功，发邮件
         	***/
         	return $smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
         }
-
     $em = sendmailto($mailto,$subject,$body);
     if($em) {
 		$pager['retCode']=1;

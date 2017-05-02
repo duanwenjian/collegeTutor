@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by Administrator on 2017/3/11.
  */
 /*===========更换背景图片=================*/
@@ -99,7 +99,7 @@ function homeGetHtml(data,push){
                            <div class="card-start start-4"></div>
                            <div class="card-bg"></div>
                            <div class="card-img">
-                               <img src="img/home/teacher/15.jpg" alt=""/>
+                               <img src="${data[i].Headportrait}" alt=""/>
                            </div>
                            <h5>${data[i].username}</h5>
                            <span>${data[i].major}</span>
