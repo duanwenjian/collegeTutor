@@ -3,9 +3,10 @@
  */
 $(document).ready(function(){
     custom.init();
+    updateHeadportrait();
 });
-//var address="http://localhost/dashboard/collegetutor";
-var address="http://www.veneno.online";
+var address="http://localhost/dashboard/collegetutor";
+//var address="http://www.veneno.online";
 
 //定义教师状态码
 const statusText={
@@ -152,7 +153,16 @@ var custom={
         });
     }
 };
-
+/*==============更换头像================*/
+const updateHeadportrait=()=>{
+    var Headportrait=localStorage.getItem('Headportrait');
+    var username=localStorage.getItem('username');
+    //导航栏头像
+    $('.navbar-user-avatar').attr('src',Headportrait);
+    $('.J-user-Headportrait').attr('src',Headportrait);
+    //更换用户名
+    $('.j-username').html(username);
+};
 //获取时间
 function getDate(n){
     var time;

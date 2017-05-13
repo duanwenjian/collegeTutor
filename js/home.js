@@ -21,16 +21,6 @@ $('.main-user-info-btn').click(function(){
     $('.main-user-info').toggleClass('U-active');
 });
 
-/*==============更换头像================*/
-const updateHeadportrait=()=>{
-    var Headportrait=localStorage.getItem('Headportrait');
-    var username=localStorage.getItem('username');
-    //导航栏头像
-    $('.navbar-user-avatar').attr('src',Headportrait);
-    $('.J-user-Headportrait').attr('src',Headportrait);
-    //更换用户名
-    $('.j-username').html(username);
-};
 /*==============表格列显示隐藏==================*/
 const tableShow=()=>{
     $('#table-show input').click(function(){
@@ -58,7 +48,7 @@ const  showColl=(index,css)=>{
 const TearcherList=[];
 //todo:保存当前显示教师
 $(document).ready(function () {
-    updateHeadportrait();
+    //updateHeadportrait();
     tableShow();
     getTeacherList(1);
 });

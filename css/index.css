@@ -265,9 +265,9 @@ body {
   transition: all 0.3s ease-in-out;
 }
 .index .banner > ul.slides > li > .slide-caption > .slide-text > a.btn:hover {
-  color: #fff;
-  background-color: #222;
-  border-color: #222;
+  color: #2d3f49;
+  background-color: #fff;
+  border-color: #fff;
 }
 .index .banner > ul.slides > li > img {
   width: 100%;
@@ -321,4 +321,109 @@ body {
 .index .banner:hover .flex-prev {
   opacity: 1;
   left: 50px;
+}
+.wifi {
+  display: flex;
+}
+.wifi .slide-caption {
+  display: flex;
+  align-items: center;
+  z-index: 50;
+  max-width: 1170px;
+  margin: 0 auto;
+  -webkit-transform: translateX(-18%);
+  -ms-transform: translateX(-18%);
+  transform: translateX(-18%);
+}
+.wifi .slide-caption > .slide-text {
+  float: left;
+  width: 43%;
+  text-align: left;
+  color: #ffffff;
+}
+.wifi .slide-caption > .slide-text > span {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-style: italic;
+  margin-bottom: 14px;
+  display: block;
+}
+.wifi .slide-caption > .slide-text > h2 {
+  font-size: 68px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 1.18;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.wifi .slide-caption > .slide-text > h2:hover {
+  color: #04befc;
+}
+.wifi .slide-caption > .slide-text > p {
+  font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: block;
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 37px;
+}
+.wifi .slide-caption > .slide-text > a.btn {
+  font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-right: 8px;
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  border-radius: 0;
+  width: 130px;
+}
+.wifi .slide-caption > .slide-text > a.btn:last-child {
+  background-color: #04befc;
+  border-color: #04befc;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.wifi .slide-caption > .slide-text > a.btn:hover {
+  color: #2d3f49;
+  background-color: #fff;
+  border-color: #fff;
+}
+.carousel {
+  overflow: hidden;
+}
+.carousel a.left {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+.carousel a.right {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+.carousel:hover a.left {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+}
+.carousel:hover a.right {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
 }
