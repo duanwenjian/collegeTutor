@@ -1,0 +1,172 @@
+@import "master";
+@import "layout";
+
+.teacherInfoShow{
+  width: 1050px;
+
+  //min-height: 600px;
+  background-color: @card-bg;
+  margin: 15px auto 0;
+  padding: 20px;
+  overflow-y: auto;
+  //overflow-x: hidden;
+  .main {
+    color: #405B55;
+    position: relative;
+
+    .main-top {
+      padding-bottom: 10px;
+      //height: 190px;
+      //border-bottom: 1px solid @hui-border;
+      > div {
+        display: inline-block;
+      }
+      > .user-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        > img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      > .user-info {
+        height: 100px;
+        vertical-align: top;
+        padding: 7px 0 0 20px;
+        .user-start{
+          padding: 0;
+          margin: 0;
+          li{
+            list-style: none;
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .main-content {
+      .info-title{
+        color: @green-max;
+        p{
+          margin: 0;
+        }
+        border-bottom: 1px solid @hui-border;
+      }
+      .info-content{
+        padding: 10px;
+        .info-img{
+          display: inline-block;
+          height: 90px;
+          vertical-align: text-top;
+          >img{
+            width: 180px;
+            height: 106px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1.42857143;
+            background-color: #fff;
+            border: 1px solid #efefef;
+            border-radius: 4px;
+            display: inline-block;
+            max-width: 100%;
+            vertical-align: middle;
+          }
+          img+img{
+            margin-left: 20px;
+          }
+        }
+        .waterfall{
+          //height: 145px;
+          //width: 100%;
+          //overflow: auto;
+          ul{
+            padding: 0;
+            margin: 0;
+            -moz-column-count:4; /* Firefox */
+            -webkit-column-count:4; /* Safari 和 Chrome */
+            column-count:4;
+            -moz-column-gap: 3px;
+            -webkit-column-gap: 3px;
+            column-gap: 3px;
+          }
+          .talk-user{
+            //评论列表
+            list-style: none;
+            //display: inline-block;
+            -moz-page-break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+            min-height: 70px;
+            padding: 10px;
+            margin: 3px;
+            width: 235px;
+            cursor: pointer;
+            border:1px solid transparent;
+            //border-radius: 2px;
+            .label{
+              margin-top: 3px;
+            }
+            .left{
+              width: 50px;
+              height: 50px;
+              border-radius: 25px;
+              display: inline-block;
+              vertical-align: top;
+              overflow: hidden;
+              >img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .right{
+              width: 150px;
+              display: inline-block;
+              padding-top: 3px;
+              p{
+                margin-bottom: 3px;
+              }
+            }
+          }
+          .talk-user:hover{
+            border: #ddd solid 1px;
+            box-shadow: 2px 3px 5px #ddd;
+          }
+          .talk-user{
+            background-color:#f8f8f8;
+          }
+        }
+      }
+    }
+    .main-footer{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      background: @card-bg;
+      width: 1050px;
+      .transition(all,300ms,linear);
+      div{
+        padding: 10px 0;
+        button{
+          outline: none;
+        }
+        button+button{
+          margin-left: 40px;
+        }
+      }
+    }
+    .main-footer:hover{
+      .box-show(1px,-1px,20px,1px,#999);
+    }
+  }
+}

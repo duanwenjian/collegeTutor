@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--设置网页到期时间-->
+    <!--<meta http-equiv="expires" content="Fri,12Jan201718:18:18GMT">
+    &lt;!&ndash;禁止缓存&ndash;&gt;
+    <meta http-equiv="Pragma" content="no-cache">
+    &lt;!&ndash;网页过去清除cookie&ndash;&gt;
+    <meta http-equiv="Set-Cookie" content="cookie value=xxx;expires=Friday,12-Jan-201718:18:18GMT；path=/">
+    &lt;!&ndash;防止别人调用&ndash;&gt;
+    <meta http-equiv="Window-target" content="_top">-->
+    <!--显示语言-->
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <!--关键字-->
+    <meta name="keywords" content="大学生家教,家教,大学生,college tutor,college,tutor">
+    <!--告诉搜索引擎网站主要内容-->
+    <meta name="description" content="《大学生家教》网是一个专注于大学生家教的平台，帮助家长更好地找家教">
+    <!--告诉机器人索引-->
+    <meta name="robots" content="all">
+    <!--作者信息-->
+    <meta name="author" content="阿段,www.collegetutor@126.com">
+    <!--信息参数-->
+    <meta name="generator" content="html,css,javaScript,php,mysql"/>
+    <!--版权信息-->
+    <meta name="copyright" content="大学生家教网版权所有">
+    <!--标签logo-->
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
+    <link rel="stylesheet" href="css/teacherInfoShow.css"/>
+    <link rel="stylesheet" href="css/default/font.css"/>
+    <!--<link rel="stylesheet" href="css/imgFile/jquery.filer.css"/>-->
+    <title>教师信息展示 | collegeTutor</title>
+    <!---->
+</head>
+<body>
+<!--加载动画-->
+<div class="loading">
+    <div class="loading-content">
+        <img src="res/loading.svg" alt=""/>
+        <h2>正在加载...</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div id="bg-img" class="bg-img-3"></div>
+    <div class="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!--导航栏顶部-->
+                <div class="navbar-header margin-left15">
+                    <a href="home.html" class="navbar-brand">
+                        <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="home.html">首页</a></li>
+                        <li><a href="#">标签二</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                    </form>
+                    <div class="navbar-right margin-right15">
+                        <ul class="nav navbar-nav">
+                            <li><!--<a href="applyFoTearcher.html">成为教师</a>--></li>
+                            <li class="dropdown">
+                                <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                                        <span class="j-username">
+                                            善良的小孩
+                                        </span>
+                                    <span class="caret"></span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="home.html">主页</a></li>
+                                    <li><a href="#">通知中心</a></li>
+                                    <li><a href="#">账户设置</a></li>
+                                    <li><a href="#">帮助（反馈）</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a class="text-disabled user-exit">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="teacherInfoShow clearfix">
+        <div class="main">
+            <div class="main-top text-left">
+                <div class="user-img">
+                    <img src="img/home/teacher/1.jpg" class="J-user-Headportrait" alt="veneno"/>
+                </div>
+                <div class="user-info">
+                    <h4>我是好孩子</h4>
+                    <h5>dwjwenjian228@qq.com</h5>
+                    <ul class="user-start" data-toggle="tooltip" data-placement="right" title="${data[i].Grade}星级">
+                        <li><img src="img/home/user-start/3.gif" alt=""/></li>
+                        <li><img src="img/home/user-start/3.gif" alt=""/></li>
+                        <li><img src="img/home/user-start/3.gif" alt=""/></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="info-title">
+                    <p>详细资料</p>
+                </div>
+                <div class="info-content">
+                    <div class="row">
+                        <div class="col-sm-6"><p><span>专业：</span><span>软件工程</span></p></div>
+                        <div class="col-sm-6"><p><span>科目：</span><span>语文</span></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><p><span>年级：</span><span>初中</span></p></div>
+                        <div class="col-sm-6"><p><span>价格：</span><span>￥200</span></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"><p><span>备注：</span><span>初中</span></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"><div><span>学生证照片：</span><div class="info-img"><img src="img/home/badges_text.png" alt=""/><img src="img/home/badges_text.png" alt=""/></div></p></div>
+                    </div>
+                </div>
+                <div class="info-title">
+                    <p>历史评论</p>
+                </div>
+                <div class="info-content ">
+                    <div class="waterfall">
+                        <ul>
+                            <li class="talk-user">
+                                <div class="left">
+                                    <img src="img/home/teacher/2.jpg" alt="逊色"/>
+                                </div>
+                                <div class="right">
+                                    <span class="label label-danger pull-right">5星</span>
+                                    <p>花若开</p>
+                                    <span>将不存在</span>
+                                </div>
+                            </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/3.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在定时达大所多</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/1.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在大叔大婶多</span>
+                            </div>
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在段撒大所大所大所大所大所</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存阿斯顿撒在</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/3.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在定时达大所多</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/1.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在大叔大婶多</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存在段撒大所大所大所大所大所</span>
+                            </div>
+
+                        </li><li class="talk-user">
+                            <div class="left">
+                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
+                            </div>
+                            <div class="right">
+                                <span class="label label-danger pull-right">5星</span>
+                                <p>花若开</p>
+                                <span>将不存阿斯顿撒在</span>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                </div>
+            <div class="main-footer">
+                <div>
+                    <button class="btn btn-info">联系教师</button>
+                    <button class="btn btn-success">聘请教师</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="newMessage">
+    <div class="alert alert-default alert-dismissible" role="alert">
+        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+        <strong>用户三：</strong> 您好张老师
+    </div>
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+        <strong>用户三：</strong> 您好张老师
+    </div>
+    <div class="alert alert-default alert-dismissible" role="alert">
+        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+        <strong>用户三：</strong> 您好张老师
+    </div>
+    <div class="alert alert-default alert-dismissible" role="alert">
+        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+        <strong>用户三：</strong> 您好张老师
+    </div>
+    <div class="alert alert-default alert-dismissible" role="alert">
+        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+        <strong>用户三：</strong> 您好张老师
+    </div>
+    <div class="alert alert-default alert-dismissible" role="alert">
+        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+        <strong>用户三：</strong> 您好张老师
+    </div>
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">学生证照片</h4>
+            </div>
+            <div class="modal-body">
+                <div class="show-img">
+                    <img src="img/home/bg_1.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/date/pikaday.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<script src="js/default.js"></script>
+<script src="js/teacherInfoShow.js" type="text/javascript"></script>
+<script>
+    var h=$('#bg-img')[0].scrollHeight-70;
+    $('.teacherInfoShow').css('height',h);
+</script>
+</body>
+</html>

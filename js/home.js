@@ -83,21 +83,32 @@ function homeGetHtml(data,push){
         if(push){
             TearcherList.push(data[i]);
         }
+        var startNum='';
+        for(var j=0;j<data[i].Grade;j++){
+            startNum+='<li><img src="img/home/user-start/3.gif" alt="1星级"/></li>';
+        }
         html+=`<div class="pull-left">
                    <div class="card">
+                   <a href="teacherInfoShow.html?userID=${data[i].id}">
                        <div class="card-content">
                            <div class="card-start start-4"></div>
                            <div class="card-bg"></div>
                            <div class="card-img">
-                               <img src="${data[i].Headportrait}" alt=""/>
+                               <img src="${data[i].Headportrait}" alt="${data[i].username}"/>
                            </div>
+                           <ul class="card-start" data-toggle="tooltip" data-placement="right" title="${data[i].Grade}星级">
+                           ${startNum}
+                            </ul>
                            <h5>${data[i].username}</h5>
                            <span>${data[i].major}</span>
                            <div class="card-money">
                                <span>￥${data[i].Price}</span>
                            </div>
-                           <a href="#" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>
+                           <!--<a href="teacherInfoShow.html?userID=${data[i].id}" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>-->
                        </div>
+                       <div class="card-footer">
+                       </div>
+                   </a>
                    </div>
                </div>`;
     }

@@ -120,6 +120,20 @@ input[type='file'] {
   top: -9999px;
   z-index: -9999;
 }
+.newMessage {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 1000;
+}
+.newMessage .alert {
+  margin-bottom: 5px;
+  width: 300px;
+  overflow: hidden;
+}
+.newMessage .alert-default {
+  background-color: #fff;
+}
 body {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
