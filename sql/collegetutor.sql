@@ -155,7 +155,8 @@ CREATE TABLE `CT_user_deal` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '唯一id',
   `relation_id` int(11) NOT NULL COMMENT '好友关系表外键id',
 
-  `regtime` int(10) NOT NULL COMMENT '发送时间',
+  `regtime` int(10) NOT NULL COMMENT '发起时间',
+  `status` int(2) NOT NULL COMMENT '交易状态 0：尚未开始交易 1：正在交易',
 
   --设置外键
   foreign key(relation_id) references CT_user_relation(id)
@@ -179,7 +180,21 @@ CREATE TABLE `CT_user_feedback` (
 --
 -- Indexes for dumped tables
 --
+--教师评价表
+CREATE TABLE `CT_teacher_evaluate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '唯一id',
+  `from_user_id` int(11) NOT NULL COMMENT '评论人外键id',
+  `to_teacher_id` int(11) NOT NULL COMMENT '被评论教师外键id',
+  `content` TEXT NOT NULL COMMENT '评论内容',
+  `talkGrade` int(2) NOT NULL COMMENT '被评论教师外键id',
+  `talkLike` int(11) NOT NULL COMMENT '点赞数量',
 
+  `regtime` int(10) NOT NULL COMMENT '评论时间',
+
+  --设置外键
+  foreign key(from_user_id) references CT_user(id),
+  foreign key(to_teacher_id) references ct_user_teacher(id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 --
 -- Indexes for table `t_user`
 --

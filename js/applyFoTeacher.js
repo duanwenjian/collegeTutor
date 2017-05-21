@@ -20,6 +20,7 @@ function uploadFile(){
     formData.append("birth",TeacherInfo.info.birth);
     formData.append("sex",TeacherInfo.info.sex);
     formData.append("remarks",TeacherInfo.info.Remarks);
+    formData.append("major",TeacherInfo.info.rank);
     //console.dir(formData);
 
     return formData;
@@ -121,10 +122,14 @@ function onprogress(evt){
     var loaded = evt.loaded;     //已经上传大小情况
     var tot = evt.total;      //附件总大小
     var per = Math.floor(100*loaded/tot);  //已经上传的百分比
-    if(per<=50){
-        $('#j-user-img>li:first-child>span').css('width',per*2+'%');
+    if($('#j-user-img>li').length>1) {
+        if (per <= 50) {
+            $('#j-user-img>li:first-child>span').css('width', per * 2 + '%');
+        } else {
+            $('#j-user-img>li:last-child>span').css('width', (per - 50) * 2 + '%');
+        }
     }else{
-        $('#j-user-img>li:last-child>span').css('width',(per-50)*2+'%');
+        $('#j-user-img>li:first-child>span').css('width', per + '%');
     }
 
 }
@@ -181,7 +186,7 @@ $('.pager').on('click','.next',function(){
 var TeacherInfo={
     info:{
         "sex":"男",
-        "Grade":1,
+        "rank":1,
         "Subject":"语文教师"
     },
     init:function(){
@@ -252,7 +257,7 @@ const nextPageInfo={
                             </div>
                             <div class="row">
                                 <div class="col-sm-6"><p><span>专业：</span><span>${this.date.textDate.major}</span></p></div>
-                                <div class="col-sm-6"><p><span>等级：</span><span>${this.date.textDate.Grade}</span></p></div>
+                                <div class="col-sm-6"><p><span>授课对象：</span><span>${this.date.textDate.Grade}</span></p></div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6"><p><span>科目：</span><span>${this.date.textDate.Subject}</span></p></div>
@@ -280,7 +285,7 @@ const nextPageInfo={
                                     <p><span>状态：</span><span class="text-info">审核中</span></p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p><span>原因：</span><span class="text-danger">照片不规范</span></p>
+                                    <p><span>原因：</span><span class="text-danger">无</span></p>
                                 </div>
                             </div>
                             <div class="admin-request">
@@ -349,7 +354,7 @@ function updateHtml(data){
                             </div>
                             <div class="row">
                                 <div class="col-sm-6"><p><span>专业：</span><span>${data.major}</span></p></div>
-                                <div class="col-sm-6"><p><span>等级：</span><span>${data.Grade}</span></p></div>
+                                <div class="col-sm-6"><p><span>授课年级：</span><span>${data.Grade}</span></p></div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6"><p><span>科目：</span><span>${data.Subject}</span></p></div>

@@ -2,11 +2,11 @@
 	header('Content-Type:application/json;charset=utf-8');
 include("connect.php");
 $regtime = time();
-$pager=[
+$pager=array(
 		'retCode'=>null,//状态码
 		'retMsg'=>null,//状态原因
 		'time'=>$regtime
-	];
+	);
 $username = stripslashes(trim($_POST['username']));
 $password = md5(trim($_POST['pwd']));
 $email = trim($_POST['email']);
@@ -19,7 +19,7 @@ if(mysql_insert_id()){//写入数据库成功，发邮件
     include 'smtp.class.php';
     $mailto=$email; 	 //收件人
     $subject="大学生家教网用户激活"; 			 //邮件主题
-    $body="<div style='background-color: rgba(39, 174, 91, 0.3);padding: 10px;font-size: 14px;line-height: 18px'><div style='background-color: #efefef;padding: 6px'><div style='border: 3px solid rgba(39, 174, 91, 0.3);padding: 20px;border-radius: 3px;color: #3a3a3a'><p style='margin: 0;font-size: 20px'>尊敬的用户：<span style='color:rgba(39, 174, 91, 1);font-weight: bold;'>".$username."</span></p><p style='text-indent: 30px;margin: 5px'>您好！</p><div ><p style='margin: 3px'>感谢您使用此邮箱在我站注册了新帐号，请点击下面链接激活您的帐号。</p><p style='margin: 8px;'><a href='".$addr."/php/active.php?verify=".$token."' target='_blank'>".$addr."/php/active.php?verify=".$token."</a></p><p style='margin: 3px'>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。</p><p style='margin: 3px 0 10px 0'>如果此次激活请求非你本人所发，请忽略本邮件。</p><p style='text-align:right;margin: 3px'>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; <a href='".$addr."'>大学生家教网（http://www.veneno.online）</a>，敬上</p><p style='margin: 3px;text-align: right'>请勿直接回复本邮件</p></div></div></div></div>";  //邮件内容
+    $body="<div style='background-color: rgba(39, 174, 91, 0.3);padding: 10px;font-size: 14px;line-height: 18px'><div style='background-color: #efefef;padding: 6px'><div style='border: 3px solid rgba(39, 174, 91, 0.3);padding: 20px;border-radius: 3px;color: #3a3a3a'><p style='margin: 0;font-size: 20px'>尊敬的用户：<span style='color:rgba(39, 174, 91, 1);font-weight: bold;'>".$username."</span></p><p style='text-indent: 30px;margin: 5px'>您好！</p><div ><p style='margin: 3px'>感谢您使用此邮箱在我站注册了新帐号，请点击下面链接激活您的帐号。</p><p style='margin: 8px;'><a href='".$addr."/php/active.php?verify=".$token."' target='_blank'>".$addr."/php/active.php?verify=".$token."</a></p><p style='margin: 3px'>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。</p><p style='margin: 3px 0 10px 0'>如果此次激活请求非你本人所发，请忽略本邮件。</p><p style='text-align:right;margin: 3px'>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; <a href='".$addr."'>大学生家教网 敬上</p><p style='margin: 3px;text-align: right'>请勿直接回复本邮件</p></div></div></div></div>";  //邮件内容
      function sendmailto($mailto, $mailsub, $mailbd, $debug=false) {
         	$smtpserver 	= "smtp.163.com";                //SMTP服务器
         	$smtpserverport = 25;                           //SMTP服务器端口

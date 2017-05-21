@@ -84,7 +84,7 @@ function homeGetHtml(data,push){
             TearcherList.push(data[i]);
         }
         var startNum='';
-        for(var j=0;j<data[i].Grade;j++){
+        for(var j=0;j<data[i].rank;j++){
             startNum+='<li><img src="img/home/user-start/3.gif" alt="1星级"/></li>';
         }
         html+=`<div class="pull-left">

@@ -5,9 +5,9 @@ $(document).ready(function(){
     custom.init();
     updateHeadportrait();
 });
-var address="http://localhost/dashboard/collegetutor";
-//var address="http://www.veneno.online";
-
+//var address="http://localhost/dashboard/collegetutor";
+var address="https://www.collegetutor.cn";
+//
 //定义教师状态码
 const statusText={
     '0':{
@@ -179,4 +179,69 @@ function getDate(n){
     var M = time.getMinutes();
     var s = time.getSeconds();
     return y + '-' + ((m < 10) ? ('0' + m) : m) + '-' + ((d < 10) ? ('0' + d) : d) + ' ' + h + ':' + ((M < 10) ? ('0' + M) : M) + ':' + ((s < 10) ? ('0' + s) : s);
+}
+
+//获取地址栏参数
+function getUrlParam(name)
+{
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r!=null) return unescape(r[2]); return null; //返回参数值
+}
+
+//消息
+var goEasy = new GoEasy({
+    appkey: 'BC-d2d2b974b32847e3bb7bd70b76bf0837'
+});
+//发送消息
+function userSendMessage(data,callback){
+    $.ajax({
+        type: 'POST',
+        url: 'php/sendMessage.php',
+        data: data,
+        dataType: 'json',
+        success: function(data){
+            if(data.code==200){
+                (typeof callback==='function')?callback():"";
+            }
+        },
+        error:function(){
+            console.log('message send error');
+        }
+    });
+}
+goEasy.subscribe({
+    channel: 'collegeTutor'+localStorage.getItem('userID'),
+    onMessage: function(message) {
+        var data = JSON.parse(message.content);
+        console.dir(data);
+        if (data.type == 'text') {
+            var meg=`<div class="alert alert-default alert-dismissible" role="alert">
+                        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+                        <strong>${data.fromUserName}</strong> ${data.msg}
+                    </div>`;
+            $('.newMessage').append(meg);
+        }
+        if (data.type == 'apply'){
+        }
+    }
+});
+
+function messageClose(){
+    var timer=setInterval(function(){
+        $('.newMessage').find('div.hide-alert').remove();
+        if($('.newMessage').find('div.alert:nth-child(1)').length==0){
+            clearInterval(timer);
+            return;
+        }
+        $('.newMessage').find('div.alert:nth-child(1)').addClass('hide-alert');
+    },1500);
+}
+goEasy.subscribe({
+    channel: 'collegeTutorAllUser',
+    onMessage: function(message){
+        //系统消息
+    }
+});
+function userGetMessage(userID,callback){
 }

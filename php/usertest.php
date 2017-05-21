@@ -6,11 +6,11 @@
 	$query = mysql_query("select id from CT_user where username='$username'");
 	$num = mysql_num_rows($query);
 	$regtime = time();
-	$pager=[
+	$pager=array(
 			'retCode'=>null,//状态码
 			'retMsg'=>null,//状态信息
 			'time'=>$regtime
-		];
+		);
 	if($num==1){
 	$pager['retCode']=0;
 	$pager['retMsg']='该用户名已存在';

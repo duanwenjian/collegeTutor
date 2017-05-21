@@ -7,12 +7,12 @@
     $email=$_GET['email'];
     $pwd=md5(trim($_GET['pwd']));
 
-    $pager=[
+    $pager=array(
     		'retCode'=>null,//状态码
     		'retMsg'=>null,//状态原因
     		'userinfo'=>null,//用户信息
     		'time'=>$regtime
-    	];
+    	);
 
     $sql="select * from CT_user where email='$email' and password='$pwd'";
     $res=mysql_query($sql);
@@ -26,14 +26,14 @@
             echo json_encode($pager);
         }else{
 
-            $userinfo=[
+            $userinfo=array(
                     'userID'=>$row['id'],//用户id
             		'email'=>$row['email'],//邮箱
             		'password'=>$row['password'],//密码
             		'regtime'=>$row['regtime'],//注册时间
             		'username'=>$row['username'],//用户名
             		'Headportrait'=>$row['Headportrait']//头像位置
-            	];
+            	);
             $pager['retCode']=1;
             $pager['retMsg']='登录成功';
             $pager['userinfo']=$userinfo;

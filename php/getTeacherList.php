@@ -1,25 +1,25 @@
-<?php
+﻿<?php
 	header('Content-Type:application/json;charset=utf-8');
 
 	include("connect.php");
 
 	$pageNum=$_GET['pageNum'];
 
-	$returnInfo=[
+	$returnInfo=array(
 	    'retCode'=>null,
 	    'retMsg'=>null,
 	    'time'=>$regtime,
 	    'retData'=>null
-	];
+	);
 
 	// 向客户端输出的数据
-	$pager=[
+	$pager=array(
 		'recordCount'=>0,//总记录数
 		'pageSize'=>15,//页面大小
 		'pageCount'=>0,//总页数
 		'pageNum'=>intval($pageNum),//当前页号
 		'data'=>null//当前页的数据
-	];
+	);
 
 	// 获取总记录数
 	$sql2="SELECT COUNT(*) as count FROM `ct_user_teacher` WHERE status=0";
@@ -38,7 +38,7 @@
 	// echo $start;
 	// echo $count;
 	//当前页的数据
-	$sql3="SELECT ct_user_teacher.id,ct_user.username,ct_user.id, ct_user_teacher.major, ct_user_teacher.Price, ct_user_teacher.Grade, ct_user_teacher.Subject, ct_user_teacher.birth, ct_user_teacher.sex, ct_user_teacher.regtime, ct_user_teacher.Remarks,ct_user.Headportrait FROM `ct_user_teacher` ,`ct_user` WHERE ct_user_teacher.user_id=ct_user.id AND ct_user_teacher.status=0  ORDER BY ct_user_teacher.id LIMIT $start,$count";
+	$sql3="SELECT ct_user_teacher.id,ct_user.username, ct_user_teacher.major, ct_user_teacher.Price,ct_user_teacher.rank, ct_user_teacher.Grade, ct_user_teacher.Subject, ct_user_teacher.birth, ct_user_teacher.sex, ct_user_teacher.regtime, ct_user_teacher.Remarks,ct_user.Headportrait FROM `ct_user_teacher` ,`ct_user` WHERE ct_user_teacher.user_id=ct_user.id AND ct_user_teacher.status=0  ORDER BY ct_user_teacher.id LIMIT $start,$count";
 
 	$res3=mysqli_query($linki,$sql3);
 

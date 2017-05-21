@@ -93,18 +93,14 @@
     </div>
     <div class="teacherInfoShow clearfix">
         <div class="main">
-            <div class="main-top text-left">
+            <div class="main-top text-left" id="userid">
                 <div class="user-img">
                     <img src="img/home/teacher/1.jpg" class="J-user-Headportrait" alt="veneno"/>
                 </div>
-                <div class="user-info">
-                    <h4>我是好孩子</h4>
-                    <h5>dwjwenjian228@qq.com</h5>
-                    <ul class="user-start" data-toggle="tooltip" data-placement="right" title="${data[i].Grade}星级">
-                        <li><img src="img/home/user-start/3.gif" alt=""/></li>
-                        <li><img src="img/home/user-start/3.gif" alt=""/></li>
-                        <li><img src="img/home/user-start/3.gif" alt=""/></li>
-                    </ul>
+                <div class="user-info" id="teacher-info">
+                    <h4 data-bind="username">我是好孩子</h4>
+                    <h5 data-bind="email">dwjwenjian228@qq.com</h5>
+
                 </div>
             </div>
             <div class="main-content">
@@ -113,18 +109,18 @@
                 </div>
                 <div class="info-content">
                     <div class="row">
-                        <div class="col-sm-6"><p><span>专业：</span><span>软件工程</span></p></div>
-                        <div class="col-sm-6"><p><span>科目：</span><span>语文</span></p></div>
+                        <div class="col-sm-6"><p><span>专业：</span><span data-bind="major">软件工程</span></p></div>
+                        <div class="col-sm-6"><p><span>科目：</span><span data-bind="Subject">语文</span></p></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6"><p><span>年级：</span><span>初中</span></p></div>
-                        <div class="col-sm-6"><p><span>价格：</span><span>￥200</span></p></div>
+                        <div class="col-sm-6"><p><span>教授年级：</span><span data-bind="Grade">初中</span></p></div>
+                        <div class="col-sm-6"><p><span>价格：</span><span>￥<b data-bind="Price">200</b></span></p></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"><p><span>备注：</span><span>初中</span></p></div>
+                        <div class="col-sm-12"><p><span>备注：</span><span data-bind="Remarks">初中</span></p></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"><div><span>学生证照片：</span><div class="info-img"><img src="img/home/badges_text.png" alt=""/><img src="img/home/badges_text.png" alt=""/></div></p></div>
+                        <div class="col-sm-12"><div><span>学生证照片：</span><div class="info-img j-max-img" data-bind="cardAddress"><img src="img/home/badges_text.png" data-toggle="modal" data-target=".bs-example-modal-lg"  alt=""/><img src="img/home/badges_text.png" data-toggle="modal" data-target=".bs-example-modal-lg" alt=""/></div></p></div>
                     </div>
                 </div>
                 <div class="info-title">
@@ -132,114 +128,18 @@
                 </div>
                 <div class="info-content ">
                     <div class="waterfall">
-                        <ul>
-                            <li class="talk-user">
-                                <div class="left">
-                                    <img src="img/home/teacher/2.jpg" alt="逊色"/>
-                                </div>
-                                <div class="right">
-                                    <span class="label label-danger pull-right">5星</span>
-                                    <p>花若开</p>
-                                    <span>将不存在</span>
-                                </div>
-                            </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/3.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在定时达大所多</span>
-                            </div>
+                        <ul id="teacherTalkList">
 
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/1.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在大叔大婶多</span>
-                            </div>
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在段撒大所大所大所大所大所</span>
-                            </div>
-
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存阿斯顿撒在</span>
-                            </div>
-
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在</span>
-                            </div>
-
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/3.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在定时达大所多</span>
-                            </div>
-
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/1.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在大叔大婶多</span>
-                            </div>
-
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存在段撒大所大所大所大所大所</span>
-                            </div>
-
-                        </li><li class="talk-user">
-                            <div class="left">
-                                <img src="img/home/teacher/2.jpg" alt="逊色"/>
-                            </div>
-                            <div class="right">
-                                <span class="label label-danger pull-right">5星</span>
-                                <p>花若开</p>
-                                <span>将不存阿斯顿撒在</span>
-                            </div>
-                        </li>
                         </ul>
                     </div>
                 </div>
             </div>
                 </div>
             <div class="main-footer">
-                <div>
-                    <button class="btn btn-info">联系教师</button>
-                    <button class="btn btn-success">聘请教师</button>
+                <!--<p><span class="glyphicon glyphicon-chevron-down j-mainfooter-down"></span></p>-->
+                <div class="j-next-info">
+                    <button class="btn btn-info ">联系教师</button>
+                    <button class="btn btn-success" id="applyTeacher" data-toggle="modal" data-target=".bs-example-modal-sm">聘请教师</button>
                 </div>
             </div>
         </div>
@@ -247,7 +147,7 @@
 </div>
 
 <div class="newMessage">
-    <div class="alert alert-default alert-dismissible" role="alert">
+    <!--<div class="alert alert-default alert-dismissible" role="alert">
         <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
         <strong>用户三：</strong> 您好张老师
     </div>
@@ -266,11 +166,8 @@
     <div class="alert alert-default alert-dismissible" role="alert">
         <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
         <strong>用户三：</strong> 您好张老师
-    </div>
-    <div class="alert alert-default alert-dismissible" role="alert">
-        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
-        <strong>用户三：</strong> 您好张老师
-    </div>
+    </div>-->
+
 </div>
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -287,7 +184,23 @@
         </div>
     </div>
 </div>
+<div class="modal fade bs-example-modal-sm" id="message-push" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document" style="margin-top: 250px">
+        <div class="modal-content text-center" style="height: 100px;padding: 20px">
+            <div class="teacherShow-preloaders text-center">
+                <div class="preloader preloader-green preloader-sm">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20"></circle>
+                    </svg>
+                </div>
+            </div>
+            <p style="" class="j-message">正在发送请求...</p>
+        </div>
+    </div>
+</div>
+
 <script src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="http://cdn.goeasy.io/goeasy.js"></script>
 <script src="js/date/pikaday.min.js"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
 
@@ -296,6 +209,18 @@
 <script>
     var h=$('#bg-img')[0].scrollHeight-70;
     $('.teacherInfoShow').css('height',h);
+
+    /*$('body').on('click','.j-next-info',function(){
+        $('.main-footer').css('height',h+10);
+        $('.main-footer').html('<p><span class="glyphicon glyphicon-chevron-down j-mainfooter-down"></span></p>');
+    });
+    $('body').on('click','.j-mainfooter-down',function(){
+        $('.main-footer').css('height',54);
+        $('.main-footer').html(`<div class="j-next-info">
+        <button class="btn btn-info ">联系教师</button>
+        <button class="btn btn-success">聘请教师</button>
+        </div>`);
+    });*/
 </script>
 </body>
 </html>

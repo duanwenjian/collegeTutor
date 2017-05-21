@@ -11,6 +11,15 @@ header("Content-Type: text/html; charset=utf-8");	//设置网页编码
 date_default_timezone_set($timezone);               //北京时间
 $regtime =time();                                  //当前时间戳
 $addr="localhost";                   //配置用户名地址
-//$addr="http://www.veneno.online";
+//$addr="https://www.collegetutor.cn";
 @$linki=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
 mysqli_set_charset($linki,'utf8');//设置musqli编码
+
+/*
+function mysqli_fetch_all($result){
+    $posts = array();
+    while($row = mysqli_fetch_array($result)) {
+        $posts[] = $row;
+    }
+    return $posts;
+}*/

@@ -1,12 +1,12 @@
 <?php
 	header('Content-Type:application/json;charset=utf-8');
     include("connect.php");
-    $pager=[
+    $pager=array(
 		'retCode'=>null,//状态码
 		'retMsg'=>null,//状态信息
 		'retSrc'=>null,//图片路径
 		'time'=>$regtime
-	];
+	);
 	if(isset($_FILES["myfile"])||isset($_FILES["myfile1"])){
 	    if(isset($_FILES["myfile"])){//检查myfile的值是否为空
             $ret = array();
@@ -24,7 +24,8 @@
             */
             if(!is_array($_FILES["myfile"]["name"])) //single file
             {
-                $fileName = time().uniqid().'.'.pathinfo($_FILES["myfile"]["name"])['extension'];
+                $fileName_s = pathinfo($_FILES["myfile"]["name"]);
+                $fileName=time().uniqid().'.'.$fileName_s['extension'];
                 //时间戳 + 计算当前时间，生成一个唯一的ID + . +
                 /*
                  pathinfo(path,options)  函数以数组或字符串的形式返回关于文件路径的信息。
@@ -56,7 +57,8 @@
             */
             if(!is_array($_FILES["myfile1"]["name"])) //single file
             {
-                $fileName1 = time().uniqid().'.'.pathinfo($_FILES["myfile1"]["name"])['extension'];
+                $fileName1_s = pathinfo($_FILES["myfile1"]["name"]);
+                $fileName1=time().uniqid().'.'.$fileName1_s['extension'];
                 //时间戳 + 计算当前时间，生成一个唯一的ID + . +
                 /*
                  pathinfo(path,options)  函数以数组或字符串的形式返回关于文件路径的信息。
