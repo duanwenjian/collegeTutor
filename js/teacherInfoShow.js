@@ -47,6 +47,7 @@ function getHtml(date){
         $('*[data-bind='+i+']').html(date.teacherInfo[i]);
     }
     $('#userid').attr('data-userid',date.teacherInfo.id);
+    $('#userid').attr('data-username',date.teacherInfo.username);
     var htmls='';
     for(var j=0;j<date.talkInfoList.length;j++){
         htmls+=`<li class="talk-user">
@@ -76,13 +77,20 @@ $('#applyTeacher').click(function(){
     var msg={
         'fromUserID':localStorage.getItem('userID'),
         'toUserID':$('#userid').attr('data-userid'),
-        'msg':'吃饭了么',
-        'type':'text'
+        'msg':'我要聘请您',
+        'type':'apply'
     };
     userSendMessage(msg,function(){
         $('.j-message').html('聘请请求已发送');
         setTimeout(function(){
             $('#message-push').modal('hide');
-        },2000);
+            $('.j-message').html('正在发送请求');
+        },1000);
     });
+});
+
+$('body').on('click','#j-addTo-teacher',function(){
+    getMessagePanel();
+    $("#messagePanel")[0].contentWindow.username=$('#userid').attr('data-username');
+    //$('#messagePanel').contents().find('#search__input').val();
 });

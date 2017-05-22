@@ -87,7 +87,7 @@ function homeGetHtml(data,push){
         for(var j=0;j<data[i].rank;j++){
             startNum+='<li><img src="img/home/user-start/3.gif" alt="1星级"/></li>';
         }
-        html+=`<div class="pull-left">
+        html+=`<div class="pull-left animated fadeInUp">
                    <div class="card">
                    <a href="teacherInfoShow.html?userID=${data[i].id}">
                        <div class="card-content">

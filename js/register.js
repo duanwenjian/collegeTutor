@@ -50,16 +50,18 @@ var register={
         },
         pwdTest:function(){
             /*密码格式验证*/
-            $('#register-pwd').blur(function(){
+            $('#register-pwd').bind('input propertychange',function(){
                 register.userInfo.pwd=$.trim($(this).val());
                 if(register.userInfo.pwd.toString().length>16){
                     $(this).parent().removeClass('info-ok').addClass('info-error');
                     $(this).parent().find('.r-info').html('密码太长').css('opacity',1);
                     $(this).parent().find('.glyphicon').removeClass('glyphicon-ok text-success').addClass('glyphicon-remove text-danger');
+                    return false;
                 }else if(register.userInfo.pwd.toString().length==0){
                     $(this).parent().removeClass('info-ok').addClass('info-error');
                     $(this).parent().find('.r-info').html('密码不能为空').css('opacity',1);
                     $(this).parent().find('.glyphicon').removeClass('glyphicon-ok text-success').addClass('glyphicon-remove text-danger');
+                    return false;
                 }else{
                     $(this).parent().removeClass('info-error').addClass('info-ok');
                     $(this).parent().find('.r-info').html('').css('opacity',0);
@@ -110,7 +112,8 @@ var register={
         },
         registerBtn:function(){
             $('#register-btn').click(function(){
-                if(register.userInfo.value!=6){
+                //register.pwdTest();
+                if(register.userInfo.value<6){
                     alert("请正确填写注册信息");
                     return;
                 }else{

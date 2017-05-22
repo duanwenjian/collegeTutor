@@ -204,6 +204,15 @@ function userSendMessage(data,callback){
             if(data.code==200){
                 (typeof callback==='function')?callback():"";
             }
+            if(data.retCode==0){
+                (typeof callback==='function')?callback():"";
+                var meg=`<div class="alert alert-default alert-dismissible" role="alert">
+                        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+                        <strong>系统消息</strong> ${data.retMsg}
+                    </div>`;
+                $('.newMessage').append(meg);
+                messageClose();
+            }
         },
         error:function(){
             console.log('message send error');
@@ -214,13 +223,14 @@ goEasy.subscribe({
     channel: 'collegeTutor'+localStorage.getItem('userID'),
     onMessage: function(message) {
         var data = JSON.parse(message.content);
-        console.dir(data);
+        //console.dir(data);
         if (data.type == 'text') {
             var meg=`<div class="alert alert-default alert-dismissible" role="alert">
                         <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
                         <strong>${data.fromUserName}</strong> ${data.msg}
                     </div>`;
             $('.newMessage').append(meg);
+            messageClose();
         }
         if (data.type == 'apply'){
         }
@@ -245,3 +255,37 @@ goEasy.subscribe({
 });
 function userGetMessage(userID,callback){
 }
+
+
+//呼出消息界面
+
+function getMessagePanel(){
+    var messagePanel=document.createElement('div');
+    messagePanel.className='messagePanel';
+    try{
+        var iframe = document.createElement('<iframe scrolling="no" id="messagePanel" name="messageIframe" src="message/index.html"></iframe>');
+    }catch(e){
+        var iframe = document.createElement('iframe');
+        iframe.src = 'message/index.html';
+        iframe.name="messageIframe";
+        iframe.id='messagePanel';
+        iframe.scrolling='no';
+    }
+    messagePanel.appendChild(iframe);
+    document.body.appendChild(messagePanel);
+}
+
+function messagePanelOut(){
+    $('.messagePanel').addClass('messagePanelOut');
+    setTimeout(function(){
+        try {
+            $('.messagePanel').remove();
+        }catch(e){
+            $('.messagePanel').css('display','none');
+        }
+    },200);
+};
+
+$('.messagePanelIn').click(function(){
+    getMessagePanel();
+});
