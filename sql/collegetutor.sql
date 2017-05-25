@@ -154,7 +154,15 @@ CREATE TABLE `CT_user_chat` (
 CREATE TABLE `CT_user_deal` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '唯一id',
   `relation_id` int(11) NOT NULL COMMENT '好友关系表外键id',
-
+  `startTime` int(11) NOT NULL COMMENT '开始时间',
+  `endTime` int(11) NOT NULL COMMENT '结束时间',
+  `dayTime` int(4) NOT NULL COMMENT '每天上课时间',
+  `price` int(10) NOT NULL COMMENT '课时费',
+  `week` varchar(32) NOT NULL COMMENT '每周上课时间',
+  `ranks` text NOT NULL COMMENT '备注',
+  `teacherType` varchar(32) NOT NULL COMMENT '教学方式',
+  `payType` varchar(32) NOT NULL COMMENT '付款方式',
+  `address` text NOT NULL COMMENT '上门辅导地址',
   `regtime` int(10) NOT NULL COMMENT '发起时间',
   `status` int(2) NOT NULL COMMENT '交易状态 0：尚未开始交易 1：正在交易',
 

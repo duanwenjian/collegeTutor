@@ -78,7 +78,7 @@ function getTeacherList(page){
 }
 
 function homeGetHtml(data,push){
-    var html='';
+    var html=[];
     for(var i=0;i<data.length;i++){
         if(push){
             TearcherList.push(data[i]);
@@ -87,7 +87,17 @@ function homeGetHtml(data,push){
         for(var j=0;j<data[i].rank;j++){
             startNum+='<li><img src="img/home/user-start/3.gif" alt="1星级"/></li>';
         }
-        html+=`<div class="pull-left animated fadeInUp">
+        /*animated
+        zoomInUp
+        animated
+        zoomInUp
+        animated
+        zoomInUp
+        animated
+        zoomInUp
+        animated
+        zoomInUp*/
+        html.push(`<div class="pull-left animated zoomInUp">
                    <div class="card">
                    <a href="teacherInfoShow.html?userID=${data[i].id}">
                        <div class="card-content">
@@ -110,9 +120,15 @@ function homeGetHtml(data,push){
                        </div>
                    </a>
                    </div>
-               </div>`;
+               </div>`);
     }
-    $('.teacherShow-main').html(html);
+    $('.teacherShow-main').html('');
+    var timer=setInterval(function(){
+        animationHtml(html,'.teacherShow-main',timer,function(){
+            $('.teacherShow-main .pull-left').removeClass('animated zoomInUp');
+        },true);
+    },200);
+    //animationHtml(html,'.teacherShow-main',timer);
 }
 
 
@@ -127,4 +143,96 @@ $('.j-prace-desc').click(function(e){
         homeGetHtml(TearcherList,false);
         $(this).find('.glyphicon').removeClass('glyphicon-arrow-up').addClass('glyphicon-arrow-down');
     }
+});
+
+$('.j-start-desc').click(function(e){
+    e.preventDefault();
+    if($(this).find('.glyphicon-arrow-down').length==1){
+        TearcherList.sort(function(a,b){return b.rank-a.rank});
+        homeGetHtml(TearcherList,false);
+        $(this).find('.glyphicon').removeClass('glyphicon-arrow-down').addClass('glyphicon-arrow-up');
+    }else{
+        TearcherList.sort(function(a,b){return a.rank-b.rank});
+        homeGetHtml(TearcherList,false);
+        $(this).find('.glyphicon').removeClass('glyphicon-arrow-up').addClass('glyphicon-arrow-down');
+    }
+});
+
+
+//招聘页面信息
+function getRecruitInfo(num){
+    var obj={
+        'pageNum':num
+    }
+    $.ajax({
+        url:'php/getRecruitInfoList.php',
+        type:'GET',
+        data:obj,
+        dataType:'JSON',
+        success:function(data){
+            if(data.retCode==0){
+                getRecruitHtml(data.retData);
+            }
+        },
+        error:function(){}
+    });
+}
+function getRecruitHtml(data){
+    var date=data.data;
+    var html='';
+    for(var h=0;h<date.length;h++){
+        html+=`<tr>
+                  <td>${date[h].major}</td>
+                  <td>${date[h].Price}/小时</td>
+                  <td>${date[h].Subject}</td>
+                  <td>${date[h].sex}童鞋</td>
+                  <td>${date[h].Remarks}</td>
+               </tr>`;
+    }
+    $('#show-table-recruit tbody').html(html);
+
+    var page='';
+    if(data.pageNum>1) {
+        page += `<li>
+               <span aria-label="Previous">
+                   <span aria-hidden="true">&laquo;</span>
+               </span>
+           </li>`
+    }
+    if(data.pageNum-1>0){
+        page+=`<li><span class="pageNumber">${data.pageNum-1}</span></li>`
+    }
+    if(data.pageNum-2>0){
+        page+=`<li><span class="pageNumber">${data.pageNum-2}</span></li>`
+    }
+    //if(data.pageNum!=data.pageCount){
+        page+=`<li class="active"><span>${data.pageNum}</span></li>`;
+    //}
+    if(data.pageNum+1<=data.pageCount){
+        page+=`<li><span class="pageNumber">${data.pageNum+1}</span></li>`
+    }
+    if(data.pageNum+2<=data.pageCount){
+        page+=`<li><span class="pageNumber">${data.pageNum+2}</span></li>`
+    }
+    if(data.pageNum<data.pageCount) {
+        page += `<li>
+               <span aria-label="Next">
+                   <span aria-hidden="true">&raquo;</span>
+               </span>
+           </li>`;
+    }
+    $('#recruit-page').html(page);
+};
+$('li[data-content="tutor"]').click(function(){
+    getRecruitInfo(1);
+});
+
+$('#recruit-page').on('click','span.pageNumber',function(){
+    getRecruitInfo($(this).text());
+});
+$('#recruit-page').on('click','span[aria-label="Next"]',function(){
+    getRecruitInfo(parseFloat($('#recruit-page li.active span').text())+1);
+});
+$('#recruit-page').on('click','span[aria-label="Previous"]',function(){
+    getRecruitInfo(parseFloat($('#recruit-page li.active span').text())-1);
 });

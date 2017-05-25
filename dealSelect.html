@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--设置网页到期时间-->
+    <!--<meta http-equiv="expires" content="Fri,12Jan201718:18:18GMT">
+    &lt;!&ndash;禁止缓存&ndash;&gt;
+    <meta http-equiv="Pragma" content="no-cache">
+    &lt;!&ndash;网页过去清除cookie&ndash;&gt;
+    <meta http-equiv="Set-Cookie" content="cookie value=xxx;expires=Friday,12-Jan-201718:18:18GMT；path=/">
+    &lt;!&ndash;防止别人调用&ndash;&gt;
+    <meta http-equiv="Window-target" content="_top">-->
+    <!--显示语言-->
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <!--关键字-->
+    <meta name="keywords" content="大学生家教,家教,大学生,college tutor,college,tutor">
+    <!--告诉搜索引擎网站主要内容-->
+    <meta name="description" content="《大学生家教》网是一个专注于大学生家教的平台，帮助家长更好地找家教">
+    <!--告诉机器人索引-->
+    <meta name="robots" content="all">
+    <!--作者信息-->
+    <meta name="author" content="阿段,www.collegetutor@126.com">
+    <!--信息参数-->
+    <meta name="generator" content="html,css,javaScript,php,mysql"/>
+    <!--版权信息-->
+    <meta name="copyright" content="大学生家教网版权所有">
+    <!--标签logo-->
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
+    <link rel="stylesheet" href="css/date/pikaday.css"/>
+    <link rel="stylesheet" href="css/teacherInfoShow.css"/>
+    <link rel="stylesheet" href="css/default/font.css"/>
+    <link rel="stylesheet" href="css/dealSelect.css"/>
+    <title>交易信息 | collegeTutor</title>
+
+</head>
+<body>
+<!--加载动画-->
+<div class="loading hide">
+    <div class="loading-content">
+        <img src="res/loading.svg" alt=""/>
+        <h2>正在加载...</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div id="bg-img" class="bg-img-3"></div>
+    <div class="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!--导航栏顶部-->
+                <div class="navbar-header margin-left15">
+                    <a href="home.html" class="navbar-brand">
+                        <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="home.html">首页</a></li>
+                        <li><a href="dealSelect.html">交易</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                    </form>
+                    <div class="navbar-right margin-right15">
+                        <ul class="nav navbar-nav">
+                            <li><!--<a href="applyFoTearcher.html">成为教师</a>--></li>
+                            <li class="dropdown">
+                                <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                                        <span class="j-username">
+                                            善良的小孩
+                                        </span>
+                                    <span class="caret"></span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="home.html">主页</a></li>
+                                    <li><a href="#" class="messagePanelIn">通知中心</a></li>
+                                    <li><a href="#">账户设置</a></li>
+                                    <li><a href="#">帮助（反馈）</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a class="text-disabled user-exit">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class=" clearfix dealSelect">
+        <div class="main-left-tab">
+            <ul>
+                <li class="tab-active" data-tabTo="#deal-no"><a href="#">正在交易</a></li>
+                <li class="" data-tabTo="#deal-ing"><a href="#">待确认交易</a></li>
+                <li class="" data-tabTo="#deal-his"><a href="#">已完成交易</a></li>
+            </ul>
+        </div><div class="main-tab">
+            <div class="main main-active" id="deal-no">
+                <div class="main-top text-left">
+                </div>
+                <div class="main-content">
+                    <div class="deal-ok">
+                        <ul id="deal-waring">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main" id="deal-ing">
+            <div class="main-top text-left">
+            </div>
+            <div class="main-content">
+                <div class="deal-ok">
+                    <ul id="deal-ok">
+                        <li class="animated fadeInUp">
+                            <div>
+                                <p>编号：<span>123456789</span></p>
+                                <p>开始时间：<span class="padding-right-left">2017-06-30</span>结束时间：<span>201-06-30</span></p>
+                                <p>课时费：<span>100</span>元</p>
+                            </div>
+                            <div class="right">
+                                <a href="#" class="deal-btn deal-success">同意</a>
+                                <a href="#" class="deal-btn deal-danger">驳回</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main" id="deal-his">
+            <div class="main-top text-left">
+            </div>
+            <div class="main-content">
+                <div class="deal-ok">
+                    <ul id="deal-his-ok">
+                        <li class="animated fadeInUp">
+                            <div>
+                                <p>编号：<span>123456789</span></p>
+                                <p>开始时间：<span class="padding-right-left">2017-06-30</span>  结束时间：<span>201-06-30</span></p>
+                                <p>课时费：<span>100</span>元</p>
+                            </div>
+                            <div class="right">
+                                <!--<a href="#" class="deal-btn deal-success">同意</a>-->
+                                <!--<a href="#" class="deal-btn deal-danger">驳回</a>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <!--<div class="deal-infoshow"></div>-->
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="message-push" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document" style="margin-top: 250px">
+        <div class="modal-content text-center" style="height: 100px;padding: 20px">
+            <div class="teacherShow-preloaders text-center">
+                <div class="preloader preloader-green preloader-sm">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20"></circle>
+                    </svg>
+                </div>
+            </div>
+            <p style="" class="j-message">正在发送请求...</p>
+        </div>
+    </div>
+</div>
+<!--<script src="https://api.map.baidu.com/api?v=2.0&ak=49iWGGRS0sC4rFd7UilIQn0mWNyvMO5e&s=1；"></script>-->
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/date/pikaday.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="js/default.js"></script>
+<script>
+    /*var picker = new Pikaday(
+            {
+                field: document.getElementById('startTime'),
+                firstDay: 1,
+                minDate: new Date('1900-01-01'),
+                maxDate: new Date(),
+                yearRange: [1900,2020]
+            });
+    var pickerend = new Pikaday(
+            {
+                field: document.getElementById('endTime'),
+                firstDay: 1,
+                minDate: new Date('1900-01-01'),
+                maxDate: new Date(),
+                yearRange: [1900,2020]
+            });*/
+    $(document).ready(function(){
+        $('#teachername').html(getUrlParam('teacherName'));
+        var h=$('#bg-img')[0].scrollHeight-70;
+        $('.main-tab').css('height',h);
+    });
+$('.main-left-tab li').click(function(){
+    $(this).addClass('tab-active');
+    $(this).siblings().removeClass('tab-active');
+    $($(this).attr('data-tabTo')).addClass('main-active');
+    $($(this).attr('data-tabTo')).siblings().removeClass('main-active');
+});
+    var data=[
+        `<li class="animated fadeInUp">
+            <div>
+                <p>编号：<span>123456789</span></p>
+                <p>开始时间：<span class="padding-right-left">2017-06-30</span>  结束时间：<span>201-06-30</span></p>
+                <p>课时费：<span>100</span>元</p>
+            </div>
+            <div class="right">
+                <!--<a href="#" class="deal-btn deal-success">同意</a>-->
+                <a href="#" class="deal-btn deal-danger">取消</a>
+            </div>
+        </li>`
+    ];
+
+    var timer=setInterval(function(){
+        animationHtml(data,'#deal-waring',timer,function(){});
+    },300);
+</script>
+</body>
+</html>

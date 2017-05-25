@@ -48,6 +48,7 @@ function getHtml(date){
     }
     $('#userid').attr('data-userid',date.teacherInfo.id);
     $('#userid').attr('data-username',date.teacherInfo.username);
+    $('.J-user-Headportrait').attr('src',date.teacherInfo.Headportrait);
     var htmls='';
     for(var j=0;j<date.talkInfoList.length;j++){
         htmls+=`<li class="talk-user">
@@ -74,7 +75,7 @@ function getHtml(date){
 //usertSendMessage(localStorage.getItem('userID'))
 
 $('#applyTeacher').click(function(){
-    var msg={
+    /*var msg={
         'fromUserID':localStorage.getItem('userID'),
         'toUserID':$('#userid').attr('data-userid'),
         'msg':'我要聘请您',
@@ -82,11 +83,13 @@ $('#applyTeacher').click(function(){
     };
     userSendMessage(msg,function(){
         $('.j-message').html('聘请请求已发送');
+        $('#applyTeacher').addClass('disabled');
         setTimeout(function(){
             $('#message-push').modal('hide');
             $('.j-message').html('正在发送请求');
         },1000);
-    });
+    });*/
+    localtionUrl('dealinfo.html','userid='+$('#userid').attr('data-userid')+'&teacherName='+$('#userid').attr('data-username'));
 });
 
 $('body').on('click','#j-addTo-teacher',function(){

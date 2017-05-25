@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="js/jquery-1.11.3.js"></script>
+<span id="accessToken"></span>
+<script>
+    function getUrlParam(name)
+    {
+        var url =window.location.hash; //获取url中"?"符后的字串
+        if (url.substr(0,1)=='#') url=url.substr(1);
+        var theRequest = new Object();
+            strs = url.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+                //才会出现乱码
+            }
+        return theRequest[name];
+    }
+</script>
+<script>
+    document.cookie='access_token='+getUrlParam('access_token');
+
+    $.ajax({
+        type : "get",
+        async:false,
+        url : "https://graph.qq.com/oauth2.0/me",
+        data:{'access_token':getUrlParam('access_token')},
+        dataType : "jsonp",//数据类型为jsonp
+        jsonp: "callback",//服务端用于接收callback调用的function名的参数
+        success : function(data){
+            console.log(data);
+        },
+        error:function(){
+        }
+    });
+    function callback(e){
+        getUserInfo(e);
+    }
+    function getUserInfo(data){
+        var obj={
+            'access_token':getUrlParam('access_token'),
+            'oauth_consumer_key':data.client_id,
+            'openid':data.openid
+        };
+        $.ajax({
+            url:'https://graph.qq.com/user/get_user_info',
+            type : "get",
+            async:false,
+            data:obj,
+            dataType : "jsonp",//数据类型为jsonp
+            jsonp: "callbackuser",//服务端用于接收callback调用的function名的参数
+            success : function(data){
+                console.log(data);
+            },
+            error:function(){
+            }
+        })
+    }
+
+    function callbackuser(data){
+        console.dir(data);
+    }
+</script>
+</body>
+</html>

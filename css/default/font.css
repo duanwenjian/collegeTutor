@@ -78,9 +78,8 @@
   min-height: 342px;
   color: #fff;
 }
-table tr td:first-child {
-  font-weight: 600;
-  color: #000;
+table tr {
+  cursor: pointer;
 }
 .text-white {
   color: #ffffff !important;
@@ -112,6 +111,32 @@ input[type='radio'] + label > span:after {
   display: none;
 }
 input[type='radio']:checked + label > span:after {
+  display: inline-block;
+}
+input[type='checkbox'] + label > span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: sub;
+  margin-right: 10px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+}
+input[type='checkbox'] + label > span:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: rgba(39, 174, 91, 0.6);
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  top: 50%;
+  margin-top: -5px;
+  border-radius: 3px;
+  display: none;
+}
+input[type='checkbox']:checked + label > span:after {
   display: inline-block;
 }
 input[type='file'] {

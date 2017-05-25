@@ -13,13 +13,14 @@
 	    'talkInfoList'=>null//评论列表
 	);
 	try{
-        $sql="SELECT ct_user.id,ct_user.username,ct_user.email, ct_user_teacher.major, ct_user_teacher.Price,ct_user_teacher.rank, ct_user_teacher.Grade, ct_user_teacher.Subject, ct_user_teacher.birth, ct_user_teacher.sex, ct_user_teacher.cardAddress, ct_user_teacher.Remarks, ct_user_teacher.status, ct_user_teacher.regtime, ct_user_teacher.reason FROM `ct_user_teacher`,`ct_user` WHERE ct_user_teacher.user_id=ct_user.id AND ct_user_teacher.id='$userID'";
+        $sql="SELECT ct_user.id,ct_user.username,ct_user.Headportrait,ct_user.email, ct_user_teacher.major, ct_user_teacher.Price,ct_user_teacher.rank, ct_user_teacher.Grade, ct_user_teacher.Subject, ct_user_teacher.birth, ct_user_teacher.sex, ct_user_teacher.cardAddress, ct_user_teacher.Remarks, ct_user_teacher.status, ct_user_teacher.regtime, ct_user_teacher.reason FROM `ct_user_teacher`,`ct_user` WHERE ct_user_teacher.user_id=ct_user.id AND ct_user_teacher.id='$userID'";
         $res=mysql_query($sql);
         $row=mysql_fetch_array($res);
         $returnInfo['retCode']=0;
         $returnInfo['retMsg']='查询成功';
         $returnInfo['teacherInfo']=array(
             'rank'=>$row['rank'],
+            'Headportrait'=>$row['Headportrait'],
             'email'=>$row['email'],
             'Grade'=>$row['Grade'],
             'Price'=>$row['Price'],

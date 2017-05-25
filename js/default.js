@@ -5,6 +5,19 @@ $(document).ready(function(){
     custom.init();
     updateHeadportrait();
 });
+createGoeasy();
+function createGoeasy(){
+    var head= document.getElementsByTagName('head')[0];
+    var script= document.createElement('script');
+    script.type= 'text/javascript';
+    script.onload = script.onreadystatechange = function() {
+        if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete" ) {
+            messagehelp();
+            script.onload = script.onreadystatechange = null;
+        } };
+    script.src= 'https://cdn.goeasy.io/goeasy.js';
+    head.appendChild(script);
+}
 //var address="http://localhost/dashboard/collegetutor";
 var address="https://www.collegetutor.cn";
 //
@@ -184,15 +197,24 @@ function getDate(n){
 //获取地址栏参数
 function getUrlParam(name)
 {
-    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    /*var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-    if (r!=null) return unescape(r[2]); return null; //返回参数值
+    if (r!=null) return unescape(r[2]); return null; //返回参数值*/
+    var url = window.location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            //就是这句的问题
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+            //之前用了unescape()
+            //才会出现乱码
+        }
+    }
+    return theRequest[name];
 }
 
-//消息
-var goEasy = new GoEasy({
-    appkey: 'BC-d2d2b974b32847e3bb7bd70b76bf0837'
-});
 //发送消息
 function userSendMessage(data,callback){
     $.ajax({
@@ -205,13 +227,16 @@ function userSendMessage(data,callback){
                 (typeof callback==='function')?callback():"";
             }
             if(data.retCode==0){
+                $('#message-push').modal('hide');
+                $('.j-message').html('正在发送请求');
                 (typeof callback==='function')?callback():"";
-                var meg=`<div class="alert alert-default alert-dismissible" role="alert">
+                /*var meg=`<div class="alert alert-default alert-dismissible" role="alert">
                         <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
                         <strong>系统消息</strong> ${data.retMsg}
                     </div>`;
                 $('.newMessage').append(meg);
-                messageClose();
+                messageClose();*/
+                alertMessage('系统消息',data.retMsg);
             }
         },
         error:function(){
@@ -219,24 +244,53 @@ function userSendMessage(data,callback){
         }
     });
 }
-goEasy.subscribe({
-    channel: 'collegeTutor'+localStorage.getItem('userID'),
-    onMessage: function(message) {
-        var data = JSON.parse(message.content);
-        //console.dir(data);
-        if (data.type == 'text') {
-            var meg=`<div class="alert alert-default alert-dismissible" role="alert">
+
+//弹出信息
+function alertMessage(title,info){
+    if($('.newMessage').length>=0){
+        $('.newMessage').remove();
+    }
+    var div=document.createElement('div');
+    div.className='newMessage';
+    document.body.appendChild(div);
+    var html=`<div class="alert alert-default alert-dismissible" role="alert">
+                        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+                        <strong>${title}</strong> ${info}
+                    </div>`;
+    $('.newMessage').append(html);
+    messageClose();
+}
+
+function messagehelp() {
+//消息
+    var goEasy = new GoEasy({
+        appkey: 'BC-d2d2b974b32847e3bb7bd70b76bf0837'
+    });
+    goEasy.subscribe({
+        channel: 'collegeTutor' + localStorage.getItem('userID'),
+        onMessage: function (message) {
+            var data = JSON.parse(message.content);
+            //console.dir(data);
+            if (data.type == 'text') {
+                var meg = `<div class="alert alert-default alert-dismissible" role="alert">
                         <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
                         <strong>${data.fromUserName}</strong> ${data.msg}
                     </div>`;
-            $('.newMessage').append(meg);
-            messageClose();
+                $('.newMessage').append(meg);
+                messageClose();
+            }
+            if (data.type == 'apply') {
+            }
         }
-        if (data.type == 'apply'){
-        }
-    }
-});
+    });
 
+    goEasy.subscribe({
+        channel: 'collegeTutorAllUser',
+        onMessage: function (message) {
+            //系统消息
+        }
+    });
+}
 function messageClose(){
     var timer=setInterval(function(){
         $('.newMessage').find('div.hide-alert').remove();
@@ -245,14 +299,8 @@ function messageClose(){
             return;
         }
         $('.newMessage').find('div.alert:nth-child(1)').addClass('hide-alert');
-    },1500);
+    },2500);
 }
-goEasy.subscribe({
-    channel: 'collegeTutorAllUser',
-    onMessage: function(message){
-        //系统消息
-    }
-});
 function userGetMessage(userID,callback){
 }
 
@@ -260,8 +308,11 @@ function userGetMessage(userID,callback){
 //呼出消息界面
 
 function getMessagePanel(){
+    if($('.messagePanel').length>=1){
+        messagePanelOut();
+    }
     var messagePanel=document.createElement('div');
-    messagePanel.className='messagePanel';
+    messagePanel.className='messagePanel animated zoomInUp';
     try{
         var iframe = document.createElement('<iframe scrolling="no" id="messagePanel" name="messageIframe" src="message/index.html"></iframe>');
     }catch(e){
@@ -276,16 +327,34 @@ function getMessagePanel(){
 }
 
 function messagePanelOut(){
-    $('.messagePanel').addClass('messagePanelOut');
+    $('.messagePanel').addClass('zoomOutDown');//messagePanelOut
     setTimeout(function(){
         try {
             $('.messagePanel').remove();
         }catch(e){
             $('.messagePanel').css('display','none');
         }
-    },200);
+    },1000);
 };
 
 $('.messagePanelIn').click(function(){
     getMessagePanel();
 });
+
+function localtionUrl(e,n){//e 地址 n 参数
+    window.location.href=e+'?'+n;
+}
+
+//动态显示
+
+function animationHtml(data,parent,timer,callback){//数据层 父元素 定时器 回调函数 是否清空父元素
+    var last=data.pop();
+    if(last) {
+        $(parent).append(last);
+    }else{
+        clearInterval(timer);
+        if(typeof callback==='function'){
+            //setTimeout(callback(),1000);
+        }
+    }
+}

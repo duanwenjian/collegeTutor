@@ -128,9 +128,10 @@
 
 table{
   tr{
+    cursor: pointer;
     td:first-child{
-      font-weight: 600;
-      color: #000;
+      //font-weight: 600;
+      //color: #000;
     }
   }
 }
@@ -173,7 +174,36 @@ input[type='radio']:checked+label{
     display: inline-block;
   }
 }
-
+input[type='checkbox']+label{
+  >span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+    margin-right: 10px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+  }
+  >span:after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: @green;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 50%;
+    margin-top: -5px;
+    border-radius: 3px;
+    display: none;
+  }
+}
+input[type='checkbox']:checked+label{
+  >span:after{
+    display: inline-block;
+  }
+}
 input[type='file']{
   position: absolute;
   left: -9999px;

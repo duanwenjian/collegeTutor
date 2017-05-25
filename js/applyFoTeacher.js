@@ -36,7 +36,7 @@ $('#file-updata').click(function(){
     $.ajax({
         type: "POST",
         url: "php/imgFile.php",
-        data: formData ,　　//这里上传的数据使用了formData 对象
+        data: formData ,　　//上传的数据使用了formData 对象
         processData : false,
         //必须false才会自动加上正确的Content-Type
         contentType : false ,

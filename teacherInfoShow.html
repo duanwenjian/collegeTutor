@@ -55,7 +55,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class=""><a href="home.html">首页</a></li>
-                        <li><a href="#">标签二</a></li>
+                        <li><a href="dealSelect.html">交易</a></li>
                         <li><a href="about.html">关于我们</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
@@ -123,6 +123,7 @@
                         <div class="col-sm-12"><div><span>学生证照片：</span><div class="info-img j-max-img" data-bind="cardAddress"><img src="img/home/badges_text.png" data-toggle="modal" data-target=".bs-example-modal-lg"  alt=""/><img src="img/home/badges_text.png" data-toggle="modal" data-target=".bs-example-modal-lg" alt=""/></div></p></div>
                     </div>
                 </div>
+            </div>
                 <div class="info-title">
                     <p>历史评论</p>
                 </div>
@@ -134,12 +135,11 @@
                     </div>
                 </div>
             </div>
-                </div>
             <div class="main-footer">
                 <!--<p><span class="glyphicon glyphicon-chevron-down j-mainfooter-down"></span></p>-->
                 <div class="j-next-info">
                     <button class="btn btn-info " id="j-addTo-teacher">联系教师</button>
-                    <button class="btn btn-success" id="applyTeacher" data-toggle="modal" data-target=".bs-example-modal-sm">聘请教师</button>
+                    <button class="btn btn-success" id="applyTeacher" data-toggle="modal" data-target="#message-push">聘请教师</button>
                 </div>
             </div>
         </div>
@@ -184,23 +184,14 @@
         </div>
     </div>
 </div>
-<div class="modal fade bs-example-modal-sm" id="message-push" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-sm" role="document" style="margin-top: 250px">
-        <div class="modal-content text-center" style="height: 100px;padding: 20px">
-            <div class="teacherShow-preloaders text-center">
-                <div class="preloader preloader-green preloader-sm">
-                    <svg viewBox="25 25 50 50">
-                        <circle cx="50" cy="50" r="20"></circle>
-                    </svg>
-                </div>
-            </div>
-            <p style="" class="j-message">正在发送请求...</p>
-        </div>
+<div class="modal fade bs-example-modal-lg" id="message-push" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document" style="">
+
     </div>
 </div>
 
 <script src="js/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="http://cdn.goeasy.io/goeasy.js"></script>
+<!--<script type="text/javascript" src="http://cdn.goeasy.io/goeasy.js"></script>-->
 <script src="js/date/pikaday.min.js"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
 
@@ -209,18 +200,6 @@
 <script>
     var h=$('#bg-img')[0].scrollHeight-70;
     $('.teacherInfoShow').css('height',h);
-
-    /*$('body').on('click','.j-next-info',function(){
-        $('.main-footer').css('height',h+10);
-        $('.main-footer').html('<p><span class="glyphicon glyphicon-chevron-down j-mainfooter-down"></span></p>');
-    });
-    $('body').on('click','.j-mainfooter-down',function(){
-        $('.main-footer').css('height',54);
-        $('.main-footer').html(`<div class="j-next-info">
-        <button class="btn btn-info ">联系教师</button>
-        <button class="btn btn-success">聘请教师</button>
-        </div>`);
-    });*/
 </script>
 </body>
 </html>

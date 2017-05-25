@@ -53,20 +53,20 @@ function getUserMessage(){
             if(data.retCode==0){
                 getUserMessageHtml(data);
             }else{
-                getUserMessageError();
+                //getUserMessageError();
             }
         },
         error:function(){
-            getUserMessageError();
+            //getUserMessageError();
         }
     });
 };
-var chat=null;
+var chat=null,dealList=[];
 function getUserMessageHtml(data){
     $('.user-name').html(data.userInfo.username);
     $('.user-email').html(data.userInfo.email);
     $('.user-Headportrait').attr('src','../'+data.userInfo.Headportrait);
-    var chatList={},dealList={};
+    var chatList={};
     for(var i=0;i<data.chat.length;i++){
         data.chat[i]['regtime']=getDate(data.chat[i]['regtime']);
         if(chatList[data.chat[i].fromUserID]){
@@ -79,12 +79,18 @@ function getUserMessageHtml(data){
                 'Headportrait':null,
                 'chatArr':[]
             };
+            chatList[data.chat[i].fromUserID]['username']=data.chat[i]['username'];
+            chatList[data.chat[i].fromUserID]['Headportrait']=data.chat[i]['Headportrait'];
+            chatList[data.chat[i].fromUserID]['chatArr'].push(data.chat[i]);
         }
     }
+    for(var s=0;s<data.deal.length;s++){
+        dealList.push(data.deal[s]);
+    }
     chat=chatList;
-    getUserMessageError(chatList);
+    getUserMessageSuccess(chatList);
 };
-function getUserMessageError(data){
+function getUserMessageSuccess(data){
     var html='';
     for(var j in data){
         html+=`<div class="contact" data-noMessage="0" data-userId="${j}">
@@ -95,12 +101,33 @@ function getUserMessageError(data){
     };
     $('.user-list').html(html);
 };
-
+var adminshow=0;
+$('body').on('click','.chat_admin',function(){
+    getUserAdminMessage(dealList);
+    adminshow=1;
+});
+function getUserAdminMessage(data){
+    var html='';
+    for(var k=0;k<data.length;k++){
+        html+=`<div class="admin-message">
+						<div class="admin-card">
+							<div class="admin-header">ç³»ç»Ÿæ¶ˆæ¯</div>
+							<div class="admin-content">
+								<p>æ‚¨æœ‰ä¸€æ¡å¾…å¤„ç†è˜è¯·ï¼Œè¯·å°½å¿«å¤„ç†!</p>
+							</div>
+							<div class="admin-footer">
+								<p><a href="#" class="j-main-localtion" data-href="../dealinfo.html" data-argument='dealId=${data[k].id}'>æŸ¥çœ‹è¯¦æƒ…</a></p>
+							</div>
+						</div>
+					</div>`;
+    }
+    $('.chat__messages').html(html);
+}
 $('body').on('click','.user-list .contact',function(){
     if(+$(this).attr('data-noMessage')==0) {
-        var data = chat[$(this).attr('data-userid')].chatArr;
+        var data = chat[$(this).attr('data-userid')].chatArr,html='';
         for (var k = 0; k < data.length; k++) {
-            html = `<div class="chat__msgRow">
+            html += `<div class="chat__msgRow">
 			        <div class="chat__message mine"><p>${data[k].content}</p><span class="chat-time">${data[k].regtime}</span></div>
 			      </div>`;
         }
@@ -113,15 +140,13 @@ $('body').on('click','.user-list .contact',function(){
     $('.send-btn').attr('data-userid',$(this).attr('data-userid'));
 });
 
-/*$('.search__input').bind('input propertychange', function() {
-    usernameGerTeacher($(this).val());
-});*/
+
 $(".search__input").bind("keydown",function(e){
-    // ¼æÈİFFºÍIEºÍOpera
+    // å…¼å®¹FFå’ŒIEå’ŒOpera
     var theEvent = e || window.event;
     var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
     if (code == 13) {
-        //»Ø³µÖ´ĞĞ²éÑ¯
+        //å›è½¦æ‰§è¡ŒæŸ¥è¯¢
         if($(this).val()==''){
             return;
         }
@@ -157,22 +182,40 @@ function usernameGerTeacher(name){
 var goEasy = new GoEasy({
     appkey: "BC-d2d2b974b32847e3bb7bd70b76bf0837"
 });
-//ÁÄÌì
-//½ÓÊÜÏûÏ¢
+//èŠå¤©
+//æ¥å—æ¶ˆæ¯
 goEasy.subscribe({
     channel: "collegeTutor"+localStorage.getItem('userID'),
     onMessage: function (message) {
-        //alert("ÄúÓĞĞÂÏûÏ¢£ºchannel£º" + message.channel + " ÄÚÈİ£º" + message.content);
-        GetMsg(JSON.parse(message.content));
+        var e=JSON.parse(message.content);
+        if(e.type=='text'){
+            GetMsg(JSON.parse(message.content));
+        }
+        if(e.type=='apply'){
+            dealList.push(e);
+            if(adminshow==1){
+                $('.chat__messages').append(`<div class="admin-message">
+						<div class="admin-card">
+							<div class="admin-header">ç³»ç»Ÿæ¶ˆæ¯</div>
+							<div class="admin-content">
+								<p>æ‚¨æœ‰ä¸€æ¡å¾…å¤„ç†è˜è¯·ï¼Œè¯·å°½å¿«å¤„ç†!</p>
+							</div>
+							<div class="admin-footer">
+								<p><a href="#" class="j-main-localtion" data-href="dealinfo.html" data-argument='dealId=${e.messageID}'>æŸ¥çœ‹è¯¦æƒ…</a></p>
+							</div>
+						</div>
+					</div>`);
+            }
+        }
     },
     onSuccess: function () {
-        //alert("Channel¶©ÔÄ³É¹¦¡£");
+        //alert("Channelè®¢é˜…æˆåŠŸã€‚");
     },
     onFailed: function (error) {
-        //alert("Channel¶©ÔÄÊ§°Ü, ´íÎó±àÂë£º" + error.code + " ´íÎóĞÅÏ¢£º" + error.content)
+        //alert("Channelè®¢é˜…å¤±è´¥, é”™è¯¯ç¼–ç ï¼š" + error.code + " é”™è¯¯ä¿¡æ¯ï¼š" + error.content)
     }
 });
-//·¢ËÍÏûÏ¢
+//å‘é€æ¶ˆæ¯
 function userSendMessage(data,callback){
     $.ajax({
         type: 'POST',
@@ -211,16 +254,33 @@ function GetMsg(data){
         messageArr[data.toUserId].push(data);
     }else{
         messageArr[data.toUserId]=[];
+        messageArr[data.toUserId].push(data);
+    }
+    getUserList(messageArr);
+    if($('.send-btn').attr('data-userid')==data.toUserId){
+        $('.chat__messages').append(`<div class="chat__msgRow">
+			        <div class="chat__message mine"><p>${data.msg}</p><span class="chat-time">${getDate(data.rettime)}</span></div>
+			      </div>`);
     }
 }
-
+function getUserList(data){
+    var html='';
+    for(var s in data){
+        html+=`<div class="contact" data-noMessage="1" data-userid="${data[s][0].toUserId}">
+						<img src="../${data[s][0].fromUserHeadportrait}" alt="" class="contact__photo"  />
+						<span class="contact__name">${data[s][0].fromUserName}</span>
+						<span class="contact__status"></span>
+					</div>`;
+    }
+    $('.user-list').html(html);
+}
 function getMessageHtml(id){
     if(!messageArr[id])return;
     var html='';
     for (var i = 0; i < messageArr[id].length; i++) {
-        $('.chat__messages').append(`<div class="chat__msgRow">
+        html+=`<div class="chat__msgRow">
 			        <div class="chat__message mine"><p>${messageArr[id][i].msg}</p><span class="chat-time">${getDate(messageArr[id][i].rettime)}</span></div>
-			      </div>`);
+			      </div>`;
     }
     $('.chat__messages').html(html);
 }

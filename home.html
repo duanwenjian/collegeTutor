@@ -33,98 +33,98 @@
     <!---->
 </head>
 <body>
-    <!--加载动画-->
-    <div class="loading">
-        <div class="loading-content">
-            <img src="res/loading.svg" alt=""/>
-            <h2>正在加载...</h2>
-        </div>
+<!--加载动画-->
+<div class="loading">
+    <div class="loading-content">
+        <img src="res/loading.svg" alt=""/>
+        <h2>正在加载...</h2>
     </div>
-    <!--容器-->
-    <div class="container-fluid">
-        <div id="bg-img" class="bg-img-3"></div>
-        <!--顶部-->
-        <div class="top">
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <!--导航栏顶部-->
-                    <div class="navbar-header margin-left15">
-                        <a href="home.html" class="navbar-brand">
-                            <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse">
+</div>
+<!--容器-->
+<div class="container-fluid">
+    <div id="bg-img" class="bg-img-3"></div>
+    <!--顶部-->
+    <div class="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!--导航栏顶部-->
+                <div class="navbar-header margin-left15">
+                    <a href="home.html" class="navbar-brand">
+                        <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="home.html">首页</a></li>
+                        <li><a href="dealSelect.html">交易</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                    </form>
+                    <div class="navbar-right margin-right15">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="home.html">首页</a></li>
-                            <li><a href="#">标签二</a></li>
-                            <li><a href="about.html">关于我们</a></li>
-                        </ul>
-                        <form class="navbar-form navbar-left">
-                            <div class="form-group has-feedback">
-                                <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                            <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
-                        </form>
-                        <div class="navbar-right margin-right15">
-                            <ul class="nav navbar-nav">
-                                <li><a href="applyFoTearcher.html">成为教师</a></li>
-                                <li class="dropdown">
-                                    <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                            <li><a href="applyFoTearcher.html">成为教师</a></li>
+                            <li class="dropdown">
+                                <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
                                         <span class="j-username">
                                             善良的小孩
                                         </span>
-                                        <span class="caret"></span>
-                                    </div>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="home.html">主页</a></li>
-                                        <li><a href="#" class="messagePanelIn">通知中心</a></li>
-                                        <li><a href="#">账户设置</a></li>
-                                        <li><a href="#">帮助（反馈）</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a class="text-disabled user-exit">退出</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                                    <span class="caret"></span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="home.html">主页</a></li>
+                                    <li><a href="#" class="messagePanelIn">通知中心</a></li>
+                                    <li><a href="#">账户设置</a></li>
+                                    <li><a href="#">帮助（反馈）</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a class="text-disabled user-exit">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <!--中间-->
-        <div class="main">
-            <div class="row">
-                <!--左侧功能栏-->
-                <div class="col-md-1 col-xs-1 col-sm-1">
-                    <ul class="text-center user-menu">
-                        <li data-content="home" class="active">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <span class="center-block">首页</span>
-                        </li>
-                        <li data-content="tutor">
-                            <span class="glyphicon glyphicon-flag"></span>
-                            <span class="center-block">招家教</span>
-                        </li>
-                        <li data-content="function">
-                            <span class="glyphicon glyphicon-th-large"></span>
-                            <span class="center-block">功能</span>
-                        </li>
-                        <li data-content="information">
-                            <span class="glyphicon glyphicon-book"></span>
-                            <span class="center-block">信息</span>
-                        </li>
-                        <li data-content="addview">
-                            <span class="glyphicon glyphicon glyphicon-plus"></span>
-                            <span class="center-block">添加</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-11 col-xs-11 col-sm-11">
-                    <div class="main-content row">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div id="home" class="main-content-home home-active">
-                                <div class="main-content-top">
+            </div>
+        </nav>
+    </div>
+    <!--中间-->
+    <div class="main">
+        <div class="row">
+            <!--左侧功能栏-->
+            <div class="col-md-1 col-xs-1 col-sm-1">
+                <ul class="text-center user-menu">
+                    <li data-content="home" class="active">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="center-block">首页</span>
+                    </li>
+                    <li data-content="tutor">
+                        <span class="glyphicon glyphicon-flag"></span>
+                        <span class="center-block">招家教</span>
+                    </li>
+                    <li data-content="function">
+                        <span class="glyphicon glyphicon-th-large"></span>
+                        <span class="center-block">功能</span>
+                    </li>
+                    <li data-content="information">
+                        <span class="glyphicon glyphicon-book"></span>
+                        <span class="center-block">信息</span>
+                    </li>
+                    <li data-content="addview">
+                        <span class="glyphicon glyphicon glyphicon-plus"></span>
+                        <span class="center-block">添加</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-11 col-xs-11 col-sm-11">
+                <div class="main-content row">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div id="home" class="main-content-home home-active    ">
+                            <div class="main-content-top">
                                     <span class="dropdown text-center  dropdown-menu-right">
                                         <span class="dropdown-toggle text-info" id="contentdisplay" data-toggle="dropdown">显示方式
                                             <span class="caret"></span>
@@ -146,147 +146,147 @@
                                             <li class="j-prace-desc">
                                                 <a href="">价格 <span class="glyphicon glyphicon-arrow-down"></span></a>
                                             </li>
-                                            <li>
+                                            <li class="j-start-desc">
                                                 <a href="#">星级 <span class="glyphicon glyphicon-arrow-down"></span></a>
                                             </li>
                                         </ul>
                                     </span>
-                                    <a id="serch-teach" class="pull-right text-info serch-ico" data-toggle="1" data-type="hide" data-content="serch-info" data-ico="1">搜一搜 <span class="glyphicon glyphicon-search"></span></a>
+                                <a id="serch-teach" class="pull-right text-info serch-ico" data-toggle="1" data-type="hide" data-content="serch-info" data-ico="1">搜一搜 <span class="glyphicon glyphicon-search"></span></a>
+                            </div>
+                            <!--详细搜索-->
+                            <div class="serch-info" id="serch-info">
+                                <div class="serch-title"><span>随心搜</span></div>
+                                <div class="serch-content">
+                                    <form class="form-horizontal">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-6 col-sm-6 col-md-offset-2 col-xs-offset-2 col-sm-offset-2">
+                                                <div class="margin-right15">
+                                                    <input type="email" class="form-control input-sm" placeholder="输入您期望的教师">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 col-sm-3">
+                                                <button type="button" class="btn btn-success btn-sm btn-width125">搜教师</button>
+                                            </div>
+                                            <div class="col-md-1 col-xs-1 col-sm-1">
+                                                <span class="text-disabled-l" data-type="hide" data-toggle="1" data-content="serch-info-more">换个方式</span>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!--详细搜索-->
-                                <div class="serch-info" id="serch-info">
-                                    <div class="serch-title"><span>随心搜</span></div>
+                                <div class="serch-info-more" id="serch-info-more">
+                                    <div class="serch-title"><span>按标签搜</span></div>
+                                    <div class="serch-content padding-right-left">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <span class="text-disabled">您希望的老师是：</span>
+                                            </div>
+                                            <div id="teacherType" class="col-md-10" data-type="close">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <span class="text-disabled">我们有这样的老师：</span>
+                                            </div>
+                                            <div class="col-md-10" data-type="clickTo" data-to="teacherType">
+                                                <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-success">学霸</span>
+                                                <span data-type="showInfo" data-showContent="国家奖学金（National Scholarship）是指为了激励普通本科高校、高等职业学校和高等专科学校学生勤奋学习、努力进取，在德、智、体、美等方面全面发展，由中央政府出资设立的奖励特别优秀学生的奖学金[1]  。全国高校在校生大概有2500多万人，每年只能有5万人荣获国家奖学金，获奖比例约占0.2%，获奖学生每人奖励8000元，作为大学生能获得国家奖学金是一项莫大的荣誉" class="label label-danger">国家奖学金</span>
+                                                <span data-type="showInfo" data-showContent="学生会是在党委领导下、团委指导下，学生自我管理、自我教育、自我服务的群众性组织，是学校联系学生的桥梁和纽带。" class="label label-primary">学生会</span>
+                                                <span data-type="showInfo" data-showContent="身体强壮，热爱运动的人群" class="label label-info">体育健将</span>
+                                                <span data-type="showInfo" data-showContent="时尚达人社区是一个给追求潮流、时尚和流行的社区，这里有着最前沿的达人资讯，是80后，90后，QQ空间，交友，文学，情感，游戏，电脑，音乐，影视，购物的聚集地，全力打造属于自己独立、健康、自由的综合时尚社区平台！" class="label label-warning">时尚达人</span>
+                                                <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-warning">书香门第</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="serch-title"><span>按科目搜</span></div>
                                     <div class="serch-content">
-                                        <form class="form-horizontal">
-                                            <div class="row">
-                                                <div class="col-md-6 col-xs-6 col-sm-6 col-md-offset-2 col-xs-offset-2 col-sm-offset-2">
-                                                    <div class="margin-right15">
-                                                        <input type="email" class="form-control input-sm" placeholder="输入您期望的教师">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-3 col-sm-3">
-                                                    <button type="button" class="btn btn-success btn-sm btn-width125">搜教师</button>
-                                                </div>
-                                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                                    <span class="text-disabled-l" data-type="hide" data-toggle="1" data-content="serch-info-more">换个方式</span>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <span class="text-disabled">我们的提供：</span>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div class="serch-info-more" id="serch-info-more">
-                                        <div class="serch-title"><span>按标签搜</span></div>
-                                        <div class="serch-content padding-right-left">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <span class="text-disabled">您希望的老师是：</span>
-                                                </div>
-                                                <div id="teacherType" class="col-md-10" data-type="close">
-                                                </div>
+                                            <div class="col-md-10">
+                                                <span class="label label-success">数学老师</span>
+                                                <span class="label label-danger">英语老师</span>
+                                                <span class="label label-primary">物理老师</span>
+                                                <span class="label label-info">化学老师</span>
+                                                <span class="label label-warning">历史老师</span>
+                                                <span class="label label-success">美术老师</span>
+                                                <span class="label label-danger">钢琴老师</span>
+                                                <span class="label label-primary">语文老师</span>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <span class="text-disabled">我们有这样的老师：</span>
-                                                </div>
-                                                <div class="col-md-10" data-type="clickTo" data-to="teacherType">
-                                                    <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-success">学霸</span>
-                                                    <span data-type="showInfo" data-showContent="国家奖学金（National Scholarship）是指为了激励普通本科高校、高等职业学校和高等专科学校学生勤奋学习、努力进取，在德、智、体、美等方面全面发展，由中央政府出资设立的奖励特别优秀学生的奖学金[1]  。全国高校在校生大概有2500多万人，每年只能有5万人荣获国家奖学金，获奖比例约占0.2%，获奖学生每人奖励8000元，作为大学生能获得国家奖学金是一项莫大的荣誉" class="label label-danger">国家奖学金</span>
-                                                    <span data-type="showInfo" data-showContent="学生会是在党委领导下、团委指导下，学生自我管理、自我教育、自我服务的群众性组织，是学校联系学生的桥梁和纽带。" class="label label-primary">学生会</span>
-                                                    <span data-type="showInfo" data-showContent="身体强壮，热爱运动的人群" class="label label-info">体育健将</span>
-                                                    <span data-type="showInfo" data-showContent="时尚达人社区是一个给追求潮流、时尚和流行的社区，这里有着最前沿的达人资讯，是80后，90后，QQ空间，交友，文学，情感，游戏，电脑，音乐，影视，购物的聚集地，全力打造属于自己独立、健康、自由的综合时尚社区平台！" class="label label-warning">时尚达人</span>
-                                                    <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-warning">书香门第</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="serch-title"><span>按科目搜</span></div>
-                                        <div class="serch-content">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <span class="text-disabled">我们的提供：</span>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <span class="label label-success">数学老师</span>
-                                                    <span class="label label-danger">英语老师</span>
-                                                    <span class="label label-primary">物理老师</span>
-                                                    <span class="label label-info">化学老师</span>
-                                                    <span class="label label-warning">历史老师</span>
-                                                    <span class="label label-success">美术老师</span>
-                                                    <span class="label label-danger">钢琴老师</span>
-                                                    <span class="label label-primary">语文老师</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="serch-title"><span>按价格搜</span></div>
-                                        <div class="serch-content">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <select>
-                                                            <option>每小时</option>
-                                                            <option>每天</option>
-                                                            <option>每周</option>
-                                                            <option>每月</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <a href="#">0~99</a>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <a href="#">100~299</a>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <a href="#">300~499</a>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <a href="#">500以上</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <a href="#" class="btn btn-primary">完成</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="serch-title">
-                                            <span>设置我的主页 <i class="glyphicon glyphicon-cog"></i></span>
-                                        </div>
-                                        <div class="serch-content" id="change-bg">
-                                            <img class="img-thumbnail" src="img/home/bg_1.jpg" alt="1"/>
-                                            <img class="img-thumbnail" src="img/home/bg_2.jpg" alt="2"/>
-                                            <img class="img-thumbnail" src="img/home/bg_3.jpg" alt="3"/>
-                                            <img class="img-thumbnail" src="img/home/bg_4.jpg" alt="4"/>
-                                            <img class="img-thumbnail" src="img/home/bg_5.jpg" alt="5"/>
                                         </div>
                                     </div>
-                                </div>
-                                <!--教师展示-->
-                                <div class="teacherShow">
-                                    <div class="teacherShow-main clearfix w20">
-
-                                    </div>
-                                    <div class="teacherShow-preloaders text-center">
-                                        <div class="preloader preloader-green preloader-sm">
-                                            <svg viewBox="25 25 50 50">
-                                                <circle cx="50" cy="50" r="20"></circle>
-                                            </svg>
+                                    <div class="serch-title"><span>按价格搜</span></div>
+                                    <div class="serch-content">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <select>
+                                                        <option>每小时</option>
+                                                        <option>每天</option>
+                                                        <option>每周</option>
+                                                        <option>每月</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <a href="#">0~99</a>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <a href="#">100~299</a>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <a href="#">300~499</a>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <a href="#">500以上</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="#" class="btn btn-primary">完成</a>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="serch-title">
+                                        <span>设置我的主页 <i class="glyphicon glyphicon-cog"></i></span>
+                                    </div>
+                                    <div class="serch-content" id="change-bg">
+                                        <img class="img-thumbnail" src="img/home/bg_1.jpg" alt="1"/>
+                                        <img class="img-thumbnail" src="img/home/bg_2.jpg" alt="2"/>
+                                        <img class="img-thumbnail" src="img/home/bg_3.jpg" alt="3"/>
+                                        <img class="img-thumbnail" src="img/home/bg_4.jpg" alt="4"/>
+                                        <img class="img-thumbnail" src="img/home/bg_5.jpg" alt="5"/>
                                     </div>
                                 </div>
                             </div>
-                            <div id="tutor" class="main-content-home">
-                                <div class="content-top">
-                                    <div class="content-title">
-                                        <span>招聘教师</span>
+                            <!--教师展示-->
+                            <div class="teacherShow">
+                                <div class="teacherShow-main clearfix w20">
+
+                                </div>
+                                <div class="teacherShow-preloaders text-center hide">
+                                    <div class="preloader preloader-green preloader-sm">
+                                        <svg viewBox="25 25 50 50">
+                                            <circle cx="50" cy="50" r="20"></circle>
+                                        </svg>
                                     </div>
                                 </div>
-                                <div class="content-main">
-                                    <div class="content-main-top text-center">
-                                        <h4 class="text-info">招聘榜</h4>
-                                        <p>本网站招聘信息经过管理员核对才发布出来，请仔细核对招聘信息</p>
-                                    </div>
-                                    <div class="pull-right clearfix">
+                            </div>
+                        </div>
+                        <div id="tutor" class="main-content-home    ">
+                            <div class="content-top">
+                                <div class="content-title">
+                                    <span>招聘教师</span>
+                                </div>
+                            </div>
+                            <div class="content-main">
+                                <div class="content-main-top text-center">
+                                    <h4 class="text-info">招聘榜</h4>
+                                    <p>本网站招聘信息经过管理员核对才发布出来，请仔细核对招聘信息</p>
+                                </div>
+                                <div class="pull-right clearfix visible-md">
                                         <span class="dropdown text-center  dropdown-menu-right">
                                             <span class="dropdown-toggle text-info" id="table-content-show" data-toggle="dropdown">显示内容
                                                 <span class="caret"></span>
@@ -295,221 +295,365 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" value="0" checked="true">
-                                                        ID
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="1" checked="true">
-                                                        科目
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="2" checked="true">
                                                         专业
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
+                                                        <input type="checkbox" value="1" checked="true">
+                                                        价格
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="2" checked="true">
+                                                        科目
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
                                                         <input type="checkbox" value="3" checked="true">
-                                                        类别
+                                                        性别
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="4" checked="true">
+                                                        备注
                                                     </label>
                                                 </div>
                                             </div>
                                         </span>
-                                    </div>
-                                    <table class="table table-bordered table-striped table-hover" id="show-table-recruit">
-                                        <thead class="">
-                                        <tr>
-                                            <th>ID <span class="pull-right glyphicon glyphicon-sort-by-attributes"></span></th>
-                                            <th>科目</th>
-                                            <th>专业</th>
-                                            <th>类型</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody style="color: #666">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>数学教师</td>
-                                            <td>软件工程</td>
-                                            <td>网站直招</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>数学教师</td>
-                                            <td>软件工程</td>
-                                            <td>网站直招</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>数学教师</td>
-                                            <td>软件工程</td>
-                                            <td>网站直招</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>数学教师</td>
-                                            <td>软件工程</td>
-                                            <td>网站直招</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>数学教师</td>
-                                            <td>软件工程</td>
-                                            <td>网站直招</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <nav aria-label="Page navigation" class="text-center clearfix">
-                                        <ul class="pagination">
-                                            <li>
-                                                <span aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                </span>
-                                            </li>
-                                            <li class="active"><span>1</span></li>
-                                            <li><span>2</span></li>
-                                            <li><span>3</span></li>
-                                            <li><span>4</span></li>
-                                            <li class="disabled"><span>5</span></li>
-                                            <li>
-                                                <span aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </nav>
                                 </div>
-                            </div>
-                            <div id="function" class="main-content-home">
-                                <div class="content-top">
-                                    <div class="content-title">
-                                        <span>功能</span>
+                                <div class="table animated fadeInUp">
+                                    <div class="table-content">
+                                        <table class="table  table-hover text-center" id="show-table-recruit">
+                                            <thead >
+                                            <tr class="success">
+                                                <th class="text-center">专业 </th>
+                                                <th class="text-center">价格</th>
+                                                <th class="text-center">科目</th>
+                                                <th class="text-center">性别</th>
+                                                <th class="text-center">备注</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody style="color: #666" >
+                                            <!--<tr>
+                                                <td>软件工程</td>
+                                                <td>199/小时</td>
+                                                <td>数学教师</td>
+                                                <td>男童鞋</td>
+                                                <td>平台直招</td>
+                                            </tr>
+                                            <tr>
+                                                <td>软件工程</td>
+                                                <td>199/小时</td>
+                                                <td>数学教师</td>
+                                                <td>男童鞋</td>
+                                                <td>平台直招</td>
+                                            </tr>-->
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
+                                <nav aria-label="Page navigation" class="text-center clearfix">
+                                    <ul class="pagination" id="recruit-page">
+                                        <!--<li>
+                                            <span aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </span>
+                                        </li>
+                                        <li class="active"><span>1</span></li>
+                                        <li><span>2</span></li>
+                                        <li><span>3</span></li>
+                                        <li><span>4</span></li>
+                                        <li><span>5</span></li>
+                                        <li>
+                                            <span aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </span>
+                                        </li>-->
+                                    </ul>
+                                </nav>
                             </div>
-                            <div id="information" class="main-content-home">
-                                <div class="content-top">
-                                    <div class="content-title">
-                                        <span>信息查询</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="addview" class="main-content-home">
-                                <div class="content-top">
-                                    <div class="content-title">
-                                        <span>添加</span>
-                                    </div>
+                        </div>
+                        <div id="function" class="main-content-home    ">
+                            <div class="content-top">
+                                <div class="content-title">
+                                    <span>功能</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="main-user-info-btn">
-                            <div>
-                                <span class="glyphicon glyphicon-envelope"></span>
+                        <div id="information" class="main-content-home    ">
+                            <div class="content-top">
+                                <div class="content-title">
+                                    <span>信息查询</span>
+                                </div>
+                            </div>
+                            <div class="content-main">
+                                <div class="teacher-info">
+                                    <h4>一、服务须知</h4>
+                                    <p>1、大学生家教网一般情况下仅提供学校优秀学生作为师资，且从教员中择优为您服务， 一般两天内联系到最合适您的教员。</p>
+                                    <p>2、在教员前去执教前，大学生家教网会对教员进行实际严格认证，确保教员信息真实可靠。</p>
+                                    <p>3、同时大学生家教网对教员所做的每一份家教都有详细记录，供家长/学员选择教员时参考。</p>
+                                    <p>4、您需要支付的费用由两部分组成：1)支付给家教网的信息费。2)支付给教员的授课报酬。</p>
+                                    <p>5、如有任何疑问，请拨打请家教热线：010-12345678 87654321 </p>
+                                </div>
+                                <div class="teacher-info">
+                                    <h4>二、家教课时费参考标准</h4>
+                                    <div class="info-table">
+                                        <table class="table text-center table-hover">
+                                            <thead class="bg-success">
+                                            <tr>
+                                                <th>语/数/英/理/化/生 （每小时）</th>
+                                                <th>小学</th>
+                                                <th>初中</th>
+                                                <th>高中</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>一星教师</td>
+                                                <td>50元－60元</td>
+                                                <td>60元－70元</td>
+                                                <td>80元－100元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>二星教师</td>
+                                                <td>60元－70元</td>
+                                                <td>80元－90元</td>
+                                                <td>90元－110元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三星教师</td>
+                                                <td>120元－150元</td>
+                                                <td>150元－180元</td>
+                                                <td>150元－200元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>四星教师</td>
+                                                <td>180元－220元</td>
+                                                <td>200元－250元</td>
+                                                <td>250元－300元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>五星教师</td>
+                                                <td>200元－250元</td>
+                                                <td>250元－300元</td>
+                                                <td>300元－350元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>周末及寒暑假陪读</td>
+                                                <td colspan="3">按月、天结算或按照次数结算</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table text-center table-hover">
+                                            <thead class="bg-success">
+                                            <tr>
+                                                <th>艺术体育类（每小时）</th>
+                                                <th>乐器类</th>
+                                                <th>美术</th>
+                                                <th>体育</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>一星教师 <span class="text-disabled">（最高三星）</span></td>
+                                                <td>150元－200元</td>
+                                                <td>120元-150元</td>
+                                                <td>100元-150元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>二星教师 <span class="text-disabled">（最高三星）</span></td>
+                                                <td>180元－250元</td>
+                                                <td>150元-200元</td>
+                                                <td>120元-180元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三星教师 <span class="text-disabled">（最高三星）</span></td>
+                                                <td>200元－400元</td>
+                                                <td>200元－300元</td>
+                                                <td>150元-250元</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table text-center table-hover">
+                                            <thead class="bg-success">
+                                            <tr>
+                                                <th>高等数学/计算机操作/网页设计/图像处理/程序设计 （每小时）</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>乐器类</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>一星教师 <span class="text-disabled">（最高一星）</span></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>120元－150元</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table text-center table-hover">
+                                            <thead class="bg-success">
+                                            <tr>
+                                                <th>语言类 （每小时）</th>
+                                                <th>成人英语</th>
+                                                <th>日/法/德/意/韩</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>一星教师</td>
+                                                <td>80元－100元</td>
+                                                <td>80元-120元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>二星教师</td>
+                                                <td>100元－150元</td>
+                                                <td>100元－150元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三星教师</td>
+                                                <td>150元－200元</td>
+                                                <td>200元－250元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>四星教师</td>
+                                                <td>200元－250元</td>
+                                                <td>250元－300元</td>
+                                            </tr>
+                                            <tr>
+                                                <td>五星教师 <span class="text-disabled">（外籍人士）</span></td>
+                                                <td>300元－500元</td>
+                                                <td>300元－400元</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="teacher-info">
+                                    <h4>三、备注</h4>
+                                    <p>1、大学生家教网提供价格为客观家教市场的行情价位。具体价格会根据路程远近、课程的难易程度、家教时间等客观因素会有所浮动。但不会有太大变化。</p>
+                                    <p>2、一般家教课时费里面包含交通费。但如果学员地理位置过于偏僻或离教员过于遥远。学员要为教员支付交通费。</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="main-user-info U-active">
-                            <div class="main-content-right">
-                                <div class="right-user-info">
-                                    <!--TODO:个人中心-->
-                                    <a href="#">
-                                        <img src="img/home/teacher/1.jpg" class="J-user-Headportrait" alt="veneno"/>
-                                    </a>
-                                    <div class="info-font">
-                                        <a href="#" class="j-username">年轻的小孩子</a><a href="#" data-toggle="tooltip" data-placement="bottom" title="积分：3" class="ulevel">5</a>
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                                <span class="sr-only">60%</span>
+                        <div id="addview" class="main-content-home    ">
+                            <div class="content-top">
+                                <div class="content-title">
+                                    <span>添加</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-user-info-btn">
+                        <div>
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </div>
+                    </div>
+                    <div class="main-user-info U-active">
+                        <div class="main-content-right">
+                            <div class="right-user-info">
+                                <!--TODO:个人中心-->
+                                <a href="#">
+                                    <img src="img/home/teacher/1.jpg" class="J-user-Headportrait" alt="veneno"/>
+                                </a>
+                                <div class="info-font">
+                                    <a href="#" class="j-username">年轻的小孩子</a><a href="#" data-toggle="tooltip" data-placement="bottom" title="积分：3" class="ulevel">5</a>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                            <span class="sr-only">60%</span>
+                                        </div>
+                                    </div>
+                                    <div class="updata-info">
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="编辑个人资料">资料完整度</a>
+                                        <label class="text-info">60%</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-user-more">
+                                <p class="text-center">没有家教信息</p>
+                                <!--<ul class="clearfix">
+                                    <li>
+                                        <span class="text-info">3</span><span>好评率</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-success">3</span><span>总交易</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-warning">3</span><span>在交易</span>
+                                    </li>
+                                </ul>-->
+                            </div>
+                            <div class="right-suggest">
+                                <div class="right-suggest-title">
+                                    <span>我的消息</span>
+                                </div>
+                                <div class="right-suggest-center">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <img src="img/home/photo.png" alt=""/>
+                                            </a>
+                                            <a href="#">网站管理员</a><span class="bade bade-info">网站管理员</span>
+                                            <div>
+                                                新消息 20 条
+                                                <a href="#">查看详细</a>
                                             </div>
-                                        </div>
-                                        <div class="updata-info">
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="编辑个人资料">资料完整度</a>
-                                            <label class="text-info">60%</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right-user-more">
-                                    <p class="text-center">没有家教信息</p>
-                                    <!--<ul class="clearfix">
-                                        <li>
-                                            <span class="text-info">3</span><span>好评率</span>
                                         </li>
                                         <li>
-                                            <span class="text-success">3</span><span>总交易</span>
+                                            <a href="#">
+                                                <img src="img/home/teacher/2.jpg" alt=""/>
+                                            </a>
+                                            <a href="#">用户名</a><span class="bade bade-info">好友</span>
+                                            <div>
+                                                新消息 20 条
+                                                <a href="#">查看详细</a>
+                                            </div>
                                         </li>
                                         <li>
-                                            <span class="text-warning">3</span><span>在交易</span>
+                                            <a href="#">
+                                                <img src="img/home/teacher/3.jpg" alt=""/>
+                                            </a>
+                                            <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
+                                            <div>
+                                                新消息 20 条
+                                                <a href="#">查看详细</a>
+                                            </div>
                                         </li>
-                                    </ul>-->
+                                        <li>
+                                            <a href="#">
+                                                <img src="img/home/teacher/3.jpg" alt=""/>
+                                            </a>
+                                            <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
+                                            <div>
+                                                新消息 20 条
+                                                <a href="#">查看详细</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="img/home/teacher/3.jpg" alt=""/>
+                                            </a>
+                                            <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
+                                            <div>
+                                                新消息 20 条
+                                                <a href="#">查看详细</a>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="right-suggest">
-                                    <div class="right-suggest-title">
-                                        <span>我的消息</span>
-                                    </div>
-                                    <div class="right-suggest-center">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="img/home/photo.png" alt=""/>
-                                                </a>
-                                                <a href="#">网站管理员</a><span class="bade bade-info">网站管理员</span>
-                                                <div>
-                                                    新消息 20 条
-                                                    <a href="#">查看详细</a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="img/home/teacher/2.jpg" alt=""/>
-                                                </a>
-                                                <a href="#">用户名</a><span class="bade bade-info">好友</span>
-                                                <div>
-                                                    新消息 20 条
-                                                    <a href="#">查看详细</a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="img/home/teacher/3.jpg" alt=""/>
-                                                </a>
-                                                <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
-                                                <div>
-                                                    新消息 20 条
-                                                    <a href="#">查看详细</a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="img/home/teacher/3.jpg" alt=""/>
-                                                </a>
-                                                <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
-                                                <div>
-                                                    新消息 20 条
-                                                    <a href="#">查看详细</a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="img/home/teacher/3.jpg" alt=""/>
-                                                </a>
-                                                <a href="#">用户名</a><span class="bade bade-denger">陌生人</span>
-                                                <div>
-                                                    新消息 20 条
-                                                    <a href="#">查看详细</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            </div>
+                            <div class="right-suggest">
+                                <div class="right-suggest-title">
+                                    <span>网站公告</span>
                                 </div>
-                                <div class="right-suggest">
-                                    <div class="right-suggest-title">
-                                        <span>网站公告</span>
-                                    </div>
-                                    <div class="right-suggest-center sm-height">
-                                        <span>关于网站管理，网站管理员发布第43条规定“禁止恶意辱骂他人、禁止发布有损社会形象的信息、对违规人员该网站有权做处理”</span>
-                                        <a href="#" class="pull-right">查看详情</a>
-                                    </div>
+                                <div class="right-suggest-center sm-height">
+                                    <span>关于网站管理，网站管理员发布第43条规定“禁止恶意辱骂他人、禁止发布有损社会形象的信息、对违规人员该网站有权做处理”</span>
+                                    <a href="#" class="pull-right">查看详情</a>
                                 </div>
                             </div>
                         </div>
@@ -517,32 +661,39 @@
                 </div>
             </div>
         </div>
-        <!--底部-->
-        <div class="footer"></div>
+    </div>
+    <!--底部-->
+    <div class="footer"></div>
 
-        <!--弹出框-->
-        <!--<div class="tip">
-            <div class="tip-arrow"></div>
-            <div class="tip-center">等级:3</div>
-        </div>-->
-        <!--教师标签弹出解释-->
-        <div class="labelInfo">
-            <div class="labelInfo-tilte">
-                <span></span>
-            </div>
-            <div class="labelInfo-content">
-                <span></span>
-            </div>
-            <div class="labelInfo-footer text-right">
-                <a href="http://www.baidu.com">——摘自《百度百科》</a>
-            </div>
+    <!--弹出框-->
+    <!--<div class="tip">
+        <div class="tip-arrow"></div>
+        <div class="tip-center">等级:3</div>
+    </div>-->
+    <!--教师标签弹出解释-->
+    <div class="labelInfo">
+        <div class="labelInfo-tilte">
+            <span></span>
+        </div>
+        <div class="labelInfo-content">
+            <span></span>
+        </div>
+        <div class="labelInfo-footer text-right">
+            <a href="http://www.baidu.com">——摘自《百度百科》</a>
         </div>
     </div>
+</div>
 </body>
 
 <script src="js/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<!--<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>-->
 <script src="js/bootstrap/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>-->
 <script src="js/default.js"></script>
 <script src="js/home.js"></script>
+<script>
+    /*$.get("https://graph.qq.com/oauth2.0/me?access_token"+getUrlParam('code'),function(data,status){
+        alert(data);
+    });*/
+</script>
 </html>

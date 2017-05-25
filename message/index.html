@@ -28,7 +28,14 @@
 				  <p class="setting-info">双击收起聊天界面</p>
 			  </div>
 			  <div class="sidebar-content">
-			    <div class="user-list">
+				  <div class="chat_admin">
+					  <div class="contact">
+						  <img src="img/1.png" alt="" class="contact__photo" />
+						  <span class="contact__name">系统消息</span>
+						  <span class="contact__status online"></span>
+					  </div>
+				  </div>
+				  <div class="user-list">
 					<div class="contact">
 						<img src="img/1.png" alt="" class="contact__photo" />
 						<span class="contact__name">用户</span>
@@ -95,6 +102,17 @@
 					</div>
 				</div>
 			    <div class="chat__messages">
+					<!--<div class="admin-message">
+						<div class="admin-card">
+							<div class="admin-header">系统消息</div>
+							<div class="admin-content">
+								<p>您有一条待处理聘请，请尽快处理!</p>
+							</div>
+							<div class="admin-footer">
+								<p><a href="#">查看详情</a></p>
+							</div>
+						</div>
+					</div>-->
 			      <!--<div class="chat__msgRow">
 			        <div class="chat__message mine"><p>你好！张老师,是这样的，我家的孩子呢撒飒飒</p><span class="chat-time">2017-06-06 06:30:19 </span></div>
 			      </div>
@@ -124,6 +142,12 @@
 		$('.demo').dblclick(function(){
 			if(window.parent.window.messagePanelOut) {
 				window.parent.window.messagePanelOut();
+			}
+		});
+		$('body').on('click','.j-main-localtion',function(e){
+			e.stopPropagation();
+			if(window.parent.window.localtionUrl) {
+				window.parent.window.localtionUrl($(this).attr('data-href'),$(this).attr('data-argument'));
 			}
 		});
 	</script>

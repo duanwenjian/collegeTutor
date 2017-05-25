@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--设置网页到期时间-->
+    <!--<meta http-equiv="expires" content="Fri,12Jan201718:18:18GMT">
+    &lt;!&ndash;禁止缓存&ndash;&gt;
+    <meta http-equiv="Pragma" content="no-cache">
+    &lt;!&ndash;网页过去清除cookie&ndash;&gt;
+    <meta http-equiv="Set-Cookie" content="cookie value=xxx;expires=Friday,12-Jan-201718:18:18GMT；path=/">
+    &lt;!&ndash;防止别人调用&ndash;&gt;
+    <meta http-equiv="Window-target" content="_top">-->
+    <!--显示语言-->
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <!--关键字-->
+    <meta name="keywords" content="大学生家教,家教,大学生,college tutor,college,tutor">
+    <!--告诉搜索引擎网站主要内容-->
+    <meta name="description" content="《大学生家教》网是一个专注于大学生家教的平台，帮助家长更好地找家教">
+    <!--告诉机器人索引-->
+    <meta name="robots" content="all">
+    <!--作者信息-->
+    <meta name="author" content="阿段,www.collegetutor@126.com">
+    <!--信息参数-->
+    <meta name="generator" content="html,css,javaScript,php,mysql"/>
+    <!--版权信息-->
+    <meta name="copyright" content="大学生家教网版权所有">
+    <!--标签logo-->
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
+    <link rel="stylesheet" href="css/date/pikaday.css"/>
+    <link rel="stylesheet" href="css/teacherInfoShow.css"/>
+    <link rel="stylesheet" href="css/default/font.css"/>
+    <title>交易信息 | collegeTutor</title>
+    <style>
+        .address-baidu{
+            position: relative;
+        }
+        .baidu-content{
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 400px;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #999999;
+            display: none;
+        }
+        #baidu-addr{
+            width: 100%;
+            height: 100%;
+        }
+        #sendMsg{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--加载动画-->
+<div class="loading hide">
+    <div class="loading-content">
+        <img src="res/loading.svg" alt=""/>
+        <h2>正在加载...</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div id="bg-img" class="bg-img-3"></div>
+    <div class="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!--导航栏顶部-->
+                <div class="navbar-header margin-left15">
+                    <a href="home.html" class="navbar-brand">
+                        <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="home.html">首页</a></li>
+                        <li><a href="dealSelect.html">交易</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                    </form>
+                    <div class="navbar-right margin-right15">
+                        <ul class="nav navbar-nav">
+                            <li><!--<a href="applyFoTearcher.html">成为教师</a>--></li>
+                            <li class="dropdown">
+                                <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                                        <span class="j-username">
+                                            善良的小孩
+                                        </span>
+                                    <span class="caret"></span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="home.html">主页</a></li>
+                                    <li><a href="#" class="messagePanelIn">通知中心</a></li>
+                                    <li><a href="#">账户设置</a></li>
+                                    <li><a href="#">帮助（反馈）</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a class="text-disabled user-exit">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="teacherInfoShow clearfix">
+        <div class="main">
+            <div class="main-top text-left">
+            </div>
+            <div class="main-content">
+                <div class="info-title">
+                    <p>请正确填写下列资料</p>
+                </div>
+                <div class="info-content">
+                        <div class="content-body">
+                            <div style="">
+                                <form class="form-horizontal text-center">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="startTime" class="col-sm-4 control-label">开始时间</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="startTime" placeholder="请输入开始时间" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="endTime" class="col-sm-4 control-label">结束时间
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="endTime" placeholder="请输入结束时间" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="daytime" class="col-sm-4 control-label">上课时间</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="number" class="form-control" id="daytime" placeholder="请输入每天需上课时间">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="Price" class="col-sm-4 control-label">课时费</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="Price" placeholder="请输入每小时的价格">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left: -9px">
+                                        <div class="form-group">
+                                            <label  class="col-sm-2 control-label">上课方式</span>
+                                            </label>
+                                            <div class="col-sm-10 text-left">
+                                                <input type="checkbox" class="hide" name="week" id="week-1" value="一">
+                                                <label class="radio-inline" for="week-1">
+                                                    <span></span>一
+                                                </label>
+                                                <input type="checkbox" class="hide" name="week" id="week-2" value="二">
+                                                <label class="radio-inline" for="week-2">
+                                                    <span></span>二
+                                                </label>
+                                                <input type="checkbox" class="hide" name="week" id="week-3" value="三">
+                                                <label class="radio-inline" for="week-3">
+                                                    <span></span>三
+                                                </label>
+                                                <input type="checkbox" class="hide" name="week" id="week-4" value="四">
+                                                <label class="radio-inline" for="week-4">
+                                                    <span></span>四
+                                                </label>
+                                                <input type="checkbox" class="hide" name="week" id="week-5" value="五">
+                                                <label class="radio-inline" for="week-5">
+                                                    <span></span>五
+                                                </label>
+                                                <input type="checkbox" class="hide" name="week" id="week-6" value="六">
+                                                <label class="radio-inline" for="week-6">
+                                                    <span></span>六
+                                                </label>
+                                                <input type="checkbox" class="hide" name="week" id="week-7" value="日">
+                                                <label class="radio-inline" for="week-7">
+                                                    <span></span>日
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left: -9px">
+                                        <div class="form-group">
+                                            <label for="Remarks" class="col-sm-2  control-label">备注</label>
+                                            <div class="col-sm-10">
+                                                <textarea id="Remarks" class="form-control" rows="3" placeholder="备注"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="">
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="teacherType" class="col-sm-4 control-label">家教方式
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <select id="teacherType" class="form-control" size="1">
+                                                            <option value="1">教师上门</option>
+                                                            <option value="0">学生上门</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="Subject" class="col-sm-4 control-label">付款方式
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Subject" class="form-control" size="1">
+                                                            <option value="每日结算">每日结算</option>
+                                                            <option value="每周结算">每周结算</option>
+                                                            <option value="每月结算">每月结算</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row j-address" style="margin-left: -9px">
+                                        <div class="form-group">
+                                            <label for="address" class="col-sm-2  control-label">上课地址</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="address" placeholder="请输入上课地址">
+                                                <div class="address-baidu">
+                                                    <div class="baidu-content">
+                                                        <div id="baidu-addr"></div>
+                                                        <div id="searchResultPanel"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-10 text-left">
+                                            <input type="radio" class="hide" name="week" id="readed" value="">
+                                            <label class="radio-inline" for="readed">
+                                                <span></span>我已阅读<a href="#">《大学生家教网平台用户聘请家教守则》</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                </div>
+                <div class="info-title">
+                    <p>发送模板</p>
+                </div>
+                <div class="info-content ">
+                    <div class="">
+                        <p><span id='teachername'>花若开</span>老师，您好！</p>
+                        <div>
+                            <div style="padding-left: 24px">
+                                <p>经过我认真的筛选，我将诚挚聘请您为我的孩子做家教辅导！</p>
+                                <p>辅导时间为： <span class="text-danger" data-bind="startTime"> </span> 开始至 <span class="text-danger" data-bind="endTime"> </span> 结束 。上课方式为每周 <span class="text-danger j-daytime" > </span> 。每天 <span class="text-danger" data-bind="daytime"> </span> 小时 。</p>
+                                <p>课时费：每小时人民币 <span class="text-danger" data-bind="Price"> </span>元 。</p>
+                                <p>辅导方式为： <span class="text-danger" data-bind="teacherType">教师上门</span><span style="margin-left: 50px">结算时间： <span class="text-danger" data-bind="Subject"></span></span></p>
+                                <p class="j-address">地址： <span class="text-danger" data-bind="address"> </span></p>
+                                <p>备注： <span data-bind="Remarks"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-footer">
+                <div class="content-footer">
+                    <button type="button" class="btn btn-primary" id="sendMsg">发送聘请 <span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" id="message-push" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document" style="margin-top: 250px">
+        <div class="modal-content text-center" style="height: 100px;padding: 20px">
+            <div class="teacherShow-preloaders text-center">
+                <div class="preloader preloader-green preloader-sm">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20"></circle>
+                    </svg>
+                </div>
+            </div>
+            <p style="" class="j-message">正在发送请求...</p>
+        </div>
+    </div>
+</div>
+<script src="https://api.map.baidu.com/api?v=2.0&ak=49iWGGRS0sC4rFd7UilIQn0mWNyvMO5e&s=1；"></script>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/date/pikaday.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="js/default.js"></script>
+<script src="js/dealinfo.js"></script>
+<script>
+    var picker = new Pikaday(
+            {
+                field: document.getElementById('startTime'),
+                firstDay: 1,
+                minDate: new Date('1900-01-01'),
+                maxDate: new Date(),
+                yearRange: [1900,2020]
+            });
+    var pickerend = new Pikaday(
+            {
+                field: document.getElementById('endTime'),
+                firstDay: 1,
+                minDate: new Date('1900-01-01'),
+                maxDate: new Date(),
+                yearRange: [1900,2020]
+            });
+    $(document).ready(function(){
+        $('#teachername').html(getUrlParam('teacherName'));
+        var h=$('#bg-img')[0].scrollHeight-70;
+        $('.teacherInfoShow').css('height',h);
+    });
+
+</script>
+</body>
+</html>

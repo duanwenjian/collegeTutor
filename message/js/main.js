@@ -194,6 +194,7 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".chat__back", function() {
+      $('.send-btn').attr('data-userid','');
     if (animating) return;
     animating = true;
     $chat.removeClass("active");

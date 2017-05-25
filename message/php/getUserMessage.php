@@ -22,7 +22,7 @@
         $res=mysqli_query($linki,$sql);
         $pager['chat']=mysqli_fetch_all($res,MYSQLI_ASSOC);
 
-        $sql2="SELECT ct_user.username,ct_user.Headportrait,ct_user_deal.regtime FROM `ct_user_relation`,`ct_user_deal`,`ct_user` WHERE ct_user_relation.user_id_to=$userID AND ct_user_relation.id=ct_user_deal.relation_id AND ct_user.id=ct_user_relation.user_id_from AND ct_user_deal.status=0 ORDER BY ct_user_deal.regtime";
+        $sql2="SELECT ct_user.username,ct_user.Headportrait,ct_user_deal.regtime,ct_user_deal.id FROM `ct_user_relation`,`ct_user_deal`,`ct_user` WHERE ct_user_relation.user_id_to=$userID AND ct_user_relation.id=ct_user_deal.relation_id AND ct_user.id=ct_user_relation.user_id_from AND ct_user_deal.status=0 ORDER BY ct_user_deal.regtime";
         $res2=mysqli_query($linki,$sql2);
         $pager['deal']=mysqli_fetch_all($res2,MYSQLI_ASSOC);
 

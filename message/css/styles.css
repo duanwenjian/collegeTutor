@@ -315,7 +315,7 @@ svg {
   overflow-y: auto;
 }
 .chat__msgRow {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .chat__msgRow:after {
   content: "";
@@ -484,6 +484,28 @@ svg {
   width: 100%;
   height: 100%;
 }
+.admin-message{
+  margin: 10px 0;
+}
+.admin-message .admin-card{
+  border-radius: 3px;
+  background-color: #efefef;
+}
+.admin-header{
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+  /*border-bottom: 1px solid #f9f7f6;*/
+}
+.admin-content p{
+  text-indent: 24px;
+  padding: 5px 10px 10px 5px;
 
+}
+.admin-footer{
+  text-align: right;
+  padding: 5px 10px;
+    border-top: 1px solid #f9f7f6;
+}
 .animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.animated.infinite{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.animated.hinge{-webkit-animation-duration:2s;animation-duration:2s}
 @-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(20px);-ms-transform:translateY(20px);transform:translateY(20px)}100%{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}}.fadeInUp{-webkit-animation-name:fadeInUp;animation-name:fadeInUp}
