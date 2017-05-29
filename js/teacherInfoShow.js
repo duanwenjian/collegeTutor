@@ -47,6 +47,9 @@ function getHtml(date){
         $('*[data-bind='+i+']').html(date.teacherInfo[i]);
     }
     $('#userid').attr('data-userid',date.teacherInfo.id);
+    if($('#userid').attr('data-userid')==localStorage.getItem('userID')){
+        $('.main-footer').hide();
+    }
     $('#userid').attr('data-username',date.teacherInfo.username);
     $('.J-user-Headportrait').attr('src',date.teacherInfo.Headportrait);
     var htmls='';

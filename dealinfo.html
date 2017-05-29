@@ -222,8 +222,8 @@
                                                     </label>
                                                     <div class="col-sm-8">
                                                         <select id="teacherType" class="form-control" size="1">
-                                                            <option value="1">教师上门</option>
-                                                            <option value="0">学生上门</option>
+                                                            <option value="教师上门">教师上门</option>
+                                                            <option value="学生上门">学生上门</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -330,7 +330,7 @@
                 field: document.getElementById('startTime'),
                 firstDay: 1,
                 minDate: new Date('1900-01-01'),
-                maxDate: new Date(),
+                maxDate: new Date('2050-01-01'),
                 yearRange: [1900,2020]
             });
     var pickerend = new Pikaday(
@@ -338,7 +338,7 @@
                 field: document.getElementById('endTime'),
                 firstDay: 1,
                 minDate: new Date('1900-01-01'),
-                maxDate: new Date(),
+                maxDate: new Date('2050-01-01'),
                 yearRange: [1900,2020]
             });
     $(document).ready(function(){

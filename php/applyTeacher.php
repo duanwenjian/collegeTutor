@@ -81,7 +81,7 @@ if($type=='apply'){
             echo json_encode(array("retCode"=>0,"retMsg"=>"与当前教师存在未完成交易，关闭才可开始新交易"));
         }
     }else{
-      $sql3="INSERT INTO `ct_user_deal`(`id`, `relation_id`, `startTime`, `endTime`, `dayTime`, `price`, `week`, `ranks`, `teacherType`, `payType`, `address`, `regtime`, `status`) VALUES (null,$id,$startTime,$endTime,$dayTime,$price,'$week','$ranks','$teacherType','$payType','$address',$regtime,0)";
+      $sql3="INSERT INTO `ct_user_deal`(`id`, `relation_id`, `startTime`, `endTime`, `dayTime`, `price`, `week`, `ranks`, `teacherType`, `payType`, `address`, `regtime`, `status`) VALUES (null,$id,'$startTime','$endTime',$dayTime,$price,'$week','$ranks','$teacherType','$payType','$address',$regtime,0)";
       $query3=mysql_query($sql3);
       $content['messageID']=mysql_insert_id();
       $post_data = array(

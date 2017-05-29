@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--设置网页到期时间-->
+    <!--<meta http-equiv="expires" content="Fri,12Jan201718:18:18GMT">
+    &lt;!&ndash;禁止缓存&ndash;&gt;
+    <meta http-equiv="Pragma" content="no-cache">
+    &lt;!&ndash;网页过去清除cookie&ndash;&gt;
+    <meta http-equiv="Set-Cookie" content="cookie value=xxx;expires=Friday,12-Jan-201718:18:18GMT；path=/">
+    &lt;!&ndash;防止别人调用&ndash;&gt;
+    <meta http-equiv="Window-target" content="_top">-->
+    <!--显示语言-->
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <!--关键字-->
+    <meta name="keywords" content="大学生家教,家教,大学生,college tutor,college,tutor">
+    <!--告诉搜索引擎网站主要内容-->
+    <meta name="description" content="《大学生家教》网是一个专注于大学生家教的平台，帮助家长更好地找家教">
+    <!--告诉机器人索引-->
+    <meta name="robots" content="all">
+    <!--作者信息-->
+    <meta name="author" content="阿段,www.collegetutor@126.com">
+    <!--信息参数-->
+    <meta name="generator" content="html,css,javaScript,php,mysql"/>
+    <!--版权信息-->
+    <meta name="copyright" content="大学生家教网版权所有">
+    <!--标签logo-->
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
+    <link rel="stylesheet" href="css/date/pikaday.css"/>
+    <link rel="stylesheet" href="css/teacherInfoShow.css"/>
+    <link rel="stylesheet" href="css/default/font.css"/>
+    <link rel="stylesheet" href="css/userInfo.css"/>
+    <title>个人中心 | collegeTutor</title>
+
+</head>
+<body>
+<!--加载动画-->
+<div class="loading hide">
+    <div class="loading-content">
+        <img src="res/loading.svg" alt=""/>
+        <h2>正在加载...</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div id="bg-img" class="bg-img-3"></div>
+    <div class="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!--导航栏顶部-->
+                <div class="navbar-header margin-left15">
+                    <a href="home.html" class="navbar-brand">
+                        <img src="img/home/navbar/navbar-logo.png" alt="brand"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="home.html">首页</a></li>
+                        <li><a href="dealSelect.html">交易</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                        <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
+                    </form>
+                    <div class="navbar-right margin-right15">
+                        <ul class="nav navbar-nav">
+                            <li><a href="applyFoTearcher.html">成为教师</a></li>
+                            <li class="dropdown">
+                                <div class="dropdown-toggle margin-up-down10 user-Focus text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/home/navbar/navbar-user-avatar.png" class="navbar-user-avatar" alt="用户1"/>
+                                        <span class="j-username">
+                                            善良的小孩
+                                        </span>
+                                    <span class="caret"></span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a href="userInfo.html">个人中心</a></li>
+                                    <li><a href="#" class="messagePanelIn">通知中心</a></li>
+                                    <li><a href="feedback.html">帮助（反馈）</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a class="text-disabled user-exit">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class=" clearfix dealSelect">
+        <div class="main">
+            <div class="main-top">
+                <div class="main-top-content text-center">
+                    <div>
+                        <img class="j-userImg" src="img/home/photo.png" alt="用户三"/>
+                        <span class="j-updateUser"> 更换头像<input type="file" name="updateFile" id="updateFile"/></span>
+                    </div>
+                    <h4 style="padding-right: 50px">用户三 </h4>
+                </div>
+                <div class="main-top-footer">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="content-left">
+                    <h4 class="text-center">授课日程</h4>
+                    <div class="teacherTime" id="teacherTime"></div>
+                </div><div class="content-right">
+                <div>
+                    <p>“授课日程”是教师目前所有接受到的交易对未来一个周的日程安排。一个“点”代表教师需要在坐标对应的时间去完成任教！</p>
+                </div>
+            </div>
+                <div class="content-left">
+                    <h4 class="text-center">交易完成进度</h4>
+                    <div class="dealInfo" id="dealInfo"></div>
+                </div><div class="content-right">
+                    <div>
+                        <p>“授课日程”是教师目前所有接受到的交易对未来一个周的日程安排。一个“点”代表教师需要在坐标对应的时间去完成任教！</p>
+                    </div>
+                </div>
+                <div class="content-left">
+                    <!--<h4 class="text-center">好评率</h4>-->
+                    <div class="teacherfeed" id="teacherfeed">
+                    </div>
+                </div><div class="content-right">
+                <div>
+                    <p>“授课日程”是教师目前所有接受到的交易对未来一个周的日程安排。一个“点”代表教师需要在坐标对应的时间去完成任教！</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="cut-img" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content text-center" style="margin-top: 100px">
+            <div class="cutImg">
+                <div class="cut-show">
+                    <div class="show-left">
+                        <div id="clipArea"></div>
+                        <a id="clipBtn" class="btn btn-info btn-block">裁剪</a>
+                    </div><div class="show-right">
+                    <div>
+                        <div id="view"></div>
+                        <p>裁剪预览</p>
+                        <a href="#" class="btn btn-success" id="updateImageFiles">上传</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="https://api.map.baidu.com/api?v=2.0&ak=49iWGGRS0sC4rFd7UilIQn0mWNyvMO5e&s=1；"></script>-->
+
+<script src="js/jquery-1.11.3.js"></script>
+<!--<script src="js/date/pikaday.min.js"></script>-->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="js/default.js"></script>
+<script src="js/date/echarts.min.js"></script>
+<script src="js/date/wonderland.js"></script>
+<script src="js/updateFile/iscroll-zoom.js"></script>
+<script src="js/updateFile/hammer.js"></script>
+<script src="js/updateFile/jquery.photoClip.js"></script>
+<script>
+    var files;
+
+    $('.j-updateUser').click(function(){
+        document.getElementById('updateFile').click();
+    });
+    $('#updateFile').change(function(){
+        $('#cut-img').modal('show');
+        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    });
+    $('#clipBtn').click(function(){
+        $('#updateImageFiles').show();
+    });
+    $('body').on('click','#updateImageFiles',function(){
+        $.ajax({
+            url:'php/base64ImgSave.php',
+            type:'POST',
+            dataType:'json',
+            data:{"imageFile":files,'userID':localStorage.getItem('userID')},
+            success:function(data){
+                if(+data.retCode==0){
+                    $('#cut-img').modal('hide');
+                    localStorage.getItem('Headportrait',data.retMsg);
+                }
+            },
+            error:function(){}
+        });
+    });
+    $("#clipArea").photoClip({
+        width: 200,
+        height: 200,
+        file: "#updateFile",
+        view: "#view",
+        ok: "#clipBtn",
+        loadStart: function() {
+            console.log("照片读取中");
+        },
+        loadComplete: function() {
+            console.log("照片读取完成");
+        },
+        clipFinish: function(dataURL) {
+//            console.log(dataURL);
+            files=dataURL;
+        }
+    });
+</script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('teacherTime'),'wonderland');
+    var data=['6-1','6-2','6-3','6-4','6-5','6-6','6-7'];
+    option1 = {
+        title: {
+            text: '授课日程安排',
+            left:'center',
+            show:false
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            show:false
+        },
+        grid: {
+            left: '8%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: data,
+            name:'上课时间',
+            nameLocation:'start'
+        },
+        yAxis: {
+            type: 'value',
+            name:'价格',
+            nameLocation:'end'
+        },
+        series: [
+            {
+                name:'用户一',
+                type:'line',
+                step: 'start',
+                data:[100, 100, , 100, 100, 100, ]
+            },
+            {
+                name:'用户二',
+                type:'line',
+                step: 'middle',
+                data:[, , 200, , , , 200]
+            },
+            {
+                name:'用户三',
+                type:'line',
+                step: 'end',
+                data:[350, 350, 350, 350, 350, 350, 350]
+            }
+        ],
+        legend: {
+            data:['用户一', '用户二', '用户三']
+        }
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option1);
+</script>
+<script>
+    var dealInfo = echarts.init(document.getElementById('dealInfo'),'wonderland');
+
+    option2 = {
+        title: {
+            text: '',
+            left:'center',
+            show:false
+        },
+
+        tooltip: {
+            trigger: 'axis'
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        angleAxis: {
+        },
+        radiusAxis: {
+            type: 'category',
+            data: ['用户', '用户', '用户', '用户'],
+            z: 10
+        },
+        polar: {
+        },
+        series: [{
+            type: 'bar',
+            data: [50, 50, 75, 100],
+            coordinateSystem: 'polar',
+            name: '交易完成情况'
+        }],
+        legend: {
+            show: true,
+            data: ['交易完成情况']
+        }
+    };
+    dealInfo.setOption(option2);
+</script>
+<script>
+    var teacherfeed = echarts.init(document.getElementById('teacherfeed'),'wonderland');
+    option3 = {
+        title: {
+            text: '评价榜',
+            left: 'center',
+            show:true
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'所占好评',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:335, name:'一星'},
+                    {value:310, name:'二星'},
+                    {value:274, name:'三星'},
+                    {value:235, name:'四星'},
+                    {value:400, name:'五星'}
+                ],
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#666'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#666'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.2)'
+                    }
+                },
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };
+    teacherfeed.setOption(option3);
+</script>
+<script>
+    var h=$('#bg-img')[0].scrollHeight-223;
+    $('.main-content').css('height',h);
+</script>
+</body>
+</html>

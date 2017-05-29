@@ -10,6 +10,16 @@ $('#endTime').blur(function(){
         $(this).val('');
     }
 });
+$('#startTime').blur(function(){
+//    document.getElementById('endTime').oninput=function(){
+    var start=(new Date($(this).val())).getTime();
+    var now=(new Date()).getTime();
+    if(now>start){
+        alert('开始时间不能小于当前时间');
+        $(this).val('');
+        return false;
+    }
+});
 
 $('body').on('blur','input[type!="checkbox"],select,textarea',function(){
     $('span[data-bind="'+$(this).attr('id')+'"]').html($(this).val());
@@ -67,6 +77,7 @@ $('body').on('click','#sendMsg',function(){
     };
     if(!inputValue()){
         alert('请正确填写全部信息');
+        return false;
     }
     $.ajax({
         url:'php/applyTeacher.php',
@@ -82,7 +93,7 @@ $('body').on('click','#sendMsg',function(){
                 $('#sendMsg').hide();
                 $('input,select,textarea').attr('disabled',true);
             }
-            if(+code==200){
+            if(+data.code==200){
                 alertMessage('系统消息','发送成功');
                 $('#sendMsg').hide();
             }
@@ -93,11 +104,9 @@ $('body').on('click','#sendMsg',function(){
     });
 });
 function inputValue(){
-    var itxt = document.getElementsByTagName("input");
-    var b = 0;
+    var itxt =$(".form-horizontal input[type='text']");
     for (h = 0; h < itxt.length; h++) {
-        var atype = itxt[h].type;
-        if (atype == "text" && itxt[h].value=="") {
+        if (itxt[h].value=="") {
             return false;
         }
 
@@ -165,6 +174,9 @@ function getDealSelect(){
         'fromId':localStorage.getItem('userID'),
         'toId':getUrlParam('userid')
     };
+    if(obj.fromId==obj.toId){
+        return false;
+    }
     $.ajax({
         url:'php/dealSelect.php',
         type:'GET', //GET

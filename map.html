@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
-    <meta charset="utf-8"/>
-    <title>异步加载</title>
-    <script type="text/javascript">
-        function initialize() {
-            var mp = new BMap.Map('map');
-            mp.centerAndZoom(new BMap.Point(121.491, 31.233), 11);
-            alert('回调函数');
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        *{
+            height: 100%; //设置高度，不然会显示不出来
         }
-
-        function loadScript() {
-            var script = document.createElement("script");
-            script.src = "https://api.map.baidu.com/api?v=2.0&ak=49iWGGRS0sC4rFd7UilIQn0mWNyvMO5e&callback=initialize";//此为v2.0版本的引用方式
-            // http://api.map.baidu.com/api?v=1.4&ak=您的密钥&callback=initialize"; //此为v1.4版本及以前版本的引用方式
-            document.body.appendChild(script);
+    </style>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=49iWGGRS0sC4rFd7UilIQn0mWNyvMO5e"></script>
+    <script type="text/javascript" src="https://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <script>
+        $(function(){
+            navigator.geolocation.getCurrentPosition(translatePoint); //定位
+        });
+        function translatePoint(position){
+            var currentLat = position.coords.latitude;
+            var currentLon = position.coords.longitude;
+            var gpsPoint = new BMap.Point(currentLon, currentLat);
+            BMap.Convertor.translate(gpsPoint, 0, initMap); //转换坐标
         }
-
-        window.onload = loadScript;
+        function initMap(point){
+//初始化地图 
+            map = new BMap.Map("map");
+            map.addControl(new BMap.NavigationControl());
+            map.addControl(new BMap.ScaleControl());
+            map.addControl(new BMap.OverviewMapControl());
+            map.centerAndZoom(point, 15);
+            map.addOverlay(new BMap.Marker(point))
+        }
     </script>
 </head>
 <body>
-<div id="map" style="width:500px;height:320px"></div>
+<div id="map"></div>
 </body>
-</html>
+</html> 

@@ -27,5 +27,8 @@
             $pager['retCode']=1;
             $pager['retMsg']='可以交易';
         }
+    }else{
+        $pager['retCode']=2;
+        $pager['retMsg']='没有交易';
     }
         echo json_encode($pager);

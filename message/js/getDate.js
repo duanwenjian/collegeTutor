@@ -116,7 +116,7 @@ function getUserAdminMessage(data){
 								<p>您有一条待处理聘请，请尽快处理!</p>
 							</div>
 							<div class="admin-footer">
-								<p><a href="#" class="j-main-localtion" data-href="../dealinfo.html" data-argument='dealId=${data[k].id}'>查看详情</a></p>
+								<p><a href="#" class="j-main-localtion" data-href="../dealSelect.html" data-argument='dealId=${data[k].id}'>查看详情</a></p>
 							</div>
 						</div>
 					</div>`;

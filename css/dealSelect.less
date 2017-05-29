@@ -109,6 +109,15 @@
       }
     }
   }
+  .deal-info-d{
+    display: none;
+    padding:10px;
+    background-color: #efefef;
+    color: #999;
+    p{
+      margin: 0px;
+    }
+  }
   .main-tab{
     display: inline-block;
     width: 95%;
@@ -118,14 +127,46 @@
     background-color: #ffffff;
     z-index: 2;
     overflow-y: auto;
+    padding: 0 10px;
+  }
+  .main-top{
+    //background-color: #efefef;
+    width: 100%;
+    .selete-btn{
+      height: 40px;
+      text-align: right;
+      line-height: 40px;
+      span{
+        display: inline-block;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid @green;
+        border-radius: 4px;
+        color: @green;
+        cursor:pointer;
+        //.transition(all,300ms,linear);
+      }
+      span.active,span:hover{
+        background-color: @green-max;
+        color: #ffffff;
+      }
+      span+span{
+        margin-left: 20px;
+      }
+    }
   }
   .main{
 
-    padding: 0 10px;
     display: none;
+    height: 100%;
+    position: relative;
 
     transform: rotateY(0deg);
     transform-origin: left;
+
+    .main-content{}
 
     ul{
       padding: 0;
@@ -152,7 +193,7 @@
       }
       li+li{
       }
-      li:nth-child(5n-1):hover{
+      /*li:nth-child(5n-1):hover{
         border-bottom-color: #00b3ee;
       }
       li:nth-child(5n-2):hover{
@@ -166,7 +207,7 @@
       }
       li:nth-child(5n-5):hover{
         border-bottom-color: #a94442;
-      }
+      }*/
     }
   }
   .main-active{
@@ -215,7 +256,7 @@
   border:1px solid #c12e2a;
 }
 .deal-success{
-  &:hover{
+  &:hover,&:focus{
     background-color: @green;
     color: #ffffff;
     //border-color: @card-bg;
@@ -224,7 +265,7 @@
   }
 }
 .deal-danger{
-  &:hover{
+  &:hover,&:focus{
     background-color: #c12e2a;
     color: #ffffff;
     //border-color: @card-bg;
