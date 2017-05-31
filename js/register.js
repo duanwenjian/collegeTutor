@@ -117,7 +117,8 @@ var register={
                     alert("请正确填写注册信息");
                     return;
                 }else{
-                    $(this).val('正在登陆').disabled=true;
+                    $(this).val('正在注册').disabled=true;
+                    $('.loading').show();
                     $('#register-return-ok').addClass('swal2-in');
                     register.userInfo.pwd=hex_md5(register.userInfo.pwd);
                     $.ajax({
@@ -129,6 +130,7 @@ var register={
                         dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
                         success:function(data,textStatus,jqXHR){
                             if(+data.retCode==1){
+                                $('.loading').hide();
                                 register.reginsterOK();
                             }else{
                                 register.reginsterREEOR();
@@ -150,6 +152,7 @@ var register={
             '<div class="placeholder"></div> ' +
             '<div class="fix"></div> </div> ' +
             '<h2>注册成功</h2> <!--<p>您是第 <span class="text-danger">378</span> 位用户</p>--> ' +
+             '<h3>请登录邮箱激活账号，便可登陆</h3>'+
             '<a type="button" href="login.html" class="btn btn-sm btn-info" style="margin-top: 20px">登陆</a>'
             );
             setTimeout(function(){

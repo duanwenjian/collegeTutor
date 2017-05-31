@@ -79,6 +79,9 @@ function getTeacherList(page){
 
 function homeGetHtml(data,push){
     var html=[];
+    if(data.length<=0){
+        $('.j-search-return').show();
+    }
     for(var i=0;i<data.length;i++){
         if(push){
             TearcherList.push(data[i]);
@@ -112,7 +115,7 @@ function homeGetHtml(data,push){
                            <h5>${data[i].username}</h5>
                            <span>${data[i].major}</span>
                            <div class="card-money">
-                               <span>￥${data[i].Price}</span>
+                               <span>${data[i].Grade}</span>
                            </div>
                            <!--<a href="teacherInfoShow.html?userID=${data[i].id}" class="card-btn"><span><i class="glyphicon glyphicon-plus"></i></span>Add</a>-->
                        </div>
@@ -235,4 +238,217 @@ $('#recruit-page').on('click','span[aria-label="Next"]',function(){
 });
 $('#recruit-page').on('click','span[aria-label="Previous"]',function(){
     getRecruitInfo(parseFloat($('#recruit-page li.active span').text())-1);
+});
+
+
+function echer3(d) {
+//好评标
+    var teacherfeed = echarts.init(document.getElementById('content-teacher'), 'wonderland');
+    var data=d;
+    option3 = {
+        title : {
+            text: '教师科目分布统计',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            x : 'center',
+            y : 'bottom',
+            data:echer3Title(d)
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                /*mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true,
+                    type: ['pie', 'funnel']
+                },
+                restore : {show: true},*/
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        series : [
+            {
+                name:'所占全部评论比例',
+                type:'pie',
+                radius : [30, 110],
+                center : ['50%', '50%'],
+                roseType : 'area',
+                data:data
+            }
+        ]
+    };
+    teacherfeed.setOption(option3);
+}
+
+function echer2(d){
+
+    var userfeed = echarts.init(document.getElementById('content-user'), 'wonderland');
+
+    var dataGZ = echer2data(d);
+
+    var itemStyle = {
+        /*normal: {
+            opacity: 1,
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.1)'
+        }*/
+    };
+    /*var schema = [
+        {name: 'date', index: 0, text: '用户名'},
+        {name: 'AQIindex', index: 1, text: '注册时间'}
+    ];*/
+    option = {
+
+
+        legend: {
+            y: 'top',
+            data: [ '用户注册量'],
+            textStyle: {
+                color: '#404a59',
+                fontSize: 16
+            }
+        },
+        grid: {
+            x: '5%',
+            x2: '10%',
+            y: '10%',
+            y2: '5%'
+        },
+
+        xAxis: {
+            type: 'value',
+            name: '日期',
+            nameGap: 16,
+            nameTextStyle: {
+                //color: '#404a59',
+                fontSize: 14
+            },
+            max: 31,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    //color: '#404a59'
+                }
+            }
+        },
+        tooltip: {
+            padding: 10,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<p style="text-align: center;margin: 0 0 3px 0"><img src="'+value[3]+'" style="width: 40px;height: 40px;border-radius: 50%" alt="veneno"/></p>'+
+                     '<p style="font-size: 12px;text-align: center;margin: 0">'+value[2] + '</p>';
+            }
+        },
+        yAxis: {
+            type: 'value',
+            name: '时间',
+            nameLocation: 'end',
+            nameGap: 20,
+            nameTextStyle: {
+                //color: '#404a59',
+                fontSize: 16
+            },
+            axisLine: {
+                lineStyle: {
+                    //color: '#404a59'
+                }
+            },
+            splitLine: {
+                show: false
+            }
+        },
+        visualMap: [
+
+        ],
+        series: [
+
+            {
+                name: '用户注册量',
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: dataGZ
+            }
+        ]
+    };
+    userfeed.setOption(option);
+}
+
+getFunctionInfo();
+function getFunctionInfo(){
+    var obj={};
+    $.ajax({
+        url:'php/getFunctionInfo.php',
+        type:'GET',
+        data:obj,
+        dataType:'JSON',
+        success:function(data){
+            if(data.retCode==1){
+                //getRecruitHtml(data.retData);
+                echer3(data.teacherInfo);
+                echer2(data.userinfo);
+            }
+        },
+        error:function(){}
+    });
+}
+
+function echer3Title(data){
+    var arr=[];
+    for(var i=0;i<data.length;i++){
+        arr.push(data[i].name);
+    }
+    return arr;
+}
+
+function echer2data(data){
+    var arr=[];
+    for(var i=0;i<data.length;i++){
+        arr.push(getDayAndTime(data[i].time,[data[i].username,data[i].Headportrait]));
+    }
+    return arr;
+}
+
+function getDayAndTime(t,other){
+    var time=new Date(parseInt(t)*1000);
+    var d=time.getDate();
+    var m=time.getMinutes();
+    var h=time.getHours()/time.getHours()+Math.random()*24;
+    return [d,h].concat(other);
+}
+
+
+function searchTeacher(word){
+    var obj={
+        'word':word
+    };
+    $('.teacherShow-main').html('');
+    $('.j-search-load').show();
+    $.ajax({
+        url:'php/searchTeacher.php',
+        type:'GET',
+        data:obj,
+        dataType:'JSON',
+        success:function(data){
+            if(data.retCode==1){
+                $('.j-search-load').hide();
+                homeGetHtml(data.teacherInfo,false);
+            }
+        },
+        error:function(){}
+    });
+}
+
+$('body').on('click','#searchTeacher',function(){
+    searchTeacher($.trim($('#keyword').val()));
 });

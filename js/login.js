@@ -8,6 +8,8 @@ var login={
         this.getLocalUser();
         $('#login-go').click(function(){
             $(this).val('正在登陆').disabled=true;
+            $('.loading').show();
+            $('.loading h2').html('正在登陆...');
             login.userInfo.email=$('#login-email').val();
             login.userInfo.pwd=(this.getLocalStorage)?$('#login-pwd').val():hex_md5($('#login-pwd').val());
             $.ajax({

@@ -17,7 +17,7 @@
 	// 向客户端输出的数据
 	$pager=array(
 		'recordCount'=>1,//总记录数
-		'pageSize'=>2,//页面大小
+		'pageSize'=>10,//页面大小
 		'pageCount'=>0,//总页数
 		'pageNum'=>intval($pageNum),//当前页号
 		'data'=>null//当前页的数据

@@ -60,10 +60,10 @@
                         <li><a href="about.html">关于我们</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
-                        <div class="form-group has-feedback">
-                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
-                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
+                        <!--<div class="form-group has-feedback">-->
+                            <!--<input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">-->
+                            <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                        <!--</div>-->
                         <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
                     </form>
                     <div class="navbar-right margin-right15">
@@ -99,7 +99,7 @@
                         <img class="j-userImg" src="img/home/photo.png" alt="用户三"/>
                         <span class="j-updateUser"> 更换头像<input type="file" name="updateFile" id="updateFile"/></span>
                     </div>
-                    <h4 style="padding-right: 50px">用户三 </h4>
+                    <h4 style="padding-right: 50px" class="j-username">用户三 </h4>
                 </div>
                 <div class="main-top-footer">
                     <span></span><span></span><span></span><span></span><span></span>
@@ -119,7 +119,7 @@
                     <div class="dealInfo" id="dealInfo"></div>
                 </div><div class="content-right">
                     <div>
-                        <p>“授课日程”是教师目前所有接受到的交易对未来一个周的日程安排。一个“点”代表教师需要在坐标对应的时间去完成任教！</p>
+                        <p>“交易进度”是教师目前所有接受到的交易的完成情况的一个统计！</p>
                     </div>
                 </div>
                 <div class="content-left">
@@ -128,7 +128,7 @@
                     </div>
                 </div><div class="content-right">
                 <div>
-                    <p>“授课日程”是教师目前所有接受到的交易对未来一个周的日程安排。一个“点”代表教师需要在坐标对应的时间去完成任教！</p>
+                    <p>“好评表”是对教师的历史家教评论做的一个统计图表！</p>
                 </div>
             </div>
             </div>
@@ -170,229 +170,7 @@
 <script src="js/updateFile/iscroll-zoom.js"></script>
 <script src="js/updateFile/hammer.js"></script>
 <script src="js/updateFile/jquery.photoClip.js"></script>
-<script>
-    var files;
-
-    $('.j-updateUser').click(function(){
-        document.getElementById('updateFile').click();
-    });
-    $('#updateFile').change(function(){
-        $('#cut-img').modal('show');
-        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-    });
-    $('#clipBtn').click(function(){
-        $('#updateImageFiles').show();
-    });
-    $('body').on('click','#updateImageFiles',function(){
-        $.ajax({
-            url:'php/base64ImgSave.php',
-            type:'POST',
-            dataType:'json',
-            data:{"imageFile":files,'userID':localStorage.getItem('userID')},
-            success:function(data){
-                if(+data.retCode==0){
-                    $('#cut-img').modal('hide');
-                    localStorage.getItem('Headportrait',data.retMsg);
-                }
-            },
-            error:function(){}
-        });
-    });
-    $("#clipArea").photoClip({
-        width: 200,
-        height: 200,
-        file: "#updateFile",
-        view: "#view",
-        ok: "#clipBtn",
-        loadStart: function() {
-            console.log("照片读取中");
-        },
-        loadComplete: function() {
-            console.log("照片读取完成");
-        },
-        clipFinish: function(dataURL) {
-//            console.log(dataURL);
-            files=dataURL;
-        }
-    });
-</script>
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('teacherTime'),'wonderland');
-    var data=['6-1','6-2','6-3','6-4','6-5','6-6','6-7'];
-    option1 = {
-        title: {
-            text: '授课日程安排',
-            left:'center',
-            show:false
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            show:false
-        },
-        grid: {
-            left: '8%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            data: data,
-            name:'上课时间',
-            nameLocation:'start'
-        },
-        yAxis: {
-            type: 'value',
-            name:'价格',
-            nameLocation:'end'
-        },
-        series: [
-            {
-                name:'用户一',
-                type:'line',
-                step: 'start',
-                data:[100, 100, , 100, 100, 100, ]
-            },
-            {
-                name:'用户二',
-                type:'line',
-                step: 'middle',
-                data:[, , 200, , , , 200]
-            },
-            {
-                name:'用户三',
-                type:'line',
-                step: 'end',
-                data:[350, 350, 350, 350, 350, 350, 350]
-            }
-        ],
-        legend: {
-            data:['用户一', '用户二', '用户三']
-        }
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option1);
-</script>
-<script>
-    var dealInfo = echarts.init(document.getElementById('dealInfo'),'wonderland');
-
-    option2 = {
-        title: {
-            text: '',
-            left:'center',
-            show:false
-        },
-
-        tooltip: {
-            trigger: 'axis'
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        angleAxis: {
-        },
-        radiusAxis: {
-            type: 'category',
-            data: ['用户', '用户', '用户', '用户'],
-            z: 10
-        },
-        polar: {
-        },
-        series: [{
-            type: 'bar',
-            data: [50, 50, 75, 100],
-            coordinateSystem: 'polar',
-            name: '交易完成情况'
-        }],
-        legend: {
-            show: true,
-            data: ['交易完成情况']
-        }
-    };
-    dealInfo.setOption(option2);
-</script>
-<script>
-    var teacherfeed = echarts.init(document.getElementById('teacherfeed'),'wonderland');
-    option3 = {
-        title: {
-            text: '评价榜',
-            left: 'center',
-            show:true
-        },
-
-        tooltip : {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-
-        visualMap: {
-            show: false,
-            min: 80,
-            max: 600,
-            inRange: {
-                colorLightness: [0, 1]
-            }
-        },
-        series : [
-            {
-                name:'所占好评',
-                type:'pie',
-                radius : '55%',
-                center: ['50%', '50%'],
-                data:[
-                    {value:335, name:'一星'},
-                    {value:310, name:'二星'},
-                    {value:274, name:'三星'},
-                    {value:235, name:'四星'},
-                    {value:400, name:'五星'}
-                ],
-                roseType: 'radius',
-                label: {
-                    normal: {
-                        textStyle: {
-                            color: '#666'
-                        }
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        lineStyle: {
-                            color: '#666'
-                        },
-                        smooth: 0.2,
-                        length: 10,
-                        length2: 20
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#c23531',
-                        shadowBlur: 200,
-                        shadowColor: 'rgba(0, 0, 0, 0.2)'
-                    }
-                },
-
-                animationType: 'scale',
-                animationEasing: 'elasticOut',
-                animationDelay: function (idx) {
-                    return Math.random() * 200;
-                }
-            }
-        ]
-    };
-    teacherfeed.setOption(option3);
-</script>
+<script src="js/userInfo.js"></script>
 <script>
     var h=$('#bg-img')[0].scrollHeight-223;
     $('.main-content').css('height',h);

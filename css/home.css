@@ -1055,6 +1055,17 @@ a {
 .main .main-content #tutor .dropdown-menu > div.checkbox:hover {
   background-color: rgba(39, 174, 91, 0.6);
 }
+.main .main-content #function .content-main .content-main-content .content-teacher {
+  height: 400px;
+}
+.main .main-content #function .content-main .content-main-content .content-teacher #content-teacher {
+  width: 500px;
+  height: 400px;
+}
+.main .main-content #function .content-main .content-main-content .content-teacher #content-user {
+  width: 500px;
+  height: 400px;
+}
 .main .main-content #information .teacher-info {
   padding: 0 20px;
 }

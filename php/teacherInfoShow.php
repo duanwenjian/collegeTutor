@@ -38,7 +38,9 @@
         );
 
 //查询评论列表
-        $sql2="SELECT ct_teacher_evaluate.content,ct_teacher_evaluate.talkGrade,ct_teacher_evaluate.talkLike,ct_teacher_evaluate.regtime ,ct_user.username,ct_user.Headportrait FROM `ct_teacher_evaluate`,`ct_user` WHERE `ct_teacher_evaluate`.`from_user_id`=`ct_user`.`id` AND ct_teacher_evaluate.to_teacher_id='$userID'";
+        $sql2="SELECT ct_teacher_evaluate.content,ct_teacher_evaluate.talkGrade,ct_teacher_evaluate.talkLike,ct_teacher_evaluate.regtime ,ct_user.username,ct_user.Headportrait FROM `ct_teacher_evaluate`,ct_user WHERE ct_teacher_evaluate.to_teacher_id IN(SELECT ct_user.id FROM ct_user,ct_user_teacher WHERE ct_user.id=ct_user_teacher.user_id AND ct_user_teacher.id='$userID') AND ct_user.id =ct_teacher_evaluate.from_user_id";
+
+        //echo $sql2;
         $res2=mysqli_query($linki,$sql2);
         $returnInfo['talkInfoList']=mysqli_fetch_all($res2,MYSQLI_ASSOC);
     }catch(Exception $e){

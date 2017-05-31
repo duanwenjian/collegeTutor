@@ -46,8 +46,8 @@
                             </a>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control input-lg" placeholder="邮箱地址">
-                            <p class="email">邮件已发送。请 <a href="http://www.163.com" target="_blank">查收邮件</a>，重新设置您的密码</p>
+                            <input type="text" class="form-control input-lg" placeholder="邮箱地址" id="email">
+                            <p class="email" style="display: none;">邮件已发送。请 <a href="http://www.163.com" target="_blank">查收邮件</a>，重新设置您的密码</p>
                         </div>
                         <div class="form-group clearfix" style="margin-left: 10px;">
                             <span><a href="register.html">注册</a></span>
@@ -57,12 +57,40 @@
                 </div>
                 <div class="content-right col-lg-6 col-md-6 col-xs-6 col-sm-12" style="border: none">
                     <div class="form-group">
-                        <button type="button" class="btn btn-lg btn-primary btn-block">重置密码</button>
+                        <button type="button" class="btn btn-lg btn-primary btn-block" id="forgot">重置密码</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $('#forgot').click(function(){
+        var reg=/^([\w]+)(.[\w]+)*@([\w-]+\.){1,5}([A-Za-z]){2,4}$/;
+        var email=$.trim($('#email').val());
+        if(!reg.test(email)){
+            alert("请输入正确的邮箱");
+        }else{
+            $.ajax({
+                url:'php/passWordForgot.php',
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{email:email},
+                timeout:10000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                success:function(e,textStatus,jqXHR){
+                    if(+e.retCode==1){
+                        $('.email').show();
+                    }else{
+                        alert('邮件发送失败');
+                    }
+                },
+                error:function(xhr,textStatus){
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

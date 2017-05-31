@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,17 +29,10 @@
     <link rel="stylesheet" href="bootstrap-less/bootstrap.css"/>
     <link rel="stylesheet" href="css/login.css"/>
     <link rel="stylesheet" href="css/default/font.css"/>
-    <title>登录 | collegeTutor</title>
+    <title>忘记密码 | collegeTutor</title>
     <!---->
 </head>
 <body>
-<!--加载动画-->
-<div class="loading" style="display: none;">
-    <div class="loading-content">
-        <img src="res/loading.svg" alt=""/>
-        <h2>正在加载...</h2>
-    </div>
-</div>
 <div class="container-fluid">
     <div id="bg-img" class="bg-img-login"></div>
     <div class="login clearfix">
@@ -49,45 +42,61 @@
                     <div>
                         <div class="login-logo">
                             <a href="index.html">
-                                <!--<img src="img/login/title.png" alt=""/>-->
+                                <img src="img/home/navbar/navbar-logo.png" alt=""/>
                             </a>
                         </div>
-                        <div class="form-group has-feedback">
-                            <input type="text" class="form-control input-lg" placeholder="邮箱地址" id="login-email">
-                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <input type="password" class="form-control input-lg" placeholder="密码" id="login-pwd">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-lg btn-primary btn-block" id="login-go">登录</button>
+                            <input type="password" class="form-control input-lg" placeholder="请输入新密码" id="newpassword">
                         </div>
-                        <div class="form-group clearfix">
-                            <p class="pull-left">还没有账户？您可以在此 <a href="register.html">注册</a></p>
-                            <p class="pull-right"><a href="forget.html">忘记密码</a></p>
+                        <div class="form-group clearfix" style="margin-left: 10px;">
+                            <span><a href="register.html">注册</a></span>
+                            <span style="margin-left: 20px"><a class="text-danger" href="login.html">登录</a></span>
                         </div>
                     </div>
                 </div>
-                <div class="content-right col-lg-6 col-md-6 col-xs-6 col-sm-12">
-                    <div>
-                        <!--<p class="weixin">使用微信登录</p>-->
-                        <!--<p class="qq" id="qqLoginBtn"></p>-->
-                        <!--使用QQ登录-->
+                <div class="content-right col-lg-6 col-md-6 col-xs-6 col-sm-12" style="border: none">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-lg btn-primary btn-block" id="forgot">更改密码</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--<script type="text/javascript" src="https://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="1106073817" data-redirecturi="https://www.collegetutor.cn/home.html" charset="utf-8"></script>-->
 <script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
 <script src="js/md5-min.js"></script>
-<script src="js/login.js"></script>
-<script type="text/javascript">
-    /*$('.qq').click(function(){
-        window.location.href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=1106073817&state=1&scope=get_user_info&redirect_uri=https://www.collegetutor.cn/qqlogin.html";
-    });*/
+<script src="js/default.js"></script>
+<script>
+    $('#forgot').click(function(){
+        var newpassword=$.trim($('#newpassword').val());
+        if(newpassword==''){
+            alert("请输入正确的密码");
+        }else{
+            $.ajax({
+                url:'php/forgot.php',
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{
+                        'email':getUrlParam('email'),
+                        'verify':getUrlParam('verify'),
+                        'pwd':hex_md5($('#newpassword').val())
+                    },
+                timeout:10000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                success:function(e,textStatus,jqXHR){
+                    if(+e.retCode==1){
+                        alert('密码重置成功');
+                        window.location.href='../login.html';
+                    }else{
+                        alert('密码重置失败');
+                    }
+                },
+                error:function(xhr,textStatus){
+                }
+            });
+        }
+    });
 </script>
 </body>
 </html>

@@ -20,7 +20,7 @@ function uploadFile(){
     formData.append("birth",TeacherInfo.info.birth);
     formData.append("sex",TeacherInfo.info.sex);
     formData.append("remarks",TeacherInfo.info.Remarks);
-    formData.append("major",TeacherInfo.info.rank);
+    formData.append("rank",TeacherInfo.info.rank);
     //console.dir(formData);
 
     return formData;
@@ -63,6 +63,13 @@ $('#file-updata').click(function(){
                 nextPageInfo.wifi=true;
                 var str="资料已经锁定,审核之前不可更改";
                 freeze(str,true);
+
+
+                //发送消息通知管理员
+                goEasy.publish({
+                    channel: "collegeTutorMessageAdmin",
+                    message: "您有一个待复核教师岗位"
+                });
             }else{
                 $('#file-updata').html('上传失败');
                 $('#file-updata').attr('disabled',false);
@@ -187,7 +194,8 @@ var TeacherInfo={
     info:{
         "sex":"男",
         "rank":1,
-        "Subject":"语文教师"
+        "Subject":"语文教师",
+        'Grade':"初中一年级"
     },
     init:function(){
         $('input[type="radio"]+label').click(

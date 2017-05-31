@@ -22,7 +22,7 @@ if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image_content, $resu
     $new_sql_fil=$sql_file.$time.".{$type}";
     if (file_put_contents($new_file, base64_decode(str_replace($result[1], '', $base64_image_content)))){
         $returnInfo['retCode']=0;
-        $returnInfo['retMsg']=$new_file;
+        $returnInfo['retMsg']=$new_sql_fil;
 
         $sql="UPDATE `ct_user` SET `Headportrait`='$new_sql_fil' WHERE id=$userID";
         $res=mysql_query($sql);

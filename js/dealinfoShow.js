@@ -173,7 +173,7 @@ function getOneHtml(data,deal,p,type){//数据 操作 父元素
     for(var k=0;k<data.length;k++){
         if(type=='fromdeal') {
             html.push(
-                    `<li data-id="${data[k].id}" class="animated fadeInUp">
+                    `<li data-id="${data[k].id}" data-toTeacherid="${data[k].toUserid}" class="animated fadeInUp" data-type="${type}">
                 <div>
                     <p>编号：<span>${str(data[k].id, 5)}</span></p>
                     <p>开始时间：<span class="padding-right-left">${getNowDate(data[k].startTime)}</span>  结束时间：<span class="j-endTime">${getNowDate(data[k].endTime)}</span></p>
@@ -201,7 +201,7 @@ function getOneHtml(data,deal,p,type){//数据 操作 父元素
         }
         if(type=='todeal'){
             html.push(
-                `<li data-id="${data[k].id}" class="animated fadeInUp">
+                `<li data-id="${data[k].id}" class="animated fadeInUp" data-toTeacherid="${data[k].toUserid}" data-type="${type}">
                 <div>
                     <p>编号：<span>${str(data[k].id, 5)}</span></p>
                     <p>开始时间：<span class="padding-right-left">${getNowDate(data[k].startTime)}</span>  结束时间：<span class="j-endTime">${getNowDate(data[k].endTime)}</span></p>
@@ -274,10 +274,103 @@ $('body').on('click','a.j-agree-server',function(e){
 
 $('body').on('click','a.j-over-server',function(e){
     e.stopPropagation();
+    if($(this).parents('li').attr('data-type')=="todeal"){
+        $('#message-push').modal('show');
+        $('#message-push').attr('data-talkid',$(this).parents('li').index());
+        $('#message-push').attr('data-toteacherid',$(this).parents('li').attr('data-toteacherid'));
+    }else{
+        var id=$(this).parents('li');
+        var obj={
+            'dealID':id.attr('data-id'),
+            'status':0
+        }
+        if((new Date($(id).find('.j-endTime').text())).getTime()>(new Date().getTime())){
+            obj.status='1'
+            alert('还没到结束时间，您确认要结束吗？')
+        };
+        if((new Date($(id).find('.j-endTime').text())).getTime()<=(new Date().getTime())){
+            obj.status='2'
+        }
+        $.ajax({
+            url:'php/deal/dealDis.php',
+            type:'POST',
+            data:obj,
+            dataType:'json',
+            success:function(data){
+                if(data.retCode==0){
+                    $(id).next().remove();
+                    $(id).remove();
+                    alertMessage('系统消息',data.retMsg);
+                }
+            },
+            error: function () {
+            }
+        });
+    }
+
+});
+
+$('body').on('click','a.j-dis-go',function(e){
+    e.stopPropagation();
     var id=$(this).parents('li');
     var obj={
         'dealID':id.attr('data-id'),
+        'status':3
+    }
+    $.ajax({
+        url:'php/deal/dealDis.php',
+        type:'POST',
+        data:obj,
+        dataType:'json',
+        success:function(data){
+            if(data.retCode==0){
+                $(id).next().remove();
+                $(id).remove();
+                alertMessage('系统消息',data.retMsg);
+            }
+        },
+        error: function () {
+        }
+    });
+});
+
+var show=true;
+$('.talk-start span').mouseover(function(){
+    var spans=$('.talk-start span');
+    var thisI=$(this).index();
+    for(var i=0;i<spans.length;i++){
+        if($(spans[i]).index()<=thisI){
+            $(spans[i]).addClass('hover');
+        }
+    }
+});
+$('.talk-start span').mouseout(function(){
+    if(show) {
+        $('.talk-start span').removeClass('hover');
+    }
+});
+$('.talk-start span').click(function(){
+    if(show) {
+        show = false;
+    }else{
+        show=true;
+    }
+});
+
+$('#talk').click(function(){
+    if($('#inputPassword3').val()==''){
+        alert('评论内容不能为空');
+    }
+    var id=$('#deal-waring li:eq('+$(this).parents("#message-push").attr("data-talkid")+')');
+    var obj={
+        'dealID':id.attr('data-id'),
         'status':0
+    }
+    var obj2={
+        'text':$('#inputPassword3').val(),
+        'start':$('.talk-start span.hover').length,
+        'userid':localStorage.getItem('userID'),
+        'teacherid':$('#message-push').attr('data-toteacherid')
     }
     if((new Date($(id).find('.j-endTime').text())).getTime()>(new Date().getTime())){
         obj.status='1'
@@ -301,25 +394,14 @@ $('body').on('click','a.j-over-server',function(e){
         error: function () {
         }
     });
-});
-
-$('body').on('click','a.j-dis-go',function(e){
-    e.stopPropagation();
-    var id=$(this).parents('li');
-    var obj={
-        'dealID':id.attr('data-id'),
-        'status':3
-    }
     $.ajax({
-        url:'php/deal/dealDis.php',
+        url:'php/deal/talkMsg.php',
         type:'POST',
-        data:obj,
+        data:obj2,
         dataType:'json',
         success:function(data){
-            if(data.retCode==0){
-                $(id).next().remove();
-                $(id).remove();
-                alertMessage('系统消息',data.retMsg);
+            if(data.retCode==1){
+                $('#message-push').modal('hide');
             }
         },
         error: function () {

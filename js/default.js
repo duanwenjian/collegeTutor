@@ -260,10 +260,10 @@ function alertMessage(title,info){
     $('.newMessage').append(html);
     messageClose();
 }
-
+var goEasy;
 function messagehelp() {
 //消息
-    var goEasy = new GoEasy({
+    goEasy = new GoEasy({
         appkey: 'BC-d2d2b974b32847e3bb7bd70b76bf0837'
     });
     goEasy.subscribe({
@@ -288,6 +288,9 @@ function messagehelp() {
         channel: 'collegeTutorAllUser',
         onMessage: function (message) {
             //系统消息
+            var data=JSON.parse(message.content);
+            alert(data.text);
+            //alertMessage(data.title,data.text);
         }
     });
 }

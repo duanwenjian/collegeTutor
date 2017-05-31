@@ -60,10 +60,10 @@
                         <li><a href="about.html">关于我们</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
-                        <div class="form-group has-feedback">
-                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
-                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
+                        <!--<div class="form-group has-feedback">-->
+                            <!--<input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">-->
+                            <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                        <!--</div>-->
                         <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
                     </form>
                     <div class="navbar-right margin-right15">
@@ -124,7 +124,7 @@
                     <div class="col-md-12 col-xs-12 col-sm-12">
                         <div id="home" class="main-content-home home-active    ">
                             <div class="main-content-top">
-                                    <span class="dropdown text-center  dropdown-menu-right">
+                                    <!--<span class="dropdown text-center  dropdown-menu-right">
                                         <span class="dropdown-toggle text-info" id="contentdisplay" data-toggle="dropdown">显示方式
                                             <span class="caret"></span>
                                         </span>
@@ -136,7 +136,7 @@
                                                 <a tabindex="-1" href="#">详细模式</a>
                                             </li>
                                         </ul>
-                                    </span>
+                                    </span>-->
                                     <span class="dropdown text-center dropdown-menu-right">
                                         <span class="dropdown-toggle text-info" id="sortorder" data-toggle="dropdown">排序方式
                                             <span class="caret"></span>
@@ -156,24 +156,24 @@
                             <div class="serch-info" id="serch-info">
                                 <div class="serch-title"><span>随心搜</span></div>
                                 <div class="serch-content">
-                                    <form class="form-horizontal">
+                                    <!--<form class="form-horizontal">-->
                                         <div class="row">
                                             <div class="col-md-6 col-xs-6 col-sm-6 col-md-offset-2 col-xs-offset-2 col-sm-offset-2">
                                                 <div class="margin-right15">
-                                                    <input type="email" class="form-control input-sm" placeholder="输入您期望的教师">
+                                                    <input type="text" class="form-control input-sm" id="keyword" placeholder="输入您期望的教师">
                                                 </div>
                                             </div>
                                             <div class="col-md-3 col-xs-3 col-sm-3">
-                                                <button type="button" class="btn btn-success btn-sm btn-width125">搜教师</button>
+                                                <button type="button" class="btn btn-success btn-sm btn-width125" id="searchTeacher">搜教师</button>
                                             </div>
                                             <div class="col-md-1 col-xs-1 col-sm-1">
                                                 <span class="text-disabled-l" data-type="hide" data-toggle="1" data-content="serch-info-more">换个方式</span>
                                             </div>
                                         </div>
-                                    </form>
+                                    <!--</form>-->
                                 </div>
                                 <div class="serch-info-more" id="serch-info-more">
-                                    <div class="serch-title"><span>按标签搜</span></div>
+                                    <!--<div class="serch-title"><span>按标签搜</span></div>
                                     <div class="serch-content padding-right-left">
                                         <div class="row">
                                             <div class="col-md-2">
@@ -195,8 +195,8 @@
                                                 <span data-type="showInfo" data-showContent="擅长学习，分数很高的学生。<br/>又是专指指在期末测试或者重大考试中，考前进行突击学习的人群" class="label label-warning">书香门第</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="serch-title"><span>按科目搜</span></div>
+                                    </div>-->
+                                    <!--<div class="serch-title"><span>按科目搜</span></div>
                                     <div class="serch-content">
                                         <div class="row">
                                             <div class="col-md-2">
@@ -213,8 +213,8 @@
                                                 <span class="label label-primary">语文老师</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="serch-title"><span>按价格搜</span></div>
+                                    </div>-->
+                                    <!--<div class="serch-title"><span>按价格搜</span></div>
                                     <div class="serch-content">
                                         <div class="row">
                                             <div class="col-md-2">
@@ -247,7 +247,7 @@
                                                 <a href="#" class="btn btn-primary">完成</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="serch-title">
                                         <span>设置我的主页 <i class="glyphicon glyphicon-cog"></i></span>
                                     </div>
@@ -265,12 +265,15 @@
                                 <div class="teacherShow-main clearfix w20">
 
                                 </div>
-                                <div class="teacherShow-preloaders text-center hide">
+                                <div class="teacherShow-preloaders text-center j-search-load" style="display: none;">
                                     <div class="preloader preloader-green preloader-sm">
                                         <svg viewBox="25 25 50 50">
                                             <circle cx="50" cy="50" r="20"></circle>
                                         </svg>
                                     </div>
+                                </div>
+                                <div class="j-search-return" style="display: none">
+                                    <p class="text-center text-danger">没有搜到符合您要求的教师</p>
                                 </div>
                             </div>
                         </div>
@@ -380,6 +383,20 @@
                             <div class="content-top">
                                 <div class="content-title">
                                     <span>功能</span>
+                                </div>
+                            </div>
+                            <div class="content-main">
+                                <div class="content-main-top text-center">
+                                    <h4 class="text-info">数据统计</h4>
+                                    <!--<p>对网站</p>-->
+                                </div>
+                                <div class="content-main-content row">
+                                    <div class="content-teacher col-sm-6">
+                                        <div id="content-teacher"></div>
+                                    </div>
+                                    <div class="content-teacher col-sm-6">
+                                        <div id="content-user"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -548,11 +565,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main-user-info-btn">
+                    <!--<div class="main-user-info-btn">
                         <div>
                             <span class="glyphicon glyphicon-envelope"></span>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="main-user-info U-active">
                         <div class="main-content-right">
                             <div class="right-user-info">
@@ -689,6 +706,8 @@
 <script src="js/bootstrap/bootstrap.min.js"></script>
 <!--<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>-->
 <script src="js/default.js"></script>
+<script src="js/date/echarts.min.js"></script>
+<script src="js/date/wonderland.js"></script>
 <script src="js/home.js"></script>
 <script>
     /*$.get("https://graph.qq.com/oauth2.0/me?access_token"+getUrlParam('code'),function(data,status){

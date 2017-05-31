@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/teacherInfoShow.css"/>
     <link rel="stylesheet" href="css/default/font.css"/>
     <link rel="stylesheet" href="css/dealSelect.css"/>
+    <link rel="stylesheet" href="css/feedback.css"/>
     <title>帮助反馈 | collegeTutor</title>
 
 </head>
@@ -60,10 +61,10 @@
                         <li><a href="about.html">关于我们</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
-                        <div class="form-group has-feedback">
-                            <input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">
-                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
+                        <!--<div class="form-group has-feedback">-->
+                            <!--<input type="text" id="Search-site" class="form-control input-sm" placeholder="站内搜索">-->
+                            <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                        <!--</div>-->
                         <!--<button type="submit" class="btn btn-primary btn-sm">搜索</button>-->
                     </form>
                     <div class="navbar-right margin-right15">
@@ -92,6 +93,34 @@
         </nav>
     </div>
     <div class=" clearfix dealSelect">
+        <h3 class="text-center" style="margin-bottom: 20px">你有什么要说的呢？</h3>
+        <div style="padding: 20px 0" class="j-return-ok">
+            <form class="form-horizontal">
+                <!--<div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">反馈类型</label>
+                    <div class="col-sm-4">
+                        <select name="" id="inputEmail3" class="form-control">
+                            <option value="投诉">投诉</option>
+                            <option value="网站改进">网站改进</option>
+                        </select>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <textarea rows="5" cols="20" class="form-control" id="inputPassword3" placeholder="反馈内容"></textarea>
+                    </div>
+                </div>
+                <div class="form-group j-feedback-no" style="display: none;">
+                    <p class="text-danger text-center">反馈内容不能为空</p>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <a  class="btn btn-default btn-info btn-block" id="feedback">反馈</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </div>
@@ -118,6 +147,31 @@
 <script src="js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
 <script src="js/default.js"></script>
-<script src="js/dealinfoShow.js"></script>
+<script >
+    var h=$('#bg-img')[0].scrollHeight-70;
+    $('.dealSelect').css('height',h);
+
+    $('#feedback').click(function(){
+        if($('#inputPassword3').val()==''){
+            $('.j-feedback-no').show();
+            return false;
+        }
+        var obj={
+            'text':$('#inputPassword3').val()
+        };
+        $.ajax({
+            url:'php/feedback.php',
+            type:'post',
+            dataType:'json',
+            data:obj,
+            success:function(data){
+                if(data.retCode==1){
+                    $('.j-return-ok').html('<h5 class="text-center text-success">反馈成功！谢谢您的反馈</h5>');
+                }
+            },
+            error:function(){}
+        });
+    });
+</script>
 </body>
 </html>
