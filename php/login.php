@@ -24,6 +24,11 @@
             $pager['retMsg']='该用户尚未激活,请去邮箱激活';
             $pager['userinfo']=null;
             echo json_encode($pager);
+        }else if($row['status']==2){
+                     $pager['retCode']=3;
+                     $pager['retMsg']='该用户已被冻结';
+                     $pager['userinfo']=null;
+                     echo json_encode($pager);
         }else{
 
             $userinfo=array(

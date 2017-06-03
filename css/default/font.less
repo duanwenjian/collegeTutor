@@ -219,10 +219,28 @@ input[type='file']{
   .alert{
     margin-bottom: 5px;
     //background-color: #fff;
+    border: #ddd solid 1px;
+    box-shadow: 2px 3px 5px #ddd;
     width: 300px;
     overflow: hidden;
+    min-height: 65px;
   }
   .alert-default{
     background-color: #fff;
+  }
+}
+
+.newMessage{
+  .alert{
+    .transition(all,500ms,linear);
+  }
+  .hide-alert{
+    /*-webkit-transform: translate(0, -100%);
+    -moz-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+    transform: translate(0, -100%);*/
+    margin-top: -53px;
+    opacity: 0;
   }
 }

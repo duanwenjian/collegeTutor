@@ -52,8 +52,17 @@ $(document).ready(function () {
     tableShow();
     getTeacherList(1);
 });
-
+var lengT,thisn;
+$('#home').scroll(function(){
+    var th=$(this)[0].scrollHeight;
+    if(+$(this).scrollTop()>=(th-150)){
+        var l=thisn++;
+        if(thisn>=lengT)return;
+        getTeacherList(l);
+    }
+});
 function getTeacherList(page){
+    $('.j-search-load').show();
     $.ajax({
         url:'php/getTeacherList.php',
         type:'GET', //GET
@@ -64,8 +73,11 @@ function getTeacherList(page){
         success:function(data,textStatus,jqXHR){
             if(+data.retCode==0){
                 //查询成功
+                lengT=data.retData.pageCount;
+                thisn=data.retData.pageNum;
                 loadingHide();
                 homeGetHtml(data.retData.data,true);
+                $('.j-search-load').hide();
             }else{
                 loadingHide();
                 alert(data.retMsg);
@@ -179,6 +191,12 @@ function getRecruitInfo(num){
         },
         error:function(){}
     });
+}
+
+function adminSHow(data){
+    for(var i=0;i<data.length;i++){
+        alertMessage('系统消息',data[i].content);
+    }
 }
 function getRecruitHtml(data){
     var date=data.data;
@@ -397,6 +415,8 @@ function getFunctionInfo(){
                 //getRecruitHtml(data.retData);
                 echer3(data.teacherInfo);
                 echer2(data.userinfo);
+                adminSHow(data.adminmessage);
+
             }
         },
         error:function(){}

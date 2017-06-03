@@ -13,8 +13,8 @@
                 );
     $sql1="SELECT * FROM `ct_user_teacher` WHERE ct_user_teacher.user_id=$userID";
     $res=mysql_query($sql1);
-    $row=mysql_fetch_array($res);
-    if($row){
+    $row=mysql_num_rows($res);
+    if($row==1){
         $sql2 ="SELECT ct_user.username,ct_user.id,ct_user_deal.startTime,ct_user_deal.endTime,ct_user_deal.week,ct_user_deal.price FROM `ct_user_deal`,ct_user_relation,ct_user WHERE ct_user.id=ct_user_relation.user_id_from AND ct_user_relation.id=ct_user_deal.relation_id AND ct_user_relation.user_id_to=$userID";
         $res2=mysqli_query($linki,$sql2);
         $pager['dealInfo']=mysqli_fetch_all($res2,MYSQLI_ASSOC);

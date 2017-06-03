@@ -55,7 +55,8 @@ function getWeekMonth(){
     //var week = "日一二三四五六".split("")[new Date().getDay()];;
     var D=time.getDay();
     var day=time.getDate();
-    var lasDay=getFirstAndLastMonthDay();
+    var lasDay=getFirstAndLastMonthDay(1);
+    var nextlasday=getFirstAndLastMonthDay(0);
     if(D==1){
         for(var i=0;i<7;i++){
             if((day+i)>lasDay){
@@ -81,7 +82,7 @@ function getWeekMonth(){
         var data=new Array(D);
         for(var i=0;i<D;i++){
             if((day-i)<=0){
-                data[i]=((M)+'-'+(lasDay-i));
+                data[i]=((M-1)+'-'+(nextlasday-i+day));
             }else{
                 data[i]=((M)+'-'+(day-i));
             }
@@ -99,8 +100,8 @@ function getWeekMonth(){
 }
 //console.log(getWeekMonth(3))
 //获取月份最后一天
-function getFirstAndLastMonthDay(){
-    var  day = new Date((new Date()).getFullYear(),(new Date()).getMonth()+1,0);
+function getFirstAndLastMonthDay(n){
+    var  day = new Date((new Date()).getFullYear(),(new Date()).getMonth()+n,0);
     var lastdate = day.getDate();//获取当月最后一天日期
     //给文本控件赋值。同下
     return lastdate;
@@ -184,7 +185,7 @@ var getDeal1={
                 }else{//结束时间在本周之前
                     length=7-this.getTimeDay(parseInt(this.data[i].endTime),this.maxTime);
                 }
-                for(var j=days;j<length;j++){
+                for(var j=days;j<=length;j++){
                     if(this.getUserWeekDay(this.data[i].week,y+"-"+getWeekMonth()[j]+" 08:00:00")!=-1) {
                         this.weekArr[j] = parseInt(this.data[i].price);
                     }

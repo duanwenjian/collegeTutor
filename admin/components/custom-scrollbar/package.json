@@ -1,0 +1,30 @@
+{
+  "name": "propellerkit-custom-scrollbar",
+  "version": "1.0.0",
+  "description": "Custom Scrollbar is used to get rid of browser default scroll bar by utilizing jQuery UI, the feature-rich jQuery Custom Scrollbar plugin. It allows you to customize scrollbars exactly as you need them. It features vertical/horizontal scrolling, mouse-wheel support, scroll easing, adjustable scrollbar height/width and more.",
+  "homepage": "http://propeller.in/",
+  "author": "Digicorp, Inc",
+  "license": "MIT",
+  "main":"css/pmd-scrollbar.css",
+  "scripts": {
+    "test": "npm install propellerkit-custom-scrollbar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digicorp/propeller/tree/master/components/custom-scrollbar"
+  },
+  "keywords": [
+   "css",
+   "js",
+   "mobile-first",
+   "responsive",
+   "front-end",
+   "framework",
+   "web",
+   "custom-scrollbar"
+  ],
+  "dependencies": {
+    "propellerkit":"*.*.*",
+    "malihu-custom-scrollbar-plugin": "^3.0.9"
+  }
+}

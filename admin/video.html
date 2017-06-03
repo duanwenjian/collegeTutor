@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+    <script>
+        //判断浏览器是否支持HTML5 Canvas
+        window.onload = function () {
+            try {
+//动态创建一个canvas元 ，并获取他2Dcontext。如果出现异常则表示不支持 document.createElement("canvas").getContext("2d");
+// document.getElementById("support").innerHTML = "浏览器支持HTML5 CANVAS";
+            }
+            catch (e) {
+// document.getElementByIdx("support").innerHTML = "浏览器不支持HTML5 CANVAS";
+            }
+        };
+        //这段代 主要是获取摄像头的视频流并显示在Video 签中
+        window.addEventListener("DOMContentLoaded", function () {
+            var canvas = document.getElementById("canvas"),
+                    context = canvas.getContext("2d"),
+                    video = document.getElementById("video"),
+                    videoObj = { "video": true },
+                    errBack = function (error) {
+                        console.log("Video capture error: ", error.code);
+                    };
+            $("#snap").click(function () {
+                context.drawImage(video, 0, 0, 330, 250);
+            })
+//navigator.getUserMedia这个写法在Opera中好像是navigator.getUserMedianow
+            if (navigator.getUserMedia) {
+                navigator.getUserMedia(videoObj, function (stream) {
+                    video.src = window.webkitURL.createObjectURL(stream);
+                    video.play();
+                }, errBack);
+            } else if (navigator.webkitGetUserMedia) {
+                navigator.webkitGetUserMedia(videoObj, function (stream) {
+                    video.src = window.webkitURL.createObjectURL(stream);
+                    video.play();
+                }, errBack);
+            }
+
+        }, false);
+
+        //上传服务器
+        function CatchCode() {
+            var canvans = document.getElementById("canvas");
+//获取浏览器页面的画布对象
+//以下开始编 数据
+            var imgData = canvans.toDataURL();
+//将图像转换为base64数据
+            var base64Data = imgData.substr(22);
+//在前端截取22位之后的字符串作为图像数据
+//开始异步上
+            $.post("uploadImgCode.ashx", { "img": base64Data }, function (data, status) {
+                if (status == "success") {
+                    if (data == "OK") {
+                        alert("二维 已经解析");
+                    }
+                    else {
+// alert(data);
+                    }
+                }
+                else {
+                    alert("数据上 失败");
+                }
+            }, "text");
+        }
+    </script>
+</head>
+<body>
+<div id="contentHolder">
+    <video id="video" width="320" height="320" autoplay>
+    </video>
+    <input type="button" id="snap" style="width:100px;height:35px;" value="拍 照" />
+    <canvas style="" id="canvas" width="320" height="320">
+    </canvas>
+</div>
+</body>
+</html>
+

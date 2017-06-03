@@ -7,6 +7,14 @@ var login={
     init:function(){
         this.getLocalUser();
         $('#login-go').click(function(){
+            if($('#login-email').val()==""){
+                alert('登录用户不能为空');
+                return false;
+            }
+            if($('#login-pwd').val()==''){
+                alert('登录密码不能为空');
+                return false;
+            }
             $(this).val('正在登陆').disabled=true;
             $('.loading').show();
             $('.loading h2').html('正在登陆...');
@@ -25,6 +33,7 @@ var login={
                         window.location.href='./home.html';
                     }else{
                         alert(data.retMsg);
+                        $('.loading').hide();
                     }
                     $('#login-go').val('登陆').disabled=false;
                 },
@@ -41,6 +50,8 @@ var login={
         localStorage.setItem('email',user.email);
         localStorage.setItem('Headportrait',user.Headportrait);
         localStorage.setItem('userID',user.userID);
+        document.cookie='username='+user.username;
+        document.cookie='Headportrait='+user.username;
     },
     getLocalUser:function(){
         let password=localStorage.getItem('password',"password");

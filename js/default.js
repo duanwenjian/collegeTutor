@@ -4,7 +4,19 @@
 $(document).ready(function(){
     custom.init();
     updateHeadportrait();
+    if(!getCookie('username')){
+        alert('请先登录');
+        window.location.href='./login.html';
+    }
 });
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+        return false;
+}
 createGoeasy();
 function createGoeasy(){
     var head= document.getElementsByTagName('head')[0];
@@ -247,17 +259,22 @@ function userSendMessage(data,callback){
 
 //弹出信息
 function alertMessage(title,info){
-    if($('.newMessage').length>=0){
-        $('.newMessage').remove();
-    }
-    var div=document.createElement('div');
-    div.className='newMessage';
-    document.body.appendChild(div);
-    var html=`<div class="alert alert-default alert-dismissible" role="alert">
+    if($('.newMessage').length>0){
+        var html = `<div class="alert alert-default alert-dismissible" role="alert">
                         <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
                         <strong>${title}</strong> ${info}
                     </div>`;
-    $('.newMessage').append(html);
+        $('.newMessage').append(html);
+    }else {
+        var div = document.createElement('div');
+        div.className = 'newMessage';
+        document.body.appendChild(div);
+        var html = `<div class="alert alert-default alert-dismissible" role="alert">
+                        <p class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p>
+                        <strong>${title}</strong> ${info}
+                    </div>`;
+        $('.newMessage').append(html);
+    }
     messageClose();
 }
 var goEasy;
@@ -289,16 +306,19 @@ function messagehelp() {
         onMessage: function (message) {
             //系统消息
             var data=JSON.parse(message.content);
-            alert(data.text);
+            alertMessage('系统消息',data.text);
             //alertMessage(data.title,data.text);
         }
     });
 }
+var timer;
 function messageClose(){
-    var timer=setInterval(function(){
+    if(timer)clearInterval(timer);
+    timer=setInterval(function(){
         $('.newMessage').find('div.hide-alert').remove();
         if($('.newMessage').find('div.alert:nth-child(1)').length==0){
             clearInterval(timer);
+            timer=null;
             return;
         }
         $('.newMessage').find('div.alert:nth-child(1)').addClass('hide-alert');
